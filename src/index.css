@@ -1287,3 +1287,11 @@ body { background: #ffffff; color: #0b0b0f; }
 .mscreen-row small { font-size:9px; color:#8b8b93; }
 .mscreen-row strong { font-size:11px; color:#0066ff; white-space:nowrap; }
 .mscreen-cta { margin-top:10px; background:#0066ff; color:#fff; text-align:center; font-size:11px; font-weight:700; padding:9px; border-radius:10px; }
+
+/* ===== v11: fixes ===== */
+.svc-tall-visual.ui { background:#f6f6f6; display:flex; align-items:center; justify-content:center; padding:18px; }
+.svc-tall-visual.ui .mscreen { width:min(250px,100%); }
+.mscreen-badge { width:18px; height:18px; border-radius:6px; flex-shrink:0; }
+.mscreen-cta.food { background:#E8590C; }
+.mscreen-cta.market { background:#2F9E44; }
+.mscreen-chips span.food.on { background:#E8590C; }

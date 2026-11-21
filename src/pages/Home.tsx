@@ -1,7 +1,6 @@
 import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
 import { BusinessPreview } from "../components/previews";
-import { HeroOrderCard } from "../components/Estimator";
 import { RideScreen, FoodScreen, MarketScreen } from "../components/ServiceScreens";
 import { useRef } from "react";
 import { CheckIcon, AppleIcon, PlayIcon } from "../components/icons";
@@ -47,20 +46,8 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
             </div>
           </div>
           <div className="hero-visual">
-            <div className="hero-app">
-              <div className="media-frame aspect-1610 hero-photo">
-                <img src="/ride.png" alt="City traffic in Yerevan" />
-              </div>
-              <div className="app-frame">
-                <div className="app-frame-head">
-                  <img src="/logo.png" alt="Vonix" width={26} height={26} />
-                  <div>
-                    <b>Vonix</b>
-                    <small>{t.est.title} · Yerevan</small>
-                  </div>
-                </div>
-                <HeroOrderCard onOrder={() => navigate("/download")} />
-              </div>
+            <div className="media-frame aspect-1610 hero-photo">
+              <img src="/ride.png" alt="Vonix ride" />
             </div>
           </div>
         </div>
@@ -80,11 +67,11 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
           <div className="svc-carousel-wrap">
             <div className="svc-carousel" ref={carouselRef}>
               {[
-                { img: "/ride.png", to: "/services/rides" as Route, ui: null as null | "ride" | "food" | "market", fit: "cover" },
+                { img: null, to: "/services/rides" as Route, ui: "ride" as const, fit: "ui" },
                 { img: null, to: "/services/orders" as Route, ui: "food" as const, fit: "ui" },
                 { img: null, to: "/services/orders" as Route, ui: "market" as const, fit: "ui" },
-                { img: "/delivery.png", to: "/services/courier" as Route, ui: null, fit: "contain" },
-                { img: "/cargo.png", to: "/services/cargo" as Route, ui: null, fit: "contain" },
+                { img: "/delivery.png", to: "/services/courier" as Route, ui: null, fit: "cover" },
+                { img: "/cargo.png", to: "/services/cargo" as Route, ui: null, fit: "cover" },
               ].map((c, i) => {
                 const meta = t.svcShowcase[i];
                 return (
@@ -94,7 +81,7 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
                       <p>{meta.sub}</p>
                       <span className="svc-tall-pill">{meta.cta}</span>
                     </div>
-                    <div className={`svc-tall-visual${c.fit === "contain" ? " fit-contain" : ""}`}>
+                    <div className={`svc-tall-visual${c.fit === "ui" ? " ui" : ""}`}>
                       {c.ui === "food" ? <FoodScreen /> : c.ui === "market" ? <MarketScreen /> : c.ui === "ride" ? <RideScreen /> : c.img ? <img src={c.img} alt={meta.title} loading="lazy" /> : null}
                     </div>
                   </a>

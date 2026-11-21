@@ -13,7 +13,7 @@ export const en = {
     line1: "One app for",
     accent: "every",
     line2: "ride in Armenia",
-    sub: "Rides, meals, markets, pharmacy, cargo and express moped delivery — dispatched live with upfront AMD pricing and real-time tracking.",
+    sub: "Rides, restaurant meals, groceries, pharmacy, express moped parcels and freight — booked in seconds with upfront AMD prices and live tracking.",
     primary: "Download Vonix",
     secondary: "Explore services",
     driver: "Driver 3 min away",
