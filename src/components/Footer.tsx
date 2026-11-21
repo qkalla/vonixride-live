@@ -5,6 +5,7 @@ import { LangSwitcher } from "./LangSwitcher";
 
 export function Footer({ navigate }: { navigate: (r: Route) => void }) {
   const { t } = useLang();
+  const f = t.footer;
   const link = (label: string, to: Route) => (
     <a key={label} href={`#${to}`} onClick={(e) => { e.preventDefault(); navigate(to); window.scrollTo({ top: 0, left: 0 }); }}>
       {label}
@@ -19,22 +20,23 @@ export function Footer({ navigate }: { navigate: (r: Route) => void }) {
             <img className="brand-mark" src="/logo.png" alt="Vonix" width={34} height={34} />
             <span className="brand-name">Vonix<em>ride</em></span>
           </a>
-          <p>{t.footer.tagline}</p>
+          <p>{f.tagline}</p>
           <div className="footer-loc">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
               <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" /><circle cx="12" cy="10" r="3" />
             </svg>
-            {t.footer.location}
+            {f.location}
           </div>
           <LangSwitcher />
         </div>
         <nav className="footer-col">
-          <h4>{t.footer.services}</h4>
-          {link(t.nav.services, "/services")}
+          <h4>{f.services}</h4>
           {link(t.svc.ride.title, "/services/rides")}
+          {link(t.svc.food.title, "/services/orders")}
+          {link(t.svc.grocery.title, "/services/orders")}
           {link(t.svc.moped.title, "/services/courier")}
           {link(t.svc.cargo.title, "/services/cargo")}
-          {link(t.svc.food.title, "/services/orders")}
+          {link(t.nav.how, "/how-it-works")}
         </nav>
         <nav className="footer-col">
           <h4>{t.earn.title}</h4>
@@ -42,29 +44,24 @@ export function Footer({ navigate }: { navigate: (r: Route) => void }) {
           {link(t.earn.groups.couriers.title, "/earn/couriers")}
           {link(t.earn.groups.restaurants.title, "/earn/restaurants")}
           {link(t.earn.groups.fleet.title, "/earn/fleet")}
-        </nav>
-        <nav className="footer-col">
-          <h4>{t.footer.partners}</h4>
           {link(t.nav.business, "/business")}
-          {link(t.earn.title, "/earn")}
-          {link(t.nav.getApp, "/download")}
         </nav>
         <nav className="footer-col">
-          <h4>{t.footer.company}</h4>
-          {link(t.footer.about, "/about")}
-          {link(t.footer.contact, "/contact")}
-          {link(t.nav.how, "/how-it-works")}
+          <h4>{f.company}</h4>
+          {link(f.about, "/about")}
+          {link(f.contact, "/contact")}
           {link(t.guidePage.title, "/guide")}
-          {link(t.footer.citiesLink, "/cities")}
+          {link(f.citiesLink, "/cities")}
         </nav>
         <nav className="footer-col">
-          <h4>{t.footer.legal}</h4>
-          {link(t.footer.privacy, "/privacy")}
-          {link(t.footer.terms, "/terms")}
+          <h4>{f.legal}</h4>
+          {link(f.privacy, "/privacy")}
+          {link(f.terms, "/terms")}
+          {link(t.nav.getApp, "/download")}
         </nav>
       </div>
       <div className="container footer-bottom">
-        <span>© {new Date().getFullYear()} Vonix. {t.footer.rights}</span>
+        <span>© {new Date().getFullYear()} Vonix. {f.rights}</span>
       </div>
     </footer>
   );

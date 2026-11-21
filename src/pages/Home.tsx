@@ -1,7 +1,6 @@
 import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
 import { BusinessPreview } from "../components/previews";
-import { useRef } from "react";
 import { CheckIcon, AppleIcon, PlayIcon } from "../components/icons";
 import type { Route } from "../router";
 
@@ -17,7 +16,6 @@ function SectionHead({ title, sub }: { title: string; sub?: string }) {
 
 export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
   const { t } = useLang();
-  const carouselRef = useRef<HTMLDivElement>(null);
   const h = t.hero;
 
   const goDownload = () => {
@@ -55,35 +53,25 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
       <section className="section section-alt" id="services">
         <div className="container">
           <SectionHead title={t.servicesPage.title} sub={t.servicesPage.sub} />
-          <div className="svc-carousel-wrap">
-            <div className="svc-carousel" ref={carouselRef}>
-              {[
-                { img: "/ride.png", tint: "tint-ride", fit: "cover", to: "/services/rides" as Route },
-                { img: "/images/food.jpg", tint: "", fit: "cover", to: "/services/orders" as Route },
-                { img: "/images/market.jpg", tint: "", fit: "cover", to: "/services/orders" as Route },
-                { img: "/delivery.png", tint: "tint-moped", fit: "cover", to: "/services/courier" as Route },
-                { img: "/cargo.png", tint: "tint-cargo", fit: "cover", to: "/services/cargo" as Route },
-              ].map((c, i) => {
-                const meta = t.svcShowcase[i];
-                return (
-                  <a className="svc-tall svc-tall-photo" key={meta.title} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
-                    <div className={`svc-tall-bg ${c.tint}`}>
-                      <img src={c.img} alt={meta.title} loading="lazy" className={c.fit} />
-                    </div>
-                    <div className="svc-tall-scrim" />
-                    <div className="svc-tall-top">
-                      <h3>{meta.title}</h3>
-                      <p>{meta.sub}</p>
-                      <span className="svc-tall-pill">{meta.cta}</span>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
-            <div className="svc-carousel-nav">
-              <button aria-label="Previous" onClick={() => carouselRef.current?.scrollBy({ left: -340, behavior: "smooth" })}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M15 18l-6-6 6-6"/></svg></button>
-              <button aria-label="Next" onClick={() => carouselRef.current?.scrollBy({ left: 340, behavior: "smooth" })}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M9 18l6-6-6-6"/></svg></button>
-            </div>
+          <div className="svc-list">
+            {[
+              { to: "/services/rides" as Route },
+              { to: "/services/orders" as Route },
+              { to: "/services/orders" as Route },
+              { to: "/services/courier" as Route },
+              { to: "/services/cargo" as Route },
+            ].map((c, i) => {
+              const meta = t.svcShowcase[i];
+              return (
+                <a className="svc-row reveal" key={meta.title} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
+                  <div className="svc-row-main">
+                    <h3>{meta.title}</h3>
+                    <p>{meta.sub}</p>
+                  </div>
+                  <span className="svc-row-cta">{meta.cta} <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
-import { ServiceIcon, CheckIcon, type IconName } from "../components/icons";
+import { CheckIcon } from "../components/icons";
 import { BusinessPreview } from "../components/previews";
 
 const KEYS = ["ride", "food", "grocery", "pharmacy", "cargo", "moped"] as const;
@@ -27,15 +27,17 @@ export function ServicesPage({ navigate }: { navigate?: (r: never) => void }) {
       <PageHero title={t.pages.services.title} sub={t.pages.services.sub} />
       <section className="section" style={{ paddingTop: "3rem" }}>
         <div className="container">
-          <div className="services-grid">
+          <div className="svc-list">
             {KEYS.map((key) => {
               const s = t.svc[key];
+              const meta = t.svcShowcase[KEYS.indexOf(key)] ?? { title: s.title, sub: s.text, cta: t.servicesPage.cardCta };
               return (
-                <a className="service-card reveal svc-link" key={key} href={`#${DETAIL[key]}`} onClick={(e) => { e.preventDefault(); navigate?.(DETAIL[key] as never); window.scrollTo({ top: 0 }); }}>
-                  <div className="service-icon"><ServiceIcon name={key as IconName} /></div>
-                  <h3>{s.title}</h3>
-                  <p>{s.text}</p>
-                  <span className="service-tag">{s.tag} →</span>
+                <a className="svc-row reveal" key={key} href={`#${DETAIL[key]}`} onClick={(e) => { e.preventDefault(); navigate?.(DETAIL[key] as never); window.scrollTo({ top: 0 }); }}>
+                  <div className="svc-row-main">
+                    <h3>{meta.title}</h3>
+                    <p>{meta.sub}</p>
+                  </div>
+                  <span className="svc-row-cta">{meta.cta} <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
                 </a>
               );
             })}

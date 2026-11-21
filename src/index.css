@@ -1340,3 +1340,13 @@ body { background: #ffffff; color: #0b0b0f; }
 .earn-block-link { font-weight:700; font-size:14px; color:#0066ff; white-space:nowrap; }
 @media (max-width: 860px) { .earn-block { grid-template-columns:1fr; gap:10px; } }
 .footer-col.earn-col a { }
+
+/* ===== v15: Bolt service list ===== */
+.svc-list { border-top:1px solid var(--line); }
+.svc-row { display:flex; align-items:center; justify-content:space-between; gap:24px; padding:30px 6px; border-bottom:1px solid var(--line); text-decoration:none; color:inherit; transition:background .2s; }
+.svc-row:hover { background:#fff; }
+.svc-row-main h3 { font-family:var(--font-display); font-size:clamp(20px,2.4vw,28px); letter-spacing:-0.02em; margin-bottom:6px; }
+.svc-row-main p { color:var(--muted); font-size:15px; }
+.svc-row-cta { display:flex; align-items:center; gap:8px; font-weight:700; font-size:14.5px; color:#0b0b0f; white-space:nowrap; transition:color .2s; }
+.svc-row:hover .svc-row-cta { color:#0066ff; }
+@media (max-width: 720px) { .svc-row { flex-direction:column; align-items:flex-start; gap:12px; } }
