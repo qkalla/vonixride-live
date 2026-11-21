@@ -1318,3 +1318,11 @@ body { background: #ffffff; color: #0b0b0f; }
 .svc-tall-photo:hover .svc-tall-pill { background:#0066ff; color:#fff; }
 .svc-tall-photo .svc-tall-top { padding-bottom:0; }
 .svc-tall-photo { justify-content:flex-start; }
+
+/* ===== v13: app.png in brand band + card fill ===== */
+.brand-band { overflow:hidden; padding-bottom:230px; }
+.brand-phone { position:absolute; bottom:0; left:50%; transform:translateX(-50%); height:clamp(340px,44vw,500px); width:auto; z-index:1; pointer-events:none; mix-blend-mode:screen; filter:drop-shadow(0 -12px 42px rgba(0,0,0,.28)); }
+@media (max-width: 720px) { .brand-band { padding-bottom:190px; } .brand-phone { height:300px; } }
+
+/* contain renders fill card: no padding margins, subtle zoom into transparent canvas edges */
+.svc-tall-bg img.contain { object-fit:contain; transform:scale(1.22); }

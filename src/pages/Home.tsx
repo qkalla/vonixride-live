@@ -94,20 +94,6 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
         </div>
       </section>
 
-      <section className="section" id="how" style={{ paddingTop: 0 }}>
-        <div className="container">
-          <SectionHead title={t.steps.title} />
-          <div className="steps">
-            {t.steps.items.map((s, i) => (
-              <div className="step reveal" key={s.title}>
-                <div className="step-num">{String(i + 1).padStart(2, "0")}</div>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="section" id="business" style={{ paddingTop: 0 }}>
         <div className="container split">
@@ -135,17 +121,8 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
             <p>{t.earn.sub}</p>
             <a className="btn btn-light" href="#/earn" onClick={(e) => { e.preventDefault(); navigate("/earn"); }}>Earn with Vonix →</a>
           </Reveal>
-          <Reveal className="app-screen">
-            <div className="app-screen-head"><span className="app-screen-dot" /><span className="app-screen-dot" /><span className="app-screen-dot" /></div>
-            <div className="app-screen-route">
-              <div className="asr-row"><span className="asr-pin asr-a" /><div><b>{t.hero.pickup}</b><small>Armenia St 12</small></div></div>
-              <div className="asr-line" />
-              <div className="asr-row"><span className="asr-pin asr-b" /><div><b>{t.hero.dropoff}</b><small>4.2 km · {t.hero.eta}</small></div></div>
-            </div>
-            <div className="asr-fare"><span>{t.hero.standard}</span><strong>1,240 ֏</strong></div>
-            <div className="asr-cta">{t.est.continueInApp}</div>
-          </Reveal>
         </div>
+        <img className="brand-phone" src="/app.png" alt="Vonix app" />
       </section>
 
       <section className="section earn-teaser">
