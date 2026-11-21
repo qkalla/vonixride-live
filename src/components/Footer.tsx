@@ -37,10 +37,17 @@ export function Footer({ navigate }: { navigate: (r: Route) => void }) {
           {link(t.svc.food.title, "/services/orders")}
         </nav>
         <nav className="footer-col">
+          <h4>{t.earn.title}</h4>
+          {link(t.earn.groups.drivers.title, "/earn/drivers")}
+          {link(t.earn.groups.couriers.title, "/earn/couriers")}
+          {link(t.earn.groups.restaurants.title, "/earn/restaurants")}
+          {link(t.earn.groups.fleet.title, "/earn/fleet")}
+        </nav>
+        <nav className="footer-col">
           <h4>{t.footer.partners}</h4>
           {link(t.nav.business, "/business")}
-          {link(t.footer.partnerPortal, "/business")}
-          {link(t.footer.becomePartner, "/business")}
+          {link(t.earn.title, "/earn")}
+          {link(t.nav.getApp, "/download")}
         </nav>
         <nav className="footer-col">
           <h4>{t.footer.company}</h4>

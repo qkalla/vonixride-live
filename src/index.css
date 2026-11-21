@@ -1328,3 +1328,15 @@ body { background: #ffffff; color: #0b0b0f; }
 /* contain renders fill card: no padding margins, subtle zoom into transparent canvas edges */
 .svc-tall-bg img.contain { object-fit:cover; object-position:center; }
 .media-frame .mscreen { margin: 30px auto; }
+
+/* ===== v14: Bolt template ===== */
+.hero-wide .hero-copy h1.display { font-size:clamp(44px,6.4vw,84px); }
+.earn-blocks-sec { background:#fff; }
+.earn-blocks { border-top:1px solid var(--line); }
+.earn-block { display:grid; grid-template-columns:280px 1fr auto; gap:28px; align-items:center; padding:34px 8px; border-bottom:1px solid var(--line); text-decoration:none; color:inherit; transition:background .2s; }
+.earn-block:hover { background:#f6f6f6; }
+.earn-block h3 { font-family:var(--font-display); font-size:clamp(20px,2.4vw,28px); letter-spacing:-0.02em; }
+.earn-block p { color:var(--muted); font-size:15px; line-height:1.65; max-width:640px; }
+.earn-block-link { font-weight:700; font-size:14px; color:#0066ff; white-space:nowrap; }
+@media (max-width: 860px) { .earn-block { grid-template-columns:1fr; gap:10px; } }
+.footer-col.earn-col a { }
