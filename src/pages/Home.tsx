@@ -33,15 +33,9 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
             <h1 className="display">
               {h.line1} <span className="accent">{h.accent}</span> {h.line2}
             </h1>
-            <p className="hero-sub">{h.sub}</p>
             <div className="hero-actions">
               <button className="btn btn-primary" onClick={goDownload}>{h.primary}</button>
               <a className="btn btn-ghost" href="#/services" onClick={(e) => { e.preventDefault(); navigate("/services"); }}>{h.secondary}</a>
-            </div>
-            <div className="hero-proof">
-              <div className="proof-item"><div className="num">6+</div><div className="lbl">{h.proofRides}</div></div>
-              <div className="proof-item"><div className="num">20+</div><div className="lbl">{h.proofCities}</div></div>
-              <div className="proof-item"><div className="num">24/7</div><div className="lbl">{h.proofSupport}</div></div>
             </div>
           </div>
         </div>
@@ -67,8 +61,8 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
                 { img: "/ride.png", tint: "tint-ride", fit: "cover", to: "/services/rides" as Route },
                 { img: "/images/food.jpg", tint: "", fit: "cover", to: "/services/orders" as Route },
                 { img: "/images/market.jpg", tint: "", fit: "cover", to: "/services/orders" as Route },
-                { img: "/delivery.png", tint: "tint-moped", fit: "contain", to: "/services/courier" as Route },
-                { img: "/cargo.png", tint: "tint-cargo", fit: "contain", to: "/services/cargo" as Route },
+                { img: "/delivery.png", tint: "tint-moped", fit: "cover", to: "/services/courier" as Route },
+                { img: "/cargo.png", tint: "tint-cargo", fit: "cover", to: "/services/cargo" as Route },
               ].map((c, i) => {
                 const meta = t.svcShowcase[i];
                 return (
