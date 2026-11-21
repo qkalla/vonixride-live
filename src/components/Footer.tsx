@@ -2,7 +2,6 @@ import { useLang } from "../i18n";
 import type { Route } from "../router";
 import { LangSwitcher } from "./LangSwitcher";
 
-const PARTNER_URL = "https://vonix-platform.onrender.com/partner";
 
 export function Footer({ navigate }: { navigate: (r: Route) => void }) {
   const { t } = useLang();
@@ -10,9 +9,6 @@ export function Footer({ navigate }: { navigate: (r: Route) => void }) {
     <a key={label} href={`#${to}`} onClick={(e) => { e.preventDefault(); navigate(to); window.scrollTo({ top: 0, left: 0 }); }}>
       {label}
     </a>
-  );
-  const ext = (label: string, href: string) => (
-    <a key={label} href={href} target="_blank" rel="noopener noreferrer">{label}</a>
   );
 
   return (
@@ -43,8 +39,8 @@ export function Footer({ navigate }: { navigate: (r: Route) => void }) {
         <nav className="footer-col">
           <h4>{t.footer.partners}</h4>
           {link(t.nav.business, "/business")}
-          {ext(t.footer.partnerPortal, PARTNER_URL)}
-          {ext(t.footer.becomePartner, PARTNER_URL)}
+          {link(t.footer.partnerPortal, "/business")}
+          {link(t.footer.becomePartner, "/business")}
         </nav>
         <nav className="footer-col">
           <h4>{t.footer.company}</h4>

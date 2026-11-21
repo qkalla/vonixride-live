@@ -5,7 +5,6 @@ import { Estimator } from "../components/Estimator";
 import { ServiceIcon, CheckIcon, AppleIcon, PlayIcon, type IconName } from "../components/icons";
 import type { Route } from "../router";
 
-const PARTNER_URL = "https://vonix-platform.onrender.com/partner";
 
 function SectionHead({ title, sub }: { title: string; sub?: string }) {
   return (
@@ -116,7 +115,7 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
               ))}
             </ul>
             <div className="hero-actions">
-              <a className="btn btn-primary" href={PARTNER_URL} target="_blank" rel="noreferrer">{t.business.cta}</a>
+              <a className="btn btn-primary" href="#/business" onClick={(e) => { e.preventDefault(); navigate("/business"); window.scrollTo({ top: 0 }); }}>{t.business.cta}</a>
               <a className="btn btn-ghost" href="#/business" onClick={(e) => { e.preventDefault(); navigate("/business"); }}>{t.nav.business}</a>
             </div>
           </div>

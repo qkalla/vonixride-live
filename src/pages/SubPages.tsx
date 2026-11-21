@@ -4,7 +4,6 @@ import { Reveal } from "../components/Reveal";
 import { ServiceIcon, CheckIcon, type IconName } from "../components/icons";
 import { BusinessPreview } from "../components/previews";
 
-const PARTNER_URL = "https://vonix-platform.onrender.com/partner";
 const KEYS = ["ride", "food", "grocery", "pharmacy", "cargo", "moped"] as const;
 const DETAIL: Record<string, string> = { ride: "/services/rides", cargo: "/services/cargo", moped: "/services/courier", food: "/services/orders", grocery: "/services/orders", pharmacy: "/services/orders" };
 
@@ -61,8 +60,8 @@ export function BusinessPage() {
                 <li key={c.title}><CheckIcon /><span><strong>{c.title}</strong> — {c.text}</span></li>
               ))}
             </ul>
-            <div className="hero-actions">
-              <a className="btn btn-primary" href={PARTNER_URL} target="_blank" rel="noreferrer">{b.portal}</a>
+            <div className="hero-actions" id="partners">
+              <a className="btn btn-primary" href="#partners" onClick={(e) => { e.preventDefault(); document.getElementById("partners")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>{b.portal}</a>
             </div>
             <p className="page-note">{b.note}</p>
             <h3 className="biz-pillars-h">{t.bizDeep.pillarsTitle}</h3>

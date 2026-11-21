@@ -106,8 +106,8 @@ export function Estimator({ mode, onOrder }: { mode?: Mode; onOrder?: (d: OrderD
 
   useEffect(() => {
     if (!mapRef.current || mapObj.current) return;
-    const map = L.map(mapRef.current, { zoomControl: true, attributionControl: false }).setView(YEREVAN, 11);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", { maxZoom: 19 }).addTo(map);
+    const map = L.map(mapRef.current, { zoomControl: true, attributionControl: true }).setView(YEREVAN, 11);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
     mapObj.current = map;
     return () => { map.remove(); mapObj.current = null; };
   }, []);

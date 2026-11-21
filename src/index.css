@@ -496,10 +496,6 @@ body {
   margin-bottom: 20px;
 }
 
-.step-num::before {
-  counter-increment: step;
-  content: "0" counter(step);
-}
 
 .step h3 {
   font-family: var(--font-display);

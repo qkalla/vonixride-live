@@ -3,7 +3,6 @@ import { useLang } from "../i18n";
 import { LangSwitcher } from "./LangSwitcher";
 import type { Route } from "../router";
 
-const PARTNER_URL = "https://vonix-platform.onrender.com/partner";
 
 export function Brand() {
   return (
@@ -69,7 +68,7 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
         </ul>
         <div className="nav-actions">
           <LangSwitcher />
-          <a className="nav-cta ghost" href={PARTNER_URL} target="_blank" rel="noreferrer">
+          <a className="nav-cta ghost" href="#/business" onClick={(e) => { e.preventDefault(); go("/business"); }}>
             {t.nav.partner}
           </a>
           <a className="nav-cta" href="#/download" onClick={(e) => { e.preventDefault(); go("/download"); }}>
@@ -87,7 +86,7 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
               {l.label}
             </a>
           ))}
-          <a href={PARTNER_URL} target="_blank" rel="noreferrer">{t.nav.partner}</a>
+          <a href="#/business" onClick={(e) => { e.preventDefault(); go("/business"); }}>{t.nav.partner}</a>
           <div className="mobile-lang">
             <LangSwitcher onNavigate={() => setMenuOpen(false)} />
           </div>
