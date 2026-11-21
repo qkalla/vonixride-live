@@ -1322,7 +1322,7 @@ body { background: #ffffff; color: #0b0b0f; }
 /* ===== v13: app.png in brand band + card fill ===== */
 .brand-band { overflow:hidden; }
 .brand-phone-wrap { display:flex; justify-content:center; overflow:hidden; }
-.brand-phone { display:block; height:min(84vh, 1120px); width:auto; margin:36px auto -150px; pointer-events:none; mix-blend-mode:screen; filter:drop-shadow(0 -12px 42px rgba(0,0,0,.28)); }
+.brand-phone { display:block; height:min(84vh, 1120px); width:auto; margin:36px auto -150px; pointer-events:none; filter:drop-shadow(0 -12px 42px rgba(0,0,0,.28)); }
 @media (max-width: 720px) { .brand-phone { height:62vh; margin-bottom:-90px; } }
 
 /* contain renders fill card: no padding margins, subtle zoom into transparent canvas edges */

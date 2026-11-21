@@ -102,7 +102,7 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
           </Reveal>
         </div>
         <div className="brand-phone-wrap">
-          <img className="brand-phone" src="/app.png" alt="Vonix app" />
+          <img className="brand-phone" src="/app-phone.png" alt="Vonix app" />
         </div>
       </section>
       <section className="section earn-blocks-sec" id="earn">
