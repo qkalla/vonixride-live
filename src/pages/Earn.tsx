@@ -1,7 +1,6 @@
 import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
 import type { Route } from "../router";
-import { BusinessPreview } from "../components/previews";
 
 type EarnKey = "drivers" | "couriers" | "restaurants" | "fleet";
 const SUB: Record<EarnKey, Route> = { drivers: "/earn/drivers", couriers: "/earn/couriers", restaurants: "/earn/restaurants", fleet: "/earn/fleet" };
@@ -11,6 +10,13 @@ const EARN_BANNERS: Record<EarnKey, { img: string; contain?: boolean }> = {
   couriers: { img: "/delivery.png", contain: true },
   restaurants: { img: "/images/food.jpg" },
   fleet: { img: "/cargo.png", contain: true },
+};
+
+const EARN_VISUALS: Record<EarnKey, { img: string; tint: string; fit: "art" | "photo" }> = {
+  drivers: { img: "/ride.png", tint: "tint-ride", fit: "art" },
+  couriers: { img: "/delivery.png", tint: "tint-moped", fit: "art" },
+  restaurants: { img: "/images/food.jpg", tint: "tint-food", fit: "photo" },
+  fleet: { img: "/cargo.png", tint: "tint-cargo", fit: "art" },
 };
 
 export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route) => void }) {
@@ -69,13 +75,16 @@ export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route
         <div className="container earn-grid">
           {(Object.keys(e.groups) as EarnKey[]).map((k) => {
             const g = e.groups[k];
+            const v = EARN_VISUALS[k];
             return (
               <Reveal className="earn-card" key={k}>
-                <a href={`#${SUB[k]}`} onClick={(ev) => { ev.preventDefault(); navigate(SUB[k]); window.scrollTo({ top: 0 }); }} className="earn-card-link">
-                  <div className="media-frame aspect-43 fit-contain">{g.img === "dashboard" ? <BusinessPreview /> : <img src={g.img} alt={g.title} loading="lazy" />}</div>
+                <div className="earn-card-body">
                   <h3>{g.title}</h3>
                   <p>{g.text}</p>
-                  <span className="earn-more">{e.cta} →</span>
+                  <a className="earn-card-cta" href={`#${SUB[k]}`} onClick={(ev) => { ev.preventDefault(); navigate(SUB[k]); window.scrollTo({ top: 0 }); }}>{e.cta} →</a>
+                </div>
+                <a className={`earn-card-visual ${v.tint}`} href={`#${SUB[k]}`} onClick={(ev) => { ev.preventDefault(); navigate(SUB[k]); window.scrollTo({ top: 0 }); }} aria-label={g.title}>
+                  <img className={v.fit} src={v.img} alt={g.title} loading="lazy" />
                 </a>
               </Reveal>
             );

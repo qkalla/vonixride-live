@@ -1398,3 +1398,29 @@ body { background: #ffffff; color: #0b0b0f; }
 
 .mobile-menu .mm-group { font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#8b8b93; padding:16px 0 4px; }
 .mobile-menu .mm-group:first-child { padding-top:6px; }
+
+/* ===== v18: earn panel cards + wider banner visuals ===== */
+.earn-card { display:grid; grid-template-columns:1fr 1fr; min-height:340px; }
+.earn-card-body { display:flex; flex-direction:column; justify-content:center; gap:14px; padding:38px 34px; }
+.earn-card-body h3 { font-family:var(--font-display); font-size:clamp(22px,2.4vw,30px); letter-spacing:-0.025em; line-height:1.1; }
+.earn-card-body p { color:var(--muted); font-size:15px; line-height:1.65; }
+.earn-card-cta { display:inline-flex; align-items:center; gap:8px; align-self:flex-start; background:#0b0b0f; color:#fff; font-weight:700; font-size:14px; padding:12px 22px; border-radius:99px; margin-top:6px; transition:background .2s; }
+.earn-card:hover .earn-card-cta { background:#0066ff; }
+.earn-card-visual { position:relative; overflow:hidden; min-height:100%; }
+.earn-card-visual img { position:absolute; inset:0; width:100%; height:100%; }
+.earn-card-visual img.art { object-fit:contain; padding:8% 10%; }
+.earn-card-visual img.photo { object-fit:cover; }
+.earn-card-visual.tint-ride { background:linear-gradient(160deg,#dce9ff,#c3d8ff 55%,#a9c6fb); }
+.earn-card-visual.tint-moped { background:linear-gradient(160deg,#e3f0ff,#cfe2ff 60%,#b9d2fb); }
+.earn-card-visual.tint-cargo { background:linear-gradient(160deg,#e9eef5,#d7e0ec 60%,#c2cfdf); }
+.earn-card-visual.tint-food { background:linear-gradient(160deg,#ffe8d6,#ffd9bd 55%,#ffc79e); }
+@media (max-width: 860px) {
+  .earn-card { grid-template-columns:1fr; min-height:0; }
+  .earn-card-visual { min-height:220px; order:-1; }
+}
+
+/* wider, more prominent contain visuals on banners */
+.svc-banner-contain .svc-banner-bg { width:74%; object-position:right center; }
+.svc-banner-contain .svc-banner-scrim { background:linear-gradient(90deg, rgba(6,8,15,.92) 0%, rgba(6,8,15,.5) 40%, rgba(6,8,15,.12) 68%, transparent 82%); }
+.earn-card-body h3, .earn-card-body p { padding:0; margin:0; }
+.earn-card-body p { margin-top:2px; }
