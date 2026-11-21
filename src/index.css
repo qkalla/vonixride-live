@@ -1455,3 +1455,7 @@ body { background: #ffffff; color: #0b0b0f; }
   .svc-banner-light .svc-banner-bg { width:100%; left:0; right:auto; top:0; bottom:0; object-position:center 30%; opacity:.4; }
   .svc-banner-light .svc-banner-scrim { background:linear-gradient(180deg, rgba(244,246,249,.55) 0%, rgba(244,246,249,.92) 55%, #f4f6f9 96%); }
 }
+
+/* ===== v21: neutral earn visual surfaces (no colored boxes) ===== */
+.earn-card-visual.tint-neutral { background:#f4f6f9; }
+.earn-card-visual.tint-neutral img.art { padding:5% 7%; }

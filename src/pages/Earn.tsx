@@ -13,10 +13,10 @@ const EARN_BANNERS: Record<EarnKey, { img: string; light?: boolean }> = {
 };
 
 const EARN_VISUALS: Record<EarnKey, { img: string; tint: string; fit: "art" | "photo" }> = {
-  drivers: { img: "/cab.png", tint: "tint-ride", fit: "photo" },
-  couriers: { img: "/deliervy.png", tint: "tint-moped", fit: "photo" },
-  restaurants: { img: "/images/food.jpg", tint: "tint-market", fit: "photo" },
-  fleet: { img: "/cargoo.png", tint: "tint-cargo", fit: "photo" },
+  drivers: { img: "/ride.png", tint: "tint-ride", fit: "photo" },
+  couriers: { img: "/delivery.png", tint: "tint-neutral", fit: "art" },
+  restaurants: { img: "/images/market.jpg", tint: "tint-market", fit: "photo" },
+  fleet: { img: "/cargo.png", tint: "tint-neutral", fit: "art" },
 };
 
 export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route) => void }) {
