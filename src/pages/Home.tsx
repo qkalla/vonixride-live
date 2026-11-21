@@ -116,7 +116,9 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
             <a className="btn btn-light" href="#/earn" onClick={(e) => { e.preventDefault(); navigate("/earn"); }}>Earn with Vonix →</a>
           </Reveal>
         </div>
-        <img className="brand-phone" src="/app.png" alt="Vonix app" />
+        <div className="brand-phone-wrap">
+          <img className="brand-phone" src="/app.png" alt="Vonix app" />
+        </div>
       </section>
 
       <section className="section earn-teaser">
