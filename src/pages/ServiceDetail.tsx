@@ -2,7 +2,7 @@ import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
 import { CheckIcon } from "../components/icons";
 import { Estimator } from "../components/Estimator";
-import { FoodScreen } from "../components/ServiceScreens";
+import { FoodScreen, RideScreen, CourierScreen, CargoScreen } from "../components/ServiceScreens";
 import type { Route } from "../router";
 
 type SvcKey = "rides" | "courier" | "cargo" | "orders";
@@ -35,7 +35,7 @@ export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r
         <div className="container detail-grid">
           <Reveal className="detail-visual">
             <div className={`media-frame aspect-1610${svc === "courier" || svc === "cargo" || svc === "orders" ? " fit-contain" : ""}`}>
-              {svc === "orders" ? <FoodScreen /> : <img src={p.img} alt={p.imgAlt} loading="lazy" />}
+              {svc === "rides" ? <RideScreen /> : svc === "orders" ? <FoodScreen /> : svc === "courier" ? <CourierScreen /> : <CargoScreen />}
             </div>
           </Reveal>
           <div>

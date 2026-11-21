@@ -86,3 +86,47 @@ export function MarketScreen() {
     </Frame>
   );
 }
+
+export function CourierScreen() {
+  const { t } = useLang();
+  const e = t.est;
+  const rows: [string, string, string][] = [
+    ["Documents", "A4 envelope", "450 ֏"],
+    ["Small parcel", "Up to 5 kg", "650 ֏"],
+    ["Fragile", "Careful handling", "900 ֏"],
+  ];
+  return (
+    <Frame title="Vonix Express" accent="#0066FF">
+      <div className="mscreen-field"><span className="dot-blue" />{e.locs.kentron} <em>→</em> {e.locs.northern}</div>
+      <div className="mscreen-rows">
+        {rows.map(([n, tag, p]) => (
+          <div className="mscreen-row" key={n}>
+            <div><b>{n}</b><small>{tag}</small></div>
+            <strong>{p}</strong>
+          </div>
+        ))}
+      </div>
+      <div className="mscreen-cta">{e.sendParcel}</div>
+    </Frame>
+  );
+}
+
+export function CargoScreen() {
+  const { t } = useLang();
+  const e = t.est;
+  const rows = e.cargoClasses.map((c, i) => [c, ["Up to 500 kg", "Up to 1.2 t", "Up to 3.5 t"][i] ?? "", String([2500, 4000, 6200][i]) + " ֏"] as [string, string, string]);
+  return (
+    <Frame title="Vonix Cargo" accent="#0B0B0F">
+      <div className="mscreen-field"><span className="dot-blue" />{e.locs.yerevanMall} <em>→</em> {e.locs.gyumri}</div>
+      <div className="mscreen-rows">
+        {rows.map(([n, tag, p]) => (
+          <div className="mscreen-row" key={n}>
+            <div><b>{n}</b><small>{tag}</small></div>
+            <strong>{p}</strong>
+          </div>
+        ))}
+      </div>
+      <div className="mscreen-cta">{e.getQuote}</div>
+    </Frame>
+  );
+}
