@@ -21,12 +21,12 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
   const carRef = useRef<HTMLDivElement>(null);
   const scrollCar = (dir: number) => carRef.current?.scrollBy({ left: dir * 380, behavior: "smooth" });
 
-  const CARDS: { to: Route; img: string; tint?: string }[] = [
-    { to: "/services/rides", img: "/cab.png", tint: "tint-ride" },
+  const CARDS: { to: Route; img: string }[] = [
+    { to: "/services/rides", img: "/card-cab.png" },
     { to: "/services/orders", img: "/images/food.jpg" },
-    { to: "/services/orders", img: "/grocery.png", tint: "tint-market" },
-    { to: "/services/courier", img: "/deliervy.png", tint: "tint-moped" },
-    { to: "/services/cargo", img: "/cargoo.png", tint: "tint-cargo" },
+    { to: "/services/orders", img: "/card-grocery.png" },
+    { to: "/services/courier", img: "/card-deliervy.png" },
+    { to: "/services/cargo", img: "/card-cargoo.png" },
   ];
 
   const goDownload = () => {
@@ -68,13 +68,12 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
             <div className="svc-carousel" ref={carRef}>
               {CARDS.map((c, i) => {
                 const meta = t.svcShowcase[i];
-                const photo = !c.tint;
                 return (
-                  <a className={`svc-tall ${photo ? "svc-tall-photo" : "svc-tall-art"} reveal`} key={meta.title} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
-                    <div className={`svc-tall-bg ${c.tint ?? ""}`}>
-                      <img className={photo ? "cover" : ""} src={c.img} alt={meta.title} loading="lazy" />
+                  <a className="svc-tall svc-tall-photo reveal" key={meta.title} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
+                    <div className="svc-tall-bg">
+                      <img className="cover" src={c.img} alt={meta.title} loading="lazy" />
                     </div>
-                    {photo && <div className="svc-tall-scrim" />}
+                    <div className="svc-tall-scrim" />
                     <div className="svc-tall-top">
                       <h3>{meta.title}</h3>
                       <p>{meta.sub}</p>
