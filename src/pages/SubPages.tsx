@@ -86,16 +86,29 @@ export function BusinessPage() {
 
 export function CitiesPage() {
   const { t } = useLang();
+  const cg = t.citiesGroups;
+  const capital = ["Yerevan", "Abovyan", "Arabkir", "Kentron", "Erebuni", "Malatia-Sebastia"];
+  const regions = t.cities.list.filter((c) => !capital.includes(c));
   return (
     <>
       <PageHero title={t.pages.citiesPage.title} sub={t.pages.citiesPage.sub} />
       <section className="section" style={{ paddingTop: "3rem" }}>
-        <div className="container">
-          <div className="cities">
-            {t.cities.list.map((city) => (
-              <span className="city-chip reveal" key={city}><span className="pulse" />{city}</span>
-            ))}
-          </div>
+        <div className="container cities-hub">
+          <Reveal className="city-group">
+            <h3>{cg.capital}</h3>
+            <p>{cg.capitalNote}</p>
+            <div className="city-chips">{capital.map((c) => <span className="city-chip" key={c}><span className="pulse" />{c}</span>)}</div>
+          </Reveal>
+          <Reveal className="city-group">
+            <h3>{cg.airport}</h3>
+            <p>{cg.airportNote}</p>
+            <div className="city-chips"><span className="city-chip"><span className="pulse" />Zvartnots Airport</span></div>
+          </Reveal>
+          <Reveal className="city-group">
+            <h3>{cg.regions}</h3>
+            <p>{cg.regionsNote}</p>
+            <div className="city-chips">{regions.map((c) => <span className="city-chip" key={c}><span className="pulse" />{c}</span>)}</div>
+          </Reveal>
         </div>
       </section>
     </>

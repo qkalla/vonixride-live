@@ -357,6 +357,43 @@ export const en = {
     or: "or download from",
     hint: "Open the app and your draft order will be there ready to confirm.",
   },
+  earn: {
+    title: "Earn with Vonix",
+    sub: "Join the drivers, couriers, merchants and fleet partners moving Armenia forward — flexible hours, upfront earnings and live dispatch.",
+    cta: "Learn more",
+    groups: {
+      drivers: { title: "Drivers", text: "Drive passengers on your schedule. Upfront fares, instant payouts and dispatch that matches your zone.", img: "/images/ride-city.jpg" },
+      couriers: { title: "Moped couriers", text: "Deliver parcels across the city by moped. Short routes, photo-confirmed handoffs and daily earnings.", img: "/images/courier-city.jpg" },
+      restaurants: { title: "Restaurants & stores", text: "Put your menu or shelf on Vonix. Real-time orders, prep timers and consolidated payouts.", img: "/images/restaurant.jpg" },
+      fleet: { title: "Fleet owners", text: "List vans, sprinters and trucks for cargo work. Verified shippers, transparent commissions.", img: "/images/cargo-truck.jpg" },
+    },
+    howTitle: "How earning works",
+    howItems: [
+      { title: "Sign up & verify", text: "Create a partner profile — ID and vehicle checks are quick and free." },
+      { title: "Go online", text: "Flip the switch when you're ready. Job offers arrive with upfront pay." },
+      { title: "Get paid", text: "Earnings settle daily to your Vonix balance or bank — fully transparent." },
+    ],
+    pageTitles: {
+      drivers: "Drive with Vonix",
+      couriers: "Courier with Vonix",
+      restaurants: "Sell on Vonix",
+      fleet: "Run cargo with Vonix",
+    },
+    pageSubs: {
+      drivers: "Passenger rides across Yerevan and intercity routes — set your own hours.",
+      couriers: "City parcels by moped — fast routes, photo proof, daily pay.",
+      restaurants: "Restaurants, shops, pharmacies and markets on one dispatch platform.",
+      fleet: "Vans, sprinters and trucks for business freight and moves.",
+    },
+  },
+  citiesGroups: {
+    capital: "Yerevan & surrounds",
+    capitalNote: "Full service coverage — rides, courier, cargo and all order verticals.",
+    regions: "Regional Armenia",
+    regionsNote: "Rides and cargo available; order delivery expanding zone by zone.",
+    airport: "Airport transfers",
+    airportNote: "Fixed-price rides to and from Zvartnots International Airport, 24/7.",
+  },
 };
 
 export type Strings = typeof en;

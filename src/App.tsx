@@ -9,6 +9,7 @@ import { ServiceDetailPage } from "./pages/ServiceDetail";
 import { HowPage, GuidePage } from "./pages/HowGuide";
 import { ServicesPage, BusinessPage, CitiesPage, AboutPage, ContactPage, LegalPage } from "./pages/SubPages";
 import { DownloadPage } from "./pages/Download";
+import { EarnPage } from "./pages/Earn";
 
 const SVC_TITLES: Record<string, string> = {
   "/services/rides": "Rides",
@@ -20,6 +21,8 @@ const SVC_TITLES: Record<string, string> = {
 function Page({ route, navigate }: { route: Route; navigate: (r: Route) => void }) {
   const svc = route.match(/^\/services\/(rides|courier|cargo|orders)$/)?.[1] as "rides" | "courier" | "cargo" | "orders" | undefined;
   if (svc) return <ServiceDetailPage svc={svc} navigate={navigate} />;
+  const earnSub = route.match(/^\/earn\/(drivers|couriers|restaurants|fleet)$/)?.[1] as "drivers" | "couriers" | "restaurants" | "fleet" | undefined;
+  if (route.startsWith("/earn")) return <EarnPage sub={earnSub} navigate={navigate} />;
   switch (route) {
     case "/services": return <ServicesPage navigate={navigate as never} />;
     case "/business": return <BusinessPage />;
@@ -48,6 +51,7 @@ function Shell() {
       "/how-it-works": `${t.nav.how} — Vonix`,
       "/guide": `${t.guidePage.title} — Vonix`,
       "/download": `${t.dl.title} — Vonix`,
+      "/earn": `Earn — Vonix`,
       "/cities": `${t.nav.cities} — Vonix`,
       "/about": `${t.nav.about} — Vonix`,
       "/contact": `${t.nav.contact} — Vonix`,

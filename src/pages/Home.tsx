@@ -123,6 +123,38 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
         </div>
       </section>
 
+      <section className="brand-band">
+        <div className="container brand-band-inner">
+          <Reveal>
+            <h2 className="display">{t.download.title}</h2>
+            <p>{t.earn.sub}</p>
+            <a className="btn btn-light" href="#/earn" onClick={(e) => { e.preventDefault(); navigate("/earn"); }}>Earn with Vonix →</a>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section earn-teaser">
+        <div className="container">
+          <div className="section-head reveal">
+            <h2 className="display">{t.earn.title}</h2>
+            <p>{t.earn.sub}</p>
+          </div>
+          <div className="earn-strip">
+            {(Object.keys(t.earn.groups) as (keyof typeof t.earn.groups)[]).map((k) => {
+              const g = t.earn.groups[k];
+              const to = { drivers: "/earn/drivers", couriers: "/earn/couriers", restaurants: "/earn/restaurants", fleet: "/earn/fleet" }[k] as Route;
+              return (
+                <a className="earn-tile reveal" key={k} href={`#${to}`} onClick={(e) => { e.preventDefault(); navigate(to); window.scrollTo({ top: 0 }); }}>
+                  <div className="media-frame aspect-43"><img src={g.img} alt={g.title} loading="lazy" /></div>
+                  <h3>{g.title}</h3>
+                  <p>{g.text}</p>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       <section className="section" id="cities" style={{ paddingTop: 0 }}>
         <div className="container">
           <SectionHead title={t.cities.title} sub={t.cities.sub} />
