@@ -5,18 +5,18 @@ import type { Route } from "../router";
 type EarnKey = "drivers" | "couriers" | "restaurants" | "fleet";
 const SUB: Record<EarnKey, Route> = { drivers: "/earn/drivers", couriers: "/earn/couriers", restaurants: "/earn/restaurants", fleet: "/earn/fleet" };
 
-const EARN_BANNERS: Record<EarnKey, string> = {
-  drivers: "/banner-cab.png",
-  couriers: "/banner-deliervy.png",
-  restaurants: "/banner-grocery.png",
-  fleet: "/banner-cargoo.png",
+const EARN_BANNERS: Record<EarnKey, { img: string; light?: boolean }> = {
+  drivers: { img: "/ride.png" },
+  couriers: { img: "/delivery.png", light: true },
+  restaurants: { img: "/images/food.jpg" },
+  fleet: { img: "/cargo.png", light: true },
 };
 
 const EARN_VISUALS: Record<EarnKey, { img: string; tint: string; fit: "art" | "photo" }> = {
-  drivers: { img: "/earn-cab.png", tint: "tint-ride", fit: "photo" },
-  couriers: { img: "/earn-deliervy.png", tint: "tint-moped", fit: "photo" },
-  restaurants: { img: "/earn-grocery.png", tint: "tint-market", fit: "photo" },
-  fleet: { img: "/earn-cargoo.png", tint: "tint-cargo", fit: "photo" },
+  drivers: { img: "/cab.png", tint: "tint-ride", fit: "photo" },
+  couriers: { img: "/deliervy.png", tint: "tint-moped", fit: "photo" },
+  restaurants: { img: "/images/food.jpg", tint: "tint-market", fit: "photo" },
+  fleet: { img: "/cargoo.png", tint: "tint-cargo", fit: "photo" },
 };
 
 export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route) => void }) {
@@ -28,8 +28,8 @@ export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route
     const b = EARN_BANNERS[sub];
     return (
       <>
-        <section className="svc-banner">
-          <img className="svc-banner-bg" src={b} alt={g.title} />
+        <section className={`svc-banner${b.light ? " svc-banner-light" : ""}`}>
+          <img className="svc-banner-bg" src={b.img} alt={g.title} />
           <div className="svc-banner-scrim" />
           <div className="container svc-banner-inner">
             <Reveal>

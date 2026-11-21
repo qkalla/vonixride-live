@@ -22,11 +22,11 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
   const scrollCar = (dir: number) => carRef.current?.scrollBy({ left: dir * 380, behavior: "smooth" });
 
   const CARDS: { to: Route; img: string }[] = [
-    { to: "/services/rides", img: "/card-cab.png" },
+    { to: "/services/rides", img: "/cab.png" },
     { to: "/services/orders", img: "/images/food.jpg" },
-    { to: "/services/orders", img: "/card-grocery.png" },
-    { to: "/services/courier", img: "/card-deliervy.png" },
-    { to: "/services/cargo", img: "/card-cargoo.png" },
+    { to: "/services/orders", img: "/grocery.png" },
+    { to: "/services/courier", img: "/deliervy.png" },
+    { to: "/services/cargo", img: "/cargoo.png" },
   ];
 
   const goDownload = () => {
@@ -69,15 +69,14 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
               {CARDS.map((c, i) => {
                 const meta = t.svcShowcase[i];
                 return (
-                  <a className="svc-tall svc-tall-photo reveal" key={meta.title} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
-                    <div className="svc-tall-bg">
-                      <img className="cover" src={c.img} alt={meta.title} loading="lazy" />
+                  <a className="svc-card reveal" key={meta.title} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
+                    <div className="svc-card-visual">
+                      <img src={c.img} alt={meta.title} loading="lazy" />
                     </div>
-                    <div className="svc-tall-scrim" />
-                    <div className="svc-tall-top">
+                    <div className="svc-card-body">
                       <h3>{meta.title}</h3>
                       <p>{meta.sub}</p>
-                      <span className="svc-tall-pill">{meta.cta}</span>
+                      <span className="svc-card-cta">{meta.cta} →</span>
                     </div>
                   </a>
                 );

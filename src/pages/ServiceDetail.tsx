@@ -7,12 +7,13 @@ import type { Route } from "../router";
 type SvcKey = "rides" | "courier" | "cargo" | "orders";
 const MODE_MAP: Record<SvcKey, "ride" | "courier" | "cargo" | "order"> = { rides: "ride", courier: "courier", cargo: "cargo", orders: "order" };
 
-/* Full-bleed banner visuals — distinct files from the landing cards */
-const BANNERS: Record<SvcKey, string> = {
-  rides: "/banner-cab.png",
-  courier: "/banner-deliervy.png",
-  cargo: "/banner-cargoo.png",
-  orders: "/images/market.jpg",
+/* Full-bleed banner visuals — distinct files from the landing cards.
+   Portrait renders use the light split variant so they are not cropped. */
+const BANNERS: Record<SvcKey, { img: string; light?: boolean }> = {
+  rides: { img: "/ride.png" },
+  courier: { img: "/delivery.png", light: true },
+  cargo: { img: "/cargo.png", light: true },
+  orders: { img: "/images/market.jpg" },
 };
 
 export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r: Route) => void }) {
@@ -21,8 +22,8 @@ export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r
   const banner = BANNERS[svc];
   return (
     <>
-      <section className="svc-banner">
-        <img className="svc-banner-bg" src={banner} alt={p.imgAlt} />
+      <section className={`svc-banner${banner.light ? " svc-banner-light" : ""}`}>
+        <img className="svc-banner-bg" src={banner.img} alt={p.imgAlt} />
         <div className="svc-banner-scrim" />
         <div className="container svc-banner-inner">
           <Reveal>
