@@ -38,7 +38,7 @@ export const es = {
   ],
   servicesPage: {
     eyebrowless: true,
-    title: "Una app para cada trayecto.",
+    title: "Nuestros servicios",
     sub: "Cambia entre servicios al instante — tus direcciones, métodos de pago e historial te acompañan a todas partes.",
     cardCta: "Abrir en la app",
   },

@@ -38,7 +38,7 @@ export const hy = {
   ],
   servicesPage: {
     eyebrowless: true,
-    title: "One app for every way to move.",
+    title: "Մեր ծառայությունները",
     sub: "Switch between services instantly — your addresses, payment methods and history follow you everywhere.",
     cardCta: "Open in app",
   },

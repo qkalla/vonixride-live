@@ -5,18 +5,18 @@ import type { Route } from "../router";
 type EarnKey = "drivers" | "couriers" | "restaurants" | "fleet";
 const SUB: Record<EarnKey, Route> = { drivers: "/earn/drivers", couriers: "/earn/couriers", restaurants: "/earn/restaurants", fleet: "/earn/fleet" };
 
-const EARN_BANNERS: Record<EarnKey, { img: string; contain?: boolean }> = {
-  drivers: { img: "/ride.png" },
-  couriers: { img: "/delivery.png", contain: true },
-  restaurants: { img: "/images/food.jpg" },
-  fleet: { img: "/cargo.png", contain: true },
+const EARN_BANNERS: Record<EarnKey, { img: string; tint: string }> = {
+  drivers: { img: "/cab.png", tint: "tint-ride" },
+  couriers: { img: "/deliervy.png", tint: "tint-moped" },
+  restaurants: { img: "/grocery.png", tint: "tint-market" },
+  fleet: { img: "/cargoo.png", tint: "tint-cargo" },
 };
 
 const EARN_VISUALS: Record<EarnKey, { img: string; tint: string; fit: "art" | "photo" }> = {
-  drivers: { img: "/ride.png", tint: "tint-ride", fit: "art" },
-  couriers: { img: "/delivery.png", tint: "tint-moped", fit: "art" },
-  restaurants: { img: "/images/food.jpg", tint: "tint-food", fit: "photo" },
-  fleet: { img: "/cargo.png", tint: "tint-cargo", fit: "art" },
+  drivers: { img: "/cab.png", tint: "tint-ride", fit: "art" },
+  couriers: { img: "/deliervy.png", tint: "tint-moped", fit: "art" },
+  restaurants: { img: "/grocery.png", tint: "tint-market", fit: "art" },
+  fleet: { img: "/cargoo.png", tint: "tint-cargo", fit: "art" },
 };
 
 export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route) => void }) {
@@ -28,8 +28,9 @@ export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route
     const b = EARN_BANNERS[sub];
     return (
       <>
-        <section className={`svc-banner${b.contain ? " svc-banner-contain" : ""}`}>
-          <img className="svc-banner-bg" src={b.img} alt={g.title} />
+        <section className="svc-banner">
+          <div className={`svc-banner-tint ${b.tint}`} />
+          <img className="svc-banner-bg contain" src={b.img} alt={g.title} />
           <div className="svc-banner-scrim" />
           <div className="container svc-banner-inner">
             <Reveal>
@@ -78,14 +79,14 @@ export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route
             const v = EARN_VISUALS[k];
             return (
               <Reveal className="earn-card" key={k}>
+                <a className={`earn-card-visual ${v.tint}`} href={`#${SUB[k]}`} onClick={(ev) => { ev.preventDefault(); navigate(SUB[k]); window.scrollTo({ top: 0 }); }} aria-label={g.title}>
+                  <img className={v.fit} src={v.img} alt={g.title} loading="lazy" />
+                </a>
                 <div className="earn-card-body">
                   <h3>{g.title}</h3>
                   <p>{g.text}</p>
                   <a className="earn-card-cta" href={`#${SUB[k]}`} onClick={(ev) => { ev.preventDefault(); navigate(SUB[k]); window.scrollTo({ top: 0 }); }}>{e.cta} →</a>
                 </div>
-                <a className={`earn-card-visual ${v.tint}`} href={`#${SUB[k]}`} onClick={(ev) => { ev.preventDefault(); navigate(SUB[k]); window.scrollTo({ top: 0 }); }} aria-label={g.title}>
-                  <img className={v.fit} src={v.img} alt={g.title} loading="lazy" />
-                </a>
               </Reveal>
             );
           })}

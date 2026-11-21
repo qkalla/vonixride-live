@@ -1424,3 +1424,9 @@ body { background: #ffffff; color: #0b0b0f; }
 .svc-banner-contain .svc-banner-scrim { background:linear-gradient(90deg, rgba(6,8,15,.92) 0%, rgba(6,8,15,.5) 40%, rgba(6,8,15,.12) 68%, transparent 82%); }
 .earn-card-body h3, .earn-card-body p { padding:0; margin:0; }
 .earn-card-body p { margin-top:2px; }
+
+/* ===== v19: vertical earn cards + earn banner contain ===== */
+.earn-card { display:flex; flex-direction:column; }
+.earn-card-visual { order:-1; height:300px; }
+.earn-card-visual img.art { object-fit:contain; padding:6% 9%; }
+.svc-banner .svc-banner-bg.contain { object-fit:contain; }

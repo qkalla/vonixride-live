@@ -38,7 +38,7 @@ export const ar = {
   ],
   servicesPage: {
     eyebrowless: true,
-    title: "تطبيق واحد لكل تنقلاتك.",
+    title: "خدماتنا",
     sub: "تنقّل بين الخدمات فوراً — عناوينك وطرق الدفع وسجلك تتبعك في كل مكان.",
     cardCta: "افتح في التطبيق",
   },
