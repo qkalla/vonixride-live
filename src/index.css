@@ -1320,10 +1320,10 @@ body { background: #ffffff; color: #0b0b0f; }
 .svc-tall-photo { justify-content:flex-start; }
 
 /* ===== v13: app.png in brand band + card fill ===== */
-.brand-band { overflow:hidden; }
+.brand-band { overflow:hidden; padding-top:120px; }
 .brand-phone-wrap { display:flex; justify-content:center; overflow:hidden; }
-.brand-phone { display:block; height:min(84vh, 1120px); width:auto; margin:36px auto -150px; pointer-events:none; filter:drop-shadow(0 -12px 42px rgba(0,0,0,.28)); }
-@media (max-width: 720px) { .brand-phone { height:62vh; margin-bottom:-90px; } }
+.brand-phone { display:block; height:min(80vh, 1040px); width:auto; margin:40px auto 0; pointer-events:none; filter:drop-shadow(0 18px 50px rgba(0,0,0,.30)); }
+@media (max-width: 720px) { .brand-phone { height:56vh; margin-top:24px; } }
 
 /* contain renders fill card: no padding margins, subtle zoom into transparent canvas edges */
 .svc-tall-bg img.contain { object-fit:cover; object-position:center; }
@@ -1379,6 +1379,12 @@ body { background: #ffffff; color: #0b0b0f; }
 }
 
 .svc-points { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; }
+
+/* earn banners: portrait renders contain on dark stage, photos cover */
+.svc-banner-contain { background:linear-gradient(105deg,#0a0a10 0%,#0e1a38 55%,#14306b 100%); }
+.svc-banner-contain .svc-banner-bg { object-fit:contain; object-position:center right; width:60%; left:auto; right:0; }
+.svc-banner-contain .svc-banner-scrim { background:linear-gradient(90deg, rgba(6,8,15,.88) 0%, rgba(6,8,15,.55) 42%, transparent 72%); }
+@media (max-width: 960px) { .svc-banner-contain .svc-banner-bg { width:100%; left:0; right:auto; object-position:center bottom; opacity:.35; } .svc-banner-contain .svc-banner-scrim { background:linear-gradient(180deg, rgba(6,8,15,.9), rgba(6,8,15,.7)); } }
 .svc-point { background:#fff; border:1px solid var(--line); border-radius:20px; padding:26px 24px; transition:box-shadow .25s, border-color .25s; }
 .svc-point:hover { box-shadow:0 16px 38px rgba(11,11,15,.1); border-color:rgba(0,102,255,.4); }
 .svc-point-ic { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:12px; background:#e8f1ff; color:#0066ff; margin-bottom:16px; }
