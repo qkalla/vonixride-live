@@ -37,9 +37,6 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
               <button className="btn btn-primary" onClick={goDownload}>{h.primary}</button>
               <a className="btn btn-ghost" href="#/services" onClick={(e) => { e.preventDefault(); navigate("/services"); }}>{h.secondary}</a>
             </div>
-            <div className="hero-card hero-card-inline">
-              <HeroOrderCard onOrder={() => navigate("/download")} />
-            </div>
             <div className="hero-proof">
               <div className="proof-item"><div className="num">6+</div><div className="lbl">{h.proofRides}</div></div>
               <div className="proof-item"><div className="num">20+</div><div className="lbl">{h.proofCities}</div></div>
@@ -47,8 +44,20 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
             </div>
           </div>
           <div className="hero-visual">
-            <div className="media-frame aspect-1610 hero-photo">
-              <img src="/ride.png" alt="Vonix ride" />
+            <div className="hero-app">
+              <div className="media-frame aspect-1610 hero-photo">
+                <img src="/images/hero-car.jpg" alt="City traffic in Yerevan" />
+              </div>
+              <div className="app-frame">
+                <div className="app-frame-head">
+                  <img src="/logo.png" alt="Vonix" width={26} height={26} />
+                  <div>
+                    <b>Vonix</b>
+                    <small>{t.est.title} · Yerevan</small>
+                  </div>
+                </div>
+                <HeroOrderCard onOrder={() => navigate("/download")} />
+              </div>
             </div>
           </div>
         </div>
@@ -70,10 +79,14 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
               { img: "/ride.png", to: "/services/rides" as Route, meta: t.svcCards.items[0], fit: "cover" },
               { img: "/images/svc-food.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[1], fit: "cover" },
               { img: "/images/svc-markets.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[2], fit: "cover" },
-              { img: "/delivery.png", to: "/services/courier" as Route, meta: t.svcCards.items[3], fit: "contain" },
+              { img: "/delivery.png", img2: "/cargo.png", to: "/services/courier" as Route, meta: t.svcCards.items[3], fit: "duo" },
             ].map((c) => (
               <a className="svc-photo-card reveal" key={c.img} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
-                <div className={`media-frame aspect-1610${c.fit === "contain" ? " fit-contain" : ""}`}><img src={c.img} alt={c.meta.title} loading="lazy" /></div>
+                <div className={`media-frame aspect-1610${c.fit === "contain" ? " fit-contain" : c.fit === "duo" ? " fit-duo" : ""}`}>
+                  {c.fit === "duo"
+                    ? <><img src={c.img} alt="" loading="lazy" /><img src={(c as { img2?: string }).img2} alt={c.meta.title} loading="lazy" /></>
+                    : <img src={c.img} alt={c.meta.title} loading="lazy" />}
+                </div>
                 <div className="svc-photo-body">
                   <h3>{c.meta.title}</h3>
                   <p>{c.meta.text}</p>

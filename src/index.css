@@ -1236,3 +1236,15 @@ body { background: #ffffff; color: #0b0b0f; }
 
 .media-frame.fit-contain { background:#f6f6f6; }
 .media-frame.fit-contain img { object-fit:contain; padding:22px; }
+
+/* ===== v9: app preview hero ===== */
+.hero-app { display:flex; flex-direction:column; gap:22px; max-width:520px; margin-inline:auto; width:100%; }
+.app-frame { background:#f6f6f8; border:1px solid var(--line); border-radius:24px; padding:16px; box-shadow:0 24px 60px rgba(11,11,15,.12); }
+.app-frame-head { display:flex; align-items:center; gap:10px; padding:2px 6px 14px; }
+.app-frame-head img { border-radius:8px; }
+.app-frame-head b { display:block; font-family:var(--font-display); font-size:14px; color:#0b0b0f; }
+.app-frame-head small { font-size:11px; color:#8b8b93; }
+.app-frame .hoc { background:#fff; border:1px solid var(--line); border-radius:18px; padding:14px; box-shadow:none; }
+.hero-visual { align-self:start; }
+.media-frame.fit-duo { background:#f6f6f6; display:flex; }
+.media-frame.fit-duo img { flex:1; width:50%; height:100%; object-fit:contain; padding:20px; }
