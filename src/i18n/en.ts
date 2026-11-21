@@ -190,7 +190,7 @@ export const en = {
     rides: {
       title: "Vonix Rides — city taxis & intercity trips",
       sub: "Book a ride in Yerevan or between cities in seconds. Upfront AMD fares, live driver tracking and multiple vehicle classes for every group size.",
-      img: "/img/ride.jpg",
+      img: "/images/svc-ride.jpg",
       imgAlt: "Vonix ride",
       points: [
         { title: "Upfront pricing", text: "See the exact fare before you confirm — distance, time and any surge are calculated before dispatch." },
@@ -207,7 +207,7 @@ export const en = {
     courier: {
       title: "Vonix Courier — moped express delivery",
       sub: "Documents, keys, gifts and small parcels couriered across Yerevan by dedicated moped riders. Fast, tracked and affordable.",
-      img: "/img/moped.webp",
+      img: "/images/svc-moped.jpg",
       imgAlt: "Vonix courier moped",
       points: [
         { title: "Under an hour", text: "Most cross-city deliveries complete within 45–60 minutes, traffic depending." },
@@ -224,7 +224,7 @@ export const en = {
     cargo: {
       title: "Vonix Cargo — vans, sprinters & trucks",
       sub: "Business deliveries, office moves and freight across Armenia. From city vans to 3.5-tonne trucks with trained drivers.",
-      img: "/img/cargo.jpg",
+      img: "/images/svc-cargo.jpg",
       imgAlt: "Vonix cargo van",
       points: [
         { title: "Full size range", text: "Courier vans, sprinter vans and box trucks up to 3.5 tonnes for any load." },
@@ -241,7 +241,7 @@ export const en = {
     orders: {
       title: "Vonix Orders — food, grocery & retail",
       sub: "Restaurants, supermarkets, pharmacies and shops across Yerevan deliver through Vonix with live order tracking.",
-      img: "/img/restaurants.png",
+      img: "/images/svc-food.jpg",
       imgAlt: "Vonix restaurant delivery",
       points: [
         { title: "Hundreds of merchants", text: "From downtown restaurants to neighborhood pharmacies — all in one cart flow." },
@@ -374,10 +374,10 @@ export const en = {
     sub: "Join the drivers, couriers, merchants and fleet partners moving Armenia forward — flexible hours, upfront earnings and live dispatch.",
     cta: "Learn more",
     groups: {
-      drivers: { title: "Drivers", text: "Drive passengers on your schedule. Upfront fares, instant payouts and dispatch that matches your zone.", img: "/images/ride-city.jpg" },
-      couriers: { title: "Moped couriers", text: "Deliver parcels across the city by moped. Short routes, photo-confirmed handoffs and daily earnings.", img: "/images/courier-city.jpg" },
-      restaurants: { title: "Restaurants & stores", text: "Put your menu or shelf on Vonix. Real-time orders, prep timers and consolidated payouts.", img: "/images/restaurant.jpg" },
-      fleet: { title: "Fleet owners", text: "List vans, sprinters and trucks for cargo work. Verified shippers, transparent commissions.", img: "/images/cargo-truck.jpg" },
+      drivers: { title: "Drivers", text: "Drive passengers on your schedule. Upfront fares, instant payouts and dispatch that matches your zone.", img: "/images/earn-driver.jpg" },
+      couriers: { title: "Moped couriers", text: "Deliver parcels across the city by moped. Short routes, photo-confirmed handoffs and daily earnings.", img: "/images/earn-courier.jpg" },
+      restaurants: { title: "Restaurants & stores", text: "Put your menu or shelf on Vonix. Real-time orders, prep timers and consolidated payouts.", img: "/images/earn-restaurant.jpg" },
+      fleet: { title: "Fleet owners", text: "List vans, sprinters and trucks for cargo work. Verified shippers, transparent commissions.", img: "/images/earn-fleet.jpg" },
     },
     howTitle: "How earning works",
     howItems: [

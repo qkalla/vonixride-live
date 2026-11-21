@@ -182,7 +182,7 @@ export const es = {
     rides: {
       title: "Vonix Rides — taxis urbanos y viajes interurbanos",
       sub: "Reserva un viaje en Ereván o entre ciudades en segundos. Tarifas en AMD por adelantado, seguimiento del conductor en vivo y varias clases de vehículos.",
-      img: "/img/ride.jpg",
+      img: "/images/svc-ride.jpg",
       imgAlt: "Viaje Vonix",
       points: [
         { title: "Precio por adelantado", text: "Mira la tarifa exacta antes de confirmar — distancia, tiempo y cualquier multiplicador se calculan antes del envío." },
@@ -199,7 +199,7 @@ export const es = {
     courier: {
       title: "Vonix Courier — mensajería exprés en moto",
       sub: "Documentos, llaves, regalos y pequeños paquetes repartidos por Ereván con mensajeros dedicados. Rápido, con seguimiento y asequible.",
-      img: "/img/moped.webp",
+      img: "/images/svc-moped.jpg",
       imgAlt: "Mensajero en moto Vonix",
       points: [
         { title: "Menos de una hora", text: "La mayoría de entregas urbanas se completan en 45–60 minutos, según el tráfico." },
@@ -216,7 +216,7 @@ export const es = {
     cargo: {
       title: "Vonix Cargo — furgonetas, sprinters y camiones",
       sub: "Entregas de empresa, mudanzas de oficinas y carga por toda Armenia. Desde furgonetas urbanas hasta camiones de 3,5 toneladas con conductores formados.",
-      img: "/img/cargo.jpg",
+      img: "/images/svc-cargo.jpg",
       imgAlt: "Camión de carga Vonix",
       points: [
         { title: "Gama completa", text: "Furgonetas de mensajería, sprinters y camiones de hasta 3,5 toneladas para cualquier carga." },
@@ -233,7 +233,7 @@ export const es = {
     orders: {
       title: "Vonix Orders — comida, mercado y retail",
       sub: "Restaurantes, supermercados, farmacias y tiendas de Ereván entregan a través de Vonix con seguimiento de pedidos en vivo.",
-      img: "/img/restaurants.png",
+      img: "/images/svc-food.jpg",
       imgAlt: "Entrega de restaurante Vonix",
       points: [
         { title: "Cientos de comercios", text: "Desde restaurantes del centro hasta farmacias del barrio — todo en un solo flujo." },

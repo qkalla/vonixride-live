@@ -8,10 +8,10 @@ type SvcKey = "rides" | "courier" | "cargo" | "orders";
 const MODE_MAP: Record<SvcKey, "ride" | "courier" | "cargo" | "order"> = { rides: "ride", courier: "courier", cargo: "cargo", orders: "order" };
 
 export const SVC_IMAGES: Record<SvcKey, string> = {
-  rides: "/img/ride.jpg",
-  courier: "/img/moped.webp",
-  cargo: "/img/cargo.jpg",
-  orders: "/img/restaurants.png",
+  rides: "/images/svc-ride.jpg",
+  courier: "/images/svc-moped.jpg",
+  cargo: "/images/svc-cargo.jpg",
+  orders: "/images/svc-food.jpg",
 };
 
 export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r: Route) => void }) {

@@ -46,7 +46,7 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
           <div className="hero-visual">
             <div className="hero-media">
               <div className="media-frame aspect-43 hero-photo">
-                <img src="/images/ride-city.jpg" alt="City ride in Yerevan" />
+                <img src="/images/hero-car.jpg" alt="City ride in Yerevan" />
               </div>
               <div className="hero-card">
                 <HeroOrderCard onOrder={() => navigate("/download")} />
@@ -64,15 +64,15 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
         </div>
       </div>
 
-      <section className="section" id="services">
+      <section className="section section-alt" id="services">
         <div className="container">
           <SectionHead title={t.servicesPage.title} sub={t.servicesPage.sub} />
           <div className="svc-photo-grid">
             {[
-              { img: "/images/ride-car.jpg", to: "/services/rides" as Route, meta: t.svcCards.items[0] },
-              { img: "/images/food.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[1] },
-              { img: "/img/grocery.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[2] },
-              { img: "/images/courier-city.jpg", to: "/services/courier" as Route, meta: t.svcCards.items[3] },
+              { img: "/images/svc-ride.jpg", to: "/services/rides" as Route, meta: t.svcCards.items[0] },
+              { img: "/images/svc-food.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[1] },
+              { img: "/images/svc-markets.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[2] },
+              { img: "/images/svc-moped.jpg", to: "/services/courier" as Route, meta: t.svcCards.items[3] },
             ].map((c) => (
               <a className="svc-photo-card reveal" key={c.img} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
                 <div className="media-frame aspect-1610"><img src={c.img} alt={c.meta.title} loading="lazy" /></div>
@@ -131,6 +131,16 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
             <p>{t.earn.sub}</p>
             <a className="btn btn-light" href="#/earn" onClick={(e) => { e.preventDefault(); navigate("/earn"); }}>Earn with Vonix →</a>
           </Reveal>
+          <Reveal className="app-screen">
+            <div className="app-screen-head"><span className="app-screen-dot" /><span className="app-screen-dot" /><span className="app-screen-dot" /></div>
+            <div className="app-screen-route">
+              <div className="asr-row"><span className="asr-pin asr-a" /><div><b>{t.hero.pickup}</b><small>Armenia St 12</small></div></div>
+              <div className="asr-line" />
+              <div className="asr-row"><span className="asr-pin asr-b" /><div><b>{t.hero.dropoff}</b><small>4.2 km · {t.hero.eta}</small></div></div>
+            </div>
+            <div className="asr-fare"><span>{t.hero.standard}</span><strong>1,240 ֏</strong></div>
+            <div className="asr-cta">{t.est.continueInApp}</div>
+          </Reveal>
         </div>
       </section>
 
@@ -156,7 +166,7 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
         </div>
       </section>
 
-      <section className="section" id="cities" style={{ paddingTop: 0 }}>
+      <section className="section section-alt" id="cities" style={{ paddingTop: 0 }}>
         <div className="container">
           <SectionHead title={t.cities.title} sub={t.cities.sub} />
           <div className="cities">
