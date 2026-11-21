@@ -6,17 +6,17 @@ type EarnKey = "drivers" | "couriers" | "restaurants" | "fleet";
 const SUB: Record<EarnKey, Route> = { drivers: "/earn/drivers", couriers: "/earn/couriers", restaurants: "/earn/restaurants", fleet: "/earn/fleet" };
 
 const EARN_BANNERS: Record<EarnKey, string> = {
-  drivers: "/banner-cab.png",
-  couriers: "/banner-deliervy.png",
-  restaurants: "/banner-grocery.png",
-  fleet: "/banner-cargoo.png",
+  drivers: "/images/p-taxi-hyundai.jpg",
+  couriers: "/images/p-moped-post.jpg",
+  restaurants: "/images/market.jpg",
+  fleet: "/images/p-cargo-isuzu.jpg",
 };
 
 const EARN_VISUALS: Record<EarnKey, { img: string; tint: string; fit: "art" | "photo" }> = {
-  drivers: { img: "/earn-cab.png", tint: "tint-ride", fit: "photo" },
-  couriers: { img: "/earn-deliervy.png", tint: "tint-moped", fit: "photo" },
-  restaurants: { img: "/earn-grocery.png", tint: "tint-market", fit: "photo" },
-  fleet: { img: "/earn-cargoo.png", tint: "tint-cargo", fit: "photo" },
+  drivers: { img: "/images/p-taxi-hyundai.jpg", tint: "tint-ride", fit: "photo" },
+  couriers: { img: "/images/p-moped-post.jpg", tint: "tint-moped", fit: "photo" },
+  restaurants: { img: "/images/food.jpg", tint: "tint-food", fit: "photo" },
+  fleet: { img: "/images/p-cargo-isuzu.jpg", tint: "tint-cargo", fit: "photo" },
 };
 
 export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route) => void }) {
