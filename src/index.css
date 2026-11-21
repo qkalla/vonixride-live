@@ -872,3 +872,40 @@ a.contact-row:hover { border-color:rgba(0,102,255,.5); transform:translateY(-2px
 [dir="rtl"] .route-line { margin-left:0; margin-right:4px; }
 [dir="rtl"] .biz-total { text-align:start; }
 [dir="rtl"] .fare-total, [dir="rtl"] .route-meta, [dir="rtl"] .pay-row, [dir="rtl"] .class-row { direction:rtl; }
+
+/* ===== v3: Bolt-grade typography & logo polish ===== */
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body { letter-spacing: -0.005em; font-feature-settings: "cv11","ss01"; }
+
+.display { letter-spacing: -0.038em; font-weight: 700; }
+.hero h1 { font-size: clamp(46px, 7vw, 82px); letter-spacing: -0.04em; line-height: 1.0; }
+.hero h1 .accent { letter-spacing: -0.04em; }
+.section-head h2 { letter-spacing: -0.028em; font-weight: 700; line-height: 1.08; }
+.page-hero .display { letter-spacing: -0.035em; }
+.split h2, .download h2 { letter-spacing: -0.03em; }
+.service-card h3, .step h3, .contact-form h3 { letter-spacing: -0.015em; }
+.prose p, .section-head p, .hero-sub { letter-spacing: -0.004em; }
+
+.nav-links a { letter-spacing: 0.005em; }
+.brand-name { letter-spacing: -0.025em; }
+.brand-name em { letter-spacing: -0.02em; }
+
+.brand-mark { overflow:hidden; object-fit:cover; display:block; }
+.brand-mark { border-radius:10px; }
+
+.btn { letter-spacing: -0.01em; font-weight: 650; padding:14px 24px; }
+.btn-primary { box-shadow: 0 1px 0 rgba(255,255,255,.12) inset, 0 8px 22px rgba(0,102,255,.28); }
+.btn-primary:hover { box-shadow: 0 1px 0 rgba(255,255,255,.14) inset, 0 14px 36px rgba(0,102,255,.42); }
+
+.service-card { transition: transform .25s cubic-bezier(.22,1,.36,1), border-color .25s, box-shadow .25s; }
+.service-card:hover { transform: translateY(-4px); border-color: rgba(0,102,255,.35); box-shadow: 0 20px 44px rgba(0,0,0,.35); }
+.step { transition: transform .25s; }
+.step:hover { transform: translateY(-3px); }
+.city-chip { transition: border-color .2s, background .2s; }
+.city-chip:hover { border-color: rgba(0,102,255,.4); background: rgba(0,102,255,.07); }
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--blue); outline-offset: 2px;
+}
+
+::selection { background: var(--blue); color:#fff; }

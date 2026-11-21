@@ -29,7 +29,13 @@ export function useHashRoute(): [Route, (r: Route) => void] {
     return () => window.removeEventListener("hashchange", onChange);
   }, []);
   const navigate = (r: Route) => {
-    window.location.hash = r === "/" ? "#/" : `#${r}`;
+    const target = r === "/" ? "#/" : `#${r}`;
+    if (window.location.hash === target) {
+      window.scrollTo({ top: 0, left: 0 });
+      setRoute(r);
+    } else {
+      window.location.hash = target;
+    }
   };
   return [route, navigate];
 }

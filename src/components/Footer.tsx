@@ -1,6 +1,5 @@
 import { useLang } from "../i18n";
 import type { Route } from "../router";
-import { Brand } from "./Header";
 import { LangSwitcher } from "./LangSwitcher";
 
 const PARTNER_URL = "https://vonix-platform.onrender.com/partner";
@@ -20,7 +19,10 @@ export function Footer({ navigate }: { navigate: (r: Route) => void }) {
     <footer className="footer">
       <div className="container footer-grid">
         <div className="footer-brand">
-          <Brand />
+          <a className="brand" href="#/" onClick={(e) => { e.preventDefault(); navigate("/"); window.scrollTo({ top: 0 }); }}>
+            <img className="brand-mark" src="/logo.png" alt="Vonix" width={34} height={34} />
+            <span className="brand-name">Vonix<em>ride</em></span>
+          </a>
           <p>{t.footer.tagline}</p>
           <div className="footer-loc">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>

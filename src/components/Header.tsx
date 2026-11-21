@@ -8,7 +8,7 @@ const PARTNER_URL = "https://vonix-platform.onrender.com/partner";
 export function Brand() {
   return (
     <a className="brand" href="#/">
-      <span className="brand-mark">V</span>
+      <img className="brand-mark" src="/logo.png" alt="Vonix" width={34} height={34} />
       <span className="brand-name">Vonix<em>ride</em></span>
     </a>
   );
