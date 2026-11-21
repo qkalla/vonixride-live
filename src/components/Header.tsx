@@ -130,12 +130,16 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
       </div>
       {menuOpen && (
         <div className="mobile-menu">
-          <a href="#/services" onClick={(e) => { e.preventDefault(); go("/services"); }}>{t.nav.services}</a>
+          <div className="mm-group">{t.nav.services}</div>
+          <a href="#/services" onClick={(e) => { e.preventDefault(); go("/services"); }}>{t.servicesPage?.title ?? t.nav.services}</a>
           {svcItems.map((it) => <a key={it.to} href={`#${it.to}`} onClick={(e) => { e.preventDefault(); go(it.to); }}>{it.label}</a>)}
+          <div className="mm-group">{t.earn.title}</div>
           <a href="#/earn" onClick={(e) => { e.preventDefault(); go("/earn"); }}>{t.earn.title}</a>
           {earnItems.map((it) => <a key={it.to} href={`#${it.to}`} onClick={(e) => { e.preventDefault(); go(it.to); }}>{it.label}</a>)}
+          <div className="mm-group">{t.nav.business}</div>
           <a href="#/business" onClick={(e) => { e.preventDefault(); go("/business"); }}>{t.nav.business}</a>
           <a href="#/cities" onClick={(e) => { e.preventDefault(); go("/cities"); }}>{t.nav.cities}</a>
+          <div className="mm-group">{t.nav.about}</div>
           {companyItems.map(([l, to]) => <a key={to} href={`#${to}`} onClick={(e) => { e.preventDefault(); go(to); }}>{l}</a>)}
           <div className="mobile-lang">
             <LangSwitcher onNavigate={() => setMenuOpen(false)} />

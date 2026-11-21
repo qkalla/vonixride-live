@@ -8,22 +8,21 @@ import type { Route } from "../router";
 type SvcKey = "rides" | "courier" | "cargo" | "orders";
 const MODE_MAP: Record<SvcKey, "ride" | "courier" | "cargo" | "order"> = { rides: "ride", courier: "courier", cargo: "cargo", orders: "order" };
 
-/* Landing cards use cab/deliervy/grocery/delivery/cargoo — banners use different assets */
+/* Landing cards use cab/food.jpg/grocery/deliervy/cargoo — banners use different assets */
 const BANNERS: Record<SvcKey, { img: string | null; tint: string }> = {
   rides: { img: "/ride.png", tint: "tint-ride" },
   courier: { img: null, tint: "tint-moped" },
   cargo: { img: "/cargo.png", tint: "tint-cargo" },
-  orders: { img: "/images/food.jpg", tint: "tint-food" },
+  orders: { img: "/images/market.jpg", tint: "tint-market" },
 };
 
 export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r: Route) => void }) {
   const { t } = useLang();
   const p = t.svcPages[svc];
   const banner = BANNERS[svc];
-
   return (
     <>
-      <section className={`svc-banner ${banner.img ? "" : "svc-banner-ui"}`}>
+      <section className={`svc-banner${banner.img ? "" : " svc-banner-ui"}`}>
         {banner.img && <img className="svc-banner-bg" src={banner.img} alt={p.imgAlt} />}
         {!banner.img && <div className={`svc-banner-tint ${banner.tint}`} />}
         <div className="svc-banner-scrim" />
