@@ -190,7 +190,7 @@ export const en = {
     rides: {
       title: "Vonix Rides — city taxis & intercity trips",
       sub: "Book a ride in Yerevan or between cities in seconds. Upfront AMD fares, live driver tracking and multiple vehicle classes for every group size.",
-      img: "/images/svc-ride.jpg",
+      img: "/ride.png",
       imgAlt: "Vonix ride",
       points: [
         { title: "Upfront pricing", text: "See the exact fare before you confirm — distance, time and any surge are calculated before dispatch." },
@@ -207,7 +207,7 @@ export const en = {
     courier: {
       title: "Vonix Courier — moped express delivery",
       sub: "Documents, keys, gifts and small parcels couriered across Yerevan by dedicated moped riders. Fast, tracked and affordable.",
-      img: "/images/svc-moped.jpg",
+      img: "/delivery.png",
       imgAlt: "Vonix courier moped",
       points: [
         { title: "Under an hour", text: "Most cross-city deliveries complete within 45–60 minutes, traffic depending." },
@@ -224,7 +224,7 @@ export const en = {
     cargo: {
       title: "Vonix Cargo — vans, sprinters & trucks",
       sub: "Business deliveries, office moves and freight across Armenia. From city vans to 3.5-tonne trucks with trained drivers.",
-      img: "/images/svc-cargo.jpg",
+      img: "/cargo.png",
       imgAlt: "Vonix cargo van",
       points: [
         { title: "Full size range", text: "Courier vans, sprinter vans and box trucks up to 3.5 tonnes for any load." },

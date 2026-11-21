@@ -8,9 +8,9 @@ type SvcKey = "rides" | "courier" | "cargo" | "orders";
 const MODE_MAP: Record<SvcKey, "ride" | "courier" | "cargo" | "order"> = { rides: "ride", courier: "courier", cargo: "cargo", orders: "order" };
 
 export const SVC_IMAGES: Record<SvcKey, string> = {
-  rides: "/images/svc-ride.jpg",
-  courier: "/images/svc-moped.jpg",
-  cargo: "/images/svc-cargo.jpg",
+  rides: "/ride.png",
+  courier: "/delivery.png",
+  cargo: "/cargo.png",
   orders: "/images/svc-food.jpg",
 };
 
@@ -33,7 +33,7 @@ export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r
       <section className="section" style={{ paddingTop: "2rem" }}>
         <div className="container detail-grid">
           <Reveal className="detail-visual">
-            <div className="media-frame aspect-1610">
+            <div className={`media-frame aspect-1610${svc === "courier" || svc === "cargo" ? " fit-contain" : ""}`}>
               <img src={p.img} alt={p.imgAlt} loading="lazy" />
             </div>
           </Reveal>

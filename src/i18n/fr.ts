@@ -182,7 +182,7 @@ export const fr = {
     rides: {
       title: "Vonix Rides — taxis en ville et trajets interurbains",
       sub: "Réservez une course à Erevan ou entre villes en quelques secondes. Tarifs en AMD affichés à l'avance, suivi du chauffeur en direct et plusieurs classes de véhicules.",
-      img: "/images/svc-ride.jpg",
+      img: "/ride.png",
       imgAlt: "Course Vonix",
       points: [
         { title: "Tarification transparente", text: "Voyez le tarif exact avant de confirmer — distance, durée et éventuel tarif dynamique sont calculés avant l'envoi." },
@@ -199,7 +199,7 @@ export const fr = {
     courier: {
       title: "Vonix Courier — livraison express en scooter",
       sub: "Documents, clés, cadeaux et petits colis livrés dans Erevan par des coursiers dédiés. Rapide, suivi et abordable.",
-      img: "/images/svc-moped.jpg",
+      img: "/delivery.png",
       imgAlt: "Coursier scooter Vonix",
       points: [
         { title: "Moins d'une heure", text: "La plupart des livraisons intra-urbaines se terminent en 45–60 minutes, selon la circulation." },
@@ -216,7 +216,7 @@ export const fr = {
     cargo: {
       title: "Vonix Cargo — fourgons, sprinters et camions",
       sub: "Livraisons professionnelles, déménagements de bureaux et fret partout en Arménie. Des fourgons urbains aux camions de 3,5 tonnes avec chauffeurs formés.",
-      img: "/images/svc-cargo.jpg",
+      img: "/cargo.png",
       imgAlt: "Fourgon cargo Vonix",
       points: [
         { title: "Gamme complète", text: "Fourgons coursiers, sprinters et camions jusqu'à 3,5 tonnes pour toute charge." },

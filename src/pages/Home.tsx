@@ -37,6 +37,9 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
               <button className="btn btn-primary" onClick={goDownload}>{h.primary}</button>
               <a className="btn btn-ghost" href="#/services" onClick={(e) => { e.preventDefault(); navigate("/services"); }}>{h.secondary}</a>
             </div>
+            <div className="hero-card hero-card-inline">
+              <HeroOrderCard onOrder={() => navigate("/download")} />
+            </div>
             <div className="hero-proof">
               <div className="proof-item"><div className="num">6+</div><div className="lbl">{h.proofRides}</div></div>
               <div className="proof-item"><div className="num">20+</div><div className="lbl">{h.proofCities}</div></div>
@@ -44,13 +47,8 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
             </div>
           </div>
           <div className="hero-visual">
-            <div className="hero-media">
-              <div className="media-frame aspect-43 hero-photo">
-                <img src="/images/hero-car.jpg" alt="City ride in Yerevan" />
-              </div>
-              <div className="hero-card">
-                <HeroOrderCard onOrder={() => navigate("/download")} />
-              </div>
+            <div className="media-frame aspect-1610 hero-photo">
+              <img src="/ride.png" alt="Vonix ride" />
             </div>
           </div>
         </div>
@@ -69,13 +67,13 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
           <SectionHead title={t.servicesPage.title} sub={t.servicesPage.sub} />
           <div className="svc-photo-grid">
             {[
-              { img: "/images/svc-ride.jpg", to: "/services/rides" as Route, meta: t.svcCards.items[0] },
-              { img: "/images/svc-food.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[1] },
-              { img: "/images/svc-markets.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[2] },
-              { img: "/images/svc-moped.jpg", to: "/services/courier" as Route, meta: t.svcCards.items[3] },
+              { img: "/ride.png", to: "/services/rides" as Route, meta: t.svcCards.items[0], fit: "cover" },
+              { img: "/images/svc-food.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[1], fit: "cover" },
+              { img: "/images/svc-markets.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[2], fit: "cover" },
+              { img: "/delivery.png", to: "/services/courier" as Route, meta: t.svcCards.items[3], fit: "contain" },
             ].map((c) => (
               <a className="svc-photo-card reveal" key={c.img} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
-                <div className="media-frame aspect-1610"><img src={c.img} alt={c.meta.title} loading="lazy" /></div>
+                <div className={`media-frame aspect-1610${c.fit === "contain" ? " fit-contain" : ""}`}><img src={c.img} alt={c.meta.title} loading="lazy" /></div>
                 <div className="svc-photo-body">
                   <h3>{c.meta.title}</h3>
                   <p>{c.meta.text}</p>
