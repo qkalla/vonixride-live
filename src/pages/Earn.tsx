@@ -5,11 +5,11 @@ import type { Route } from "../router";
 type EarnKey = "drivers" | "couriers" | "restaurants" | "fleet";
 const SUB: Record<EarnKey, Route> = { drivers: "/earn/drivers", couriers: "/earn/couriers", restaurants: "/earn/restaurants", fleet: "/earn/fleet" };
 
-const EARN_BANNERS: Record<EarnKey, { img: string; tint: string }> = {
-  drivers: { img: "/cab.png", tint: "tint-ride" },
-  couriers: { img: "/deliervy.png", tint: "tint-moped" },
-  restaurants: { img: "/grocery.png", tint: "tint-market" },
-  fleet: { img: "/cargoo.png", tint: "tint-cargo" },
+const EARN_BANNERS: Record<EarnKey, string> = {
+  drivers: "/banner-cab.png",
+  couriers: "/banner-deliervy.png",
+  restaurants: "/banner-grocery.png",
+  fleet: "/banner-cargoo.png",
 };
 
 const EARN_VISUALS: Record<EarnKey, { img: string; tint: string; fit: "art" | "photo" }> = {
@@ -29,8 +29,7 @@ export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route
     return (
       <>
         <section className="svc-banner">
-          <div className={`svc-banner-tint ${b.tint}`} />
-          <img className="svc-banner-bg contain" src={b.img} alt={g.title} />
+          <img className="svc-banner-bg" src={b} alt={g.title} />
           <div className="svc-banner-scrim" />
           <div className="container svc-banner-inner">
             <Reveal>

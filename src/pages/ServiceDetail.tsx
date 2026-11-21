@@ -2,18 +2,17 @@ import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
 import { CheckIcon } from "../components/icons";
 import { Estimator } from "../components/Estimator";
-import { CourierScreen } from "../components/ServiceScreens";
 import type { Route } from "../router";
 
 type SvcKey = "rides" | "courier" | "cargo" | "orders";
 const MODE_MAP: Record<SvcKey, "ride" | "courier" | "cargo" | "order"> = { rides: "ride", courier: "courier", cargo: "cargo", orders: "order" };
 
-/* Landing cards use cab/food.jpg/grocery/deliervy/cargoo — banners use different assets */
-const BANNERS: Record<SvcKey, { img: string | null; tint: string }> = {
-  rides: { img: "/ride.png", tint: "tint-ride" },
-  courier: { img: null, tint: "tint-moped" },
-  cargo: { img: "/cargo.png", tint: "tint-cargo" },
-  orders: { img: "/images/market.jpg", tint: "tint-market" },
+/* Full-bleed banner visuals — distinct files from the landing cards */
+const BANNERS: Record<SvcKey, string> = {
+  rides: "/ride.png",
+  courier: "/banner-deliervy.png",
+  cargo: "/cargo.png",
+  orders: "/images/market.jpg",
 };
 
 export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r: Route) => void }) {
@@ -22,9 +21,8 @@ export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r
   const banner = BANNERS[svc];
   return (
     <>
-      <section className={`svc-banner${banner.img ? "" : " svc-banner-ui"}`}>
-        {banner.img && <img className="svc-banner-bg" src={banner.img} alt={p.imgAlt} />}
-        {!banner.img && <div className={`svc-banner-tint ${banner.tint}`} />}
+      <section className="svc-banner">
+        <img className="svc-banner-bg" src={banner} alt={p.imgAlt} />
         <div className="svc-banner-scrim" />
         <div className="container svc-banner-inner">
           <Reveal>
@@ -34,11 +32,6 @@ export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r
             <a className="btn btn-light" href="#download" onClick={(e) => { e.preventDefault(); navigate("/"); setTimeout(() => document.getElementById("download")?.scrollIntoView({ behavior: "smooth" }), 80); }}>{p.cta}</a>
           </Reveal>
         </div>
-        {svc === "courier" && (
-          <div className="svc-banner-screen">
-            <CourierScreen />
-          </div>
-        )}
       </section>
 
       <section className="section">
