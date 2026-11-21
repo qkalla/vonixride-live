@@ -178,4 +178,131 @@ export const fr = {
       ],
     },
   },
+  svcPages: {
+    rides: {
+      title: "Vonix Rides — taxis en ville et trajets interurbains",
+      sub: "Réservez une course à Erevan ou entre villes en quelques secondes. Tarifs en AMD affichés à l'avance, suivi du chauffeur en direct et plusieurs classes de véhicules.",
+      img: "/img/ride.jpg",
+      imgAlt: "Course Vonix",
+      points: [
+        { title: "Tarification transparente", text: "Voyez le tarif exact avant de confirmer — distance, durée et éventuel tarif dynamique sont calculés avant l'envoi." },
+        { title: "Suivi en direct", text: "Regardez votre chauffeur approcher sur la carte en temps réel, avec des estimations d'arrivée et un contact intégré." },
+        { title: "Toutes les classes", text: "Berlines Standard et Comfort, berlines Business et véhicules utilitaires — choisissez ce qui convient." },
+      ],
+      steps: [
+        { title: "Définir départ et arrivée", text: "Saisissez une adresse ou déposez un repère. Le géocodage au niveau de la rue trace votre itinéraire instantanément." },
+        { title: "Choisir votre course", text: "Comparez les classes et les tarifs affichés, puis confirmez en espèces, par carte ou avec Vonix Pay." },
+        { title: "Retrouvez votre chauffeur", text: "Suivez l'arrivée en direct, récupérez les infos du chauffeur et voyagez avec un tarif verrouillé." },
+      ],
+      cta: "Télécharger l'app",
+    },
+    courier: {
+      title: "Vonix Courier — livraison express en scooter",
+      sub: "Documents, clés, cadeaux et petits colis livrés dans Erevan par des coursiers dédiés. Rapide, suivi et abordable.",
+      img: "/img/moped.webp",
+      imgAlt: "Coursier scooter Vonix",
+      points: [
+        { title: "Moins d'une heure", text: "La plupart des livraisons intra-urbaines se terminent en 45–60 minutes, selon la circulation." },
+        { title: "Suivi du colis en direct", text: "Expéditeurs et destinataires suivent le coursier sur la carte jusqu'à la remise." },
+        { title: "Photos à la remise", text: "Les coursiers joignent une photo lors de la remise pour que les deux parties aient une preuve." },
+      ],
+      steps: [
+        { title: "Décrire le colis", text: "Taille, poids et consignes de manipulation — l'app suggère la bonne classe de coursier." },
+        { title: "Définir départ et arrivée", text: "Deux repères sur la carte, un prix affiché à l'avance, en moins d'une minute." },
+        { title: "Confier le colis", text: "Retrouvez le coursier, obtenez un lien de suivi et recevez une confirmation de livraison." },
+      ],
+      cta: "Envoyer un colis",
+    },
+    cargo: {
+      title: "Vonix Cargo — fourgons, sprinters et camions",
+      sub: "Livraisons professionnelles, déménagements de bureaux et fret partout en Arménie. Des fourgons urbains aux camions de 3,5 tonnes avec chauffeurs formés.",
+      img: "/img/cargo.jpg",
+      imgAlt: "Fourgon cargo Vonix",
+      points: [
+        { title: "Gamme complète", text: "Fourgons coursiers, sprinters et camions jusqu'à 3,5 tonnes pour toute charge." },
+        { title: "Comptes entreprise", text: "Livraisons récurrentes, facturation regroupée et envoi prioritaire pour les partenaires." },
+        { title: "Chauffeurs formés", text: "Chaque chauffeur cargo est vérifié (KYC) et son véhicule inspecté avant le premier envoi." },
+      ],
+      steps: [
+        { title: "Décrire la charge", text: "Poids, dimensions et besoins de chargement déterminent le véhicule recommandé." },
+        { title: "Obtenir un devis fixe", text: "Tarification basée sur la distance, sans surprises horaires — confirmé avant le ramassage." },
+        { title: "Suivre le camion", text: "Suivi du véhicule en direct et contact avec le chauffeur pendant tout le trajet." },
+      ],
+      cta: "Demander un devis",
+    },
+    orders: {
+      title: "Vonix Orders — restauration, courses et retail",
+      sub: "Restaurants, supermarchés, pharmacies et boutiques d'Erevan livrent via Vonix avec suivi de commande en direct.",
+      img: "/img/restaurants.png",
+      imgAlt: "Livraison restaurant Vonix",
+      points: [
+        { title: "Des centaines de marchands", text: "Des restaurants du centre aux pharmacies de quartier — tout dans un seul flux." },
+        { title: "Statut de commande en direct", text: "Suivez chaque étape : confirmée, en préparation, coursier en route, livrée." },
+        { title: "Commandes groupées et planifiées", text: "Commandez pour une table ou programmez une livraison adaptée à votre journée." },
+      ],
+      steps: [
+        { title: "Parcourir et ajouter", text: "Recherchez plats, produits ou médicaments — les prix incluent la livraison." },
+        { title: "Payer avec un devis", text: "Le prix final, livraison comprise, est verrouillé avant le paiement." },
+        { title: "Suivre jusqu'à votre porte", text: "Suivez le coursier sur la carte et recevez une notification à chaque étape." },
+      ],
+      cta: "Commander maintenant",
+    },
+  },
+  howPage: {
+    title: "Comment fonctionne Vonix",
+    sub: "Trois flux simples — pour les passagers, pour les expéditeurs, et pour tous ceux qui commandent nourriture, courses ou médicaments.",
+    groups: [
+      {
+        audience: "Pour les passagers",
+        items: [
+          { title: "Saisir départ et arrivée", text: "Deux repères sur la carte. L'app calcule distance, ETA et tarif instantanément." },
+          { title: "Choisir une classe de véhicule", text: "Standard, Comfort ou Business — chacune avec son propre prix affiché." },
+          { title: "Voyager avec un tarif verrouillé", text: "Le tarif vu est le tarif payé. Suivez le chauffeur en direct et contactez-le dans l'app." },
+        ],
+      },
+      {
+        audience: "Pour les expéditeurs",
+        items: [
+          { title: "Décrire ce que vous envoyez", text: "La taille du colis ou le poids du fret détermine la classe de coursier ou de véhicule." },
+          { title: "Définir les deux adresses", text: "Repères de ramassage et de livraison avec un prix affiché à l'avance." },
+          { title: "Suivre jusqu'à la remise", text: "Suivez le coursier ou le camion en direct et partagez le lien de suivi avec le destinataire." },
+        ],
+      },
+      {
+        audience: "Pour les clients de commande",
+        items: [
+          { title: "Choisir un marchand", text: "Restaurants, supermarchés, pharmacies et boutiques partout à Erevan." },
+          { title: "Composer votre commande", text: "Ajoutez des articles, appliquez des promos et voyez le prix complet avec livraison avant de payer." },
+          { title: "Suivre le coursier", text: "Statuts en direct de la cuisine jusqu'à votre porte." },
+        ],
+      },
+    ],
+  },
+  guidePage: {
+    title: "Guides et réponses",
+    sub: "Des guides pratiques pour les questions les plus fréquentes.",
+    articles: [
+      { title: "Comment les tarifs sont calculés", text: "Chaque devis combine tarif de base, distance, durée estimée et demande actuelle. Le montant affiché avant confirmation est celui que vous payez — les multiplicateurs de demande sont toujours visibles." },
+      { title: "Options de paiement", text: "Payez en espèces au chauffeur ou au coursier, par carte locale via le module de paiement, ou avec votre solde Vonix Pay en un geste. Les reçus sont dans votre historique." },
+      { title: "Sécurité et vérification", text: "Chauffeurs, coursiers et marchands passent une vérification d'identité avant leur premier envoi. Chaque trajet affiche les infos du chauffeur, du véhicule et le partage de position en direct." },
+      { title: "Annulations et remboursements", text: "Annulez gratuitement avant l'envoi d'un chauffeur ou d'un coursier. Après l'envoi, de petits frais s'appliquent — le montant exact est toujours affiché avant confirmation." },
+      { title: "Planifier à l'avance", text: "Besoin d'une course à 8 h demain ? Planifiez courses et livraisons à l'avance et l'app envoie automatiquement à l'heure choisie." },
+      { title: "Pour les entreprises", text: "Restaurants, boutiques et partenaires logistiques gèrent commandes, gains et envois depuis le portail Vonix Business — les commandes apparaissent en temps réel dès le paiement." },
+    ],
+  },
+  bizDeep: {
+    pillarsTitle: "Une plateforme, quatre sources de revenus",
+    pillars: [
+      { title: "Commandes restaurant & retail", text: "Acceptez les commandes de l'app Vonix dès leur passage. Minuteurs de préparation, suivi de remise au coursier et règlements quotidiens regroupés." },
+      { title: "Capacité coursier", text: "Vos propres coursiers ou le dispatch Vonix — choisissez par zone. Offres de missions en temps réel avec gains affichés par livraison." },
+      { title: "Cargo & fret", text: "Proposez fourgons et camions pour les livraisons professionnelles. Les expéditeurs vérifiés voient vos véhicules en premier dans le classement de dispatch." },
+      { title: "Mobilité d'équipe", text: "Distribuez des crédits de course aux employés et suivez les trajets de l'équipe — pratique pour bureaux, hôtels et équipes terrain à Erevan." },
+    ],
+    stepsTitle: "De l'inscription à la première commande",
+    steps: [
+      { title: "Créer votre compte partenaire", text: "Inscrivez-vous sur le portail partenaire avec vos infos professionnelles — la vérification prend généralement un jour ouvré." },
+      { title: "Configurer catalogue et horaires", text: "Téléversez votre menu ou liste de produits, réglez temps de préparation et horaires. La disponibilité se synchronise instantanément avec l'app." },
+      { title: "Passer en ligne", text: "Activez le bouton en ligne et les commandes arrivent. Suivez tout — file, gains, coursiers — depuis un seul tableau de bord." },
+    ],
+  },
 };

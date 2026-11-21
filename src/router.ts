@@ -3,14 +3,20 @@ import { useEffect, useState } from "react";
 export type Route =
   | "/"
   | "/services"
+  | "/services/rides"
+  | "/services/courier"
+  | "/services/cargo"
+  | "/services/orders"
   | "/business"
+  | "/how-it-works"
+  | "/guide"
   | "/cities"
   | "/about"
   | "/contact"
   | "/privacy"
   | "/terms";
 
-const VALID: Route[] = ["/", "/services", "/business", "/cities", "/about", "/contact", "/privacy", "/terms"];
+const VALID: Route[] = ["/", "/services", "/services/rides", "/services/courier", "/services/cargo", "/services/orders", "/business", "/how-it-works", "/guide", "/cities", "/about", "/contact", "/privacy", "/terms"];
 
 function parseHash(): Route {
   const h = window.location.hash.replace(/^#/, "");

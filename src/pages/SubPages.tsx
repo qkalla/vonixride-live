@@ -6,6 +6,7 @@ import { BusinessPreview } from "../components/previews";
 
 const PARTNER_URL = "https://vonix-platform.onrender.com/partner";
 const KEYS = ["ride", "food", "grocery", "pharmacy", "cargo", "moped"] as const;
+const DETAIL: Record<string, string> = { ride: "/services/rides", cargo: "/services/cargo", moped: "/services/courier", food: "/services/orders", grocery: "/services/orders", pharmacy: "/services/orders" };
 
 function PageHero({ title, sub }: { title: string; sub: string }) {
   return (
@@ -20,7 +21,7 @@ function PageHero({ title, sub }: { title: string; sub: string }) {
   );
 }
 
-export function ServicesPage() {
+export function ServicesPage({ navigate }: { navigate?: (r: never) => void }) {
   const { t } = useLang();
   return (
     <>
@@ -31,12 +32,12 @@ export function ServicesPage() {
             {KEYS.map((key) => {
               const s = t.svc[key];
               return (
-                <article className="service-card reveal" key={key}>
+                <a className="service-card reveal svc-link" key={key} href={`#${DETAIL[key]}`} onClick={(e) => { e.preventDefault(); navigate?.(DETAIL[key] as never); window.scrollTo({ top: 0 }); }}>
                   <div className="service-icon"><ServiceIcon name={key as IconName} /></div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="service-tag">{s.tag}</span>
-                </article>
+                  <span className="service-tag">{s.tag} →</span>
+                </a>
               );
             })}
           </div>
@@ -64,6 +65,18 @@ export function BusinessPage() {
               <a className="btn btn-primary" href={PARTNER_URL} target="_blank" rel="noreferrer">{b.portal}</a>
             </div>
             <p className="page-note">{b.note}</p>
+            <h3 className="biz-pillars-h">{t.bizDeep.pillarsTitle}</h3>
+            <div className="pillar-grid">
+              {t.bizDeep.pillars.map((p) => (
+                <div className="pillar-card reveal" key={p.title}><strong>{p.title}</strong><p>{p.text}</p></div>
+              ))}
+            </div>
+            <h3 className="biz-pillars-h">{t.bizDeep.stepsTitle}</h3>
+            <div className="steps">
+              {t.bizDeep.steps.map((st, i) => (
+                <div className="step reveal" key={st.title}><div className="step-num">{String(i + 1).padStart(2, "0")}</div><h3>{st.title}</h3><p>{st.text}</p></div>
+              ))}
+            </div>
           </Reveal>
           <Reveal><div className="biz-wrap"><BusinessPreview /></div></Reveal>
         </div>

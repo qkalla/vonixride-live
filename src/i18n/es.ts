@@ -178,4 +178,131 @@ export const es = {
       ],
     },
   },
+  svcPages: {
+    rides: {
+      title: "Vonix Rides — taxis urbanos y viajes interurbanos",
+      sub: "Reserva un viaje en Ereván o entre ciudades en segundos. Tarifas en AMD por adelantado, seguimiento del conductor en vivo y varias clases de vehículos.",
+      img: "/img/ride.jpg",
+      imgAlt: "Viaje Vonix",
+      points: [
+        { title: "Precio por adelantado", text: "Mira la tarifa exacta antes de confirmar — distancia, tiempo y cualquier multiplicador se calculan antes del envío." },
+        { title: "Seguimiento en vivo", text: "Observa a tu conductor acercarse en el mapa en tiempo real, con ETAs y contacto directo en la app." },
+        { title: "Todas las clases", text: "Sedanes Standard y Comfort, sedanes Business y vehículos polivalentes — elige el que te convenga." },
+      ],
+      steps: [
+        { title: "Define recogida y destino", text: "Escribe una dirección o suelta un pin. El geocodificador a nivel de calle traza tu ruta al instante." },
+        { title: "Elige tu viaje", text: "Compara clases y tarifas por adelantado, luego confirma con efectivo, tarjeta o Vonix Pay." },
+        { title: "Encuentra a tu conductor", text: "Sigue la llegada en vivo, obtén los datos del conductor y viaja con precio bloqueado." },
+      ],
+      cta: "Descargar la app",
+    },
+    courier: {
+      title: "Vonix Courier — mensajería exprés en moto",
+      sub: "Documentos, llaves, regalos y pequeños paquetes repartidos por Ereván con mensajeros dedicados. Rápido, con seguimiento y asequible.",
+      img: "/img/moped.webp",
+      imgAlt: "Mensajero en moto Vonix",
+      points: [
+        { title: "Menos de una hora", text: "La mayoría de entregas urbanas se completan en 45–60 minutos, según el tráfico." },
+        { title: "Seguimiento del paquete en vivo", text: "Remitentes y destinatarios siguen al mensajero en el mapa hasta la entrega." },
+        { title: "Fotos al entregar", text: "Los mensajeros adjuntan una foto en la entrega para que ambas partes tengan prueba." },
+      ],
+      steps: [
+        { title: "Describe el paquete", text: "Tamaño, peso y notas de manejo — la app sugiere la clase de mensajero adecuada." },
+        { title: "Define recogida y destino", text: "Dos pins en el mapa, un precio por adelantado, en menos de un minuto." },
+        { title: "Entrégalo", text: "Encuentra al mensajero, obtén un enlace de seguimiento y recibe la confirmación de entrega." },
+      ],
+      cta: "Enviar un paquete",
+    },
+    cargo: {
+      title: "Vonix Cargo — furgonetas, sprinters y camiones",
+      sub: "Entregas de empresa, mudanzas de oficinas y carga por toda Armenia. Desde furgonetas urbanas hasta camiones de 3,5 toneladas con conductores formados.",
+      img: "/img/cargo.jpg",
+      imgAlt: "Camión de carga Vonix",
+      points: [
+        { title: "Gama completa", text: "Furgonetas de mensajería, sprinters y camiones de hasta 3,5 toneladas para cualquier carga." },
+        { title: "Cuentas de empresa", text: "Entregas recurrentes, facturación consolidada y despacho prioritario para socios." },
+        { title: "Conductores formados", text: "Cada conductor de carga pasa verificación KYC e inspección del vehículo antes del primer envío." },
+      ],
+      steps: [
+        { title: "Describe la carga", text: "Peso, dimensiones y requisitos de carga determinan el vehículo recomendado." },
+        { title: "Obtén un presupuesto fijo", text: "Precio basado en distancia, sin sorpresas por hora — confirmado antes de la recogida." },
+        { title: "Sigue el camión", text: "Seguimiento del vehículo en vivo y contacto con el conductor durante todo el trayecto." },
+      ],
+      cta: "Solicitar presupuesto",
+    },
+    orders: {
+      title: "Vonix Orders — comida, mercado y retail",
+      sub: "Restaurantes, supermercados, farmacias y tiendas de Ereván entregan a través de Vonix con seguimiento de pedidos en vivo.",
+      img: "/img/restaurants.png",
+      imgAlt: "Entrega de restaurante Vonix",
+      points: [
+        { title: "Cientos de comercios", text: "Desde restaurantes del centro hasta farmacias del barrio — todo en un solo flujo." },
+        { title: "Estado del pedido en vivo", text: "Sigue cada etapa: confirmado, preparándose, mensajero asignado, entregado." },
+        { title: "Pedidos grupales y programados", text: "Pide para una mesa o programa una franja de entrega que se adapte a tu día." },
+      ],
+      steps: [
+        { title: "Explora y añade", text: "Busca platos, productos o medicamentos — los precios incluyen la entrega." },
+        { title: "Paga con presupuesto", text: "El precio final, incluida la entrega, se bloquea antes de pagar." },
+        { title: "Sigue hasta tu puerta", text: "Sigue al mensajero en el mapa y recibe avisos en cada etapa." },
+      ],
+      cta: "Pedir ahora",
+    },
+  },
+  howPage: {
+    title: "Cómo funciona Vonix",
+    sub: "Tres flujos sencillos — para pasajeros, para remitentes y para quienes piden comida, mercado o medicamentos.",
+    groups: [
+      {
+        audience: "Para pasajeros",
+        items: [
+          { title: "Indica recogida y destino", text: "Dos pins en el mapa. La app calcula distancia, ETA y tarifa al instante." },
+          { title: "Elige una clase de vehículo", text: "Standard, Comfort o Business — cada una con su propio precio por adelantado." },
+          { title: "Viaja con precio bloqueado", text: "La tarifa que viste es la que pagas. Sigue al conductor en vivo y contáctalo en la app." },
+        ],
+      },
+      {
+        audience: "Para remitentes",
+        items: [
+          { title: "Describe lo que envías", text: "El tamaño del paquete o el peso de la carga decide la clase de mensajero o vehículo." },
+          { title: "Define ambas direcciones", text: "Pins de recogida y entrega con un precio por adelantado." },
+          { title: "Sigue hasta la entrega", text: "Sigue al mensajero o al camión en vivo y comparte el enlace con el destinatario." },
+        ],
+      },
+      {
+        audience: "Para clientes de pedidos",
+        items: [
+          { title: "Elige un comercio", text: "Restaurantes, supermercados, farmacias y tiendas en todo Ereván." },
+          { title: "Arma tu pedido", text: "Añade artículos, aplica promos y ve el precio completo con entrega antes de pagar." },
+          { title: "Sigue al mensajero", text: "Actualizaciones de estado en vivo desde la cocina hasta tu puerta." },
+        ],
+      },
+    ],
+  },
+  guidePage: {
+    title: "Guías y respuestas",
+    sub: "Recorridos prácticos para las preguntas más frecuentes.",
+    articles: [
+      { title: "Cómo se calculan las tarifas", text: "Cada presupuesto combina tarifa base, distancia, tiempo estimado y demanda actual. El número que ves antes de confirmar es el que pagas — los multiplicadores de demanda siempre se muestran, nunca se ocultan." },
+      { title: "Opciones de pago", text: "Paga en efectivo al conductor o mensajero, con cualquier tarjeta local desde la hoja de pago, o con tu saldo Vonix Pay en un toque. Los recibos están en tu historial de actividad." },
+      { title: "Seguridad y verificación", text: "Conductores, mensajeros y comerciantes completan la verificación de identidad antes de su primer envío. Cada viaje muestra los datos del conductor, del vehículo y el compartir ubicación en vivo." },
+      { title: "Cancelaciones y reembolsos", text: "Cancela gratis antes de que se envíe un conductor o mensajero. Tras el envío se aplica una pequeña tarifa — el importe exacto siempre se muestra antes de confirmar." },
+      { title: "Programar con antelación", text: "¿Necesitas un viaje a las 8 AM mañana? Programa viajes y entregas por adelantado y la app envía automáticamente a la hora elegida." },
+      { title: "Para empresas", text: "Restaurantes, tiendas y socios logísticos gestionan pedidos, ganancias y envíos desde el portal Vonix Business — los pedidos aparecen en tiempo real en cuanto el cliente paga." },
+    ],
+  },
+  bizDeep: {
+    pillarsTitle: "Una plataforma, cuatro fuentes de ingresos",
+    pillars: [
+      { title: "Pedidos de restaurante y retail", text: "Acepta pedidos de la app Vonix en cuanto se realizan. Temporizadores de preparación, seguimiento de entrega al mensajero y liquidaciones diarias consolidadas." },
+      { title: "Capacidad de mensajería", text: "Tus propios mensajeros o el despacho de Vonix — elige por zona. Ofertas de trabajos en tiempo real con ganancias por adelantado por entrega." },
+      { title: "Carga y transporte", text: "Publica furgonetas y camiones para entregas de empresa. Los remitentes verificados ven tus vehículos primero en el ranking de despacho." },
+      { title: "Movilidad de equipo", text: "Emite créditos de viaje para empleados y sigue los trayectos del equipo — útil para oficinas, hoteles y equipos de campo en Ereván." },
+    ],
+    stepsTitle: "Del registro al primer pedido",
+    steps: [
+      { title: "Crea tu cuenta de socio", text: "Regístrate en el portal de socios con los datos de tu negocio — la verificación suele completarse en un día laborable." },
+      { title: "Configura catálogo y horarios", text: "Sube tu menú o lista de productos, define tiempos de preparación y horario. La disponibilidad se sincroniza al instante con la app." },
+      { title: "Ponte en línea", text: "Activa el interruptor de en línea y los pedidos empiezan a llegar. Sigue todo — cola, ganancias, mensajeros — desde un solo panel." },
+    ],
+  },
 };

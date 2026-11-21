@@ -31,7 +31,7 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
   const links: { label: string; to: Route }[] = [
     { label: t.nav.services, to: "/services" },
     { label: t.nav.business, to: "/business" },
-    { label: t.nav.how, to: "/#how" as Route },
+    { label: t.nav.how, to: "/how-it-works" },
     { label: t.nav.cities, to: "/cities" },
     { label: t.nav.about, to: "/about" },
     { label: t.nav.contact, to: "/contact" },

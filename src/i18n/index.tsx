@@ -9,8 +9,27 @@ import { LANGS, LANG_STORAGE_KEY, type Lang } from "./meta";
 
 export { LANGS, type Lang };
 
-export const STRINGS = { en, ru, hy, fr, ar, es } as const;
-export type Strings = (typeof STRINGS)[Lang];
+function mergeStrings<T>(base: T, over: Partial<T>): T {
+  const out: Record<string, unknown> = { ...(base as Record<string, unknown>) };
+  for (const [k, v] of Object.entries(over as Record<string, unknown>)) {
+    const bv = out[k];
+    out[k] = v && typeof v === "object" && !Array.isArray(v) && bv && typeof bv === "object" && !Array.isArray(bv)
+      ? mergeStrings(bv, v as Record<string, unknown>)
+      : v ?? bv;
+  }
+  return out as T;
+}
+
+const enTyped = en as Record<string, unknown>;
+export const STRINGS = {
+  en,
+  ru: mergeStrings(enTyped, ru as Record<string, unknown>) as typeof en,
+  hy: mergeStrings(enTyped, hy as Record<string, unknown>) as typeof en,
+  fr: mergeStrings(enTyped, fr as Record<string, unknown>) as typeof en,
+  ar: mergeStrings(enTyped, ar as Record<string, unknown>) as typeof en,
+  es: mergeStrings(enTyped, es as Record<string, unknown>) as typeof en,
+} as const;
+export type Strings = typeof en;
 
 interface LangCtx {
   lang: Lang;

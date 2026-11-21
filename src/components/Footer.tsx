@@ -7,12 +7,12 @@ const PARTNER_URL = "https://vonix-platform.onrender.com/partner";
 export function Footer({ navigate }: { navigate: (r: Route) => void }) {
   const { t } = useLang();
   const link = (label: string, to: Route) => (
-    <a key={label} href={`#${to}`} onClick={(e) => { e.preventDefault(); navigate(to); window.scrollTo({ top: 0 }); }}>
+    <a key={label} href={`#${to}`} onClick={(e) => { e.preventDefault(); navigate(to); window.scrollTo({ top: 0, left: 0 }); }}>
       {label}
     </a>
   );
   const ext = (label: string, href: string) => (
-    <a key={label} href={href} target="_blank" rel="noreferrer">{label}</a>
+    <a key={label} href={href} target="_blank" rel="noopener noreferrer">{label}</a>
   );
 
   return (
@@ -35,8 +35,10 @@ export function Footer({ navigate }: { navigate: (r: Route) => void }) {
         <nav className="footer-col">
           <h4>{t.footer.services}</h4>
           {link(t.nav.services, "/services")}
-          <a href="#/#how" onClick={(e) => { e.preventDefault(); navigate("/"); setTimeout(() => document.getElementById("how")?.scrollIntoView(), 80); }}>{t.footer.howLink}</a>
-          {link(t.footer.citiesLink, "/cities")}
+          {link(t.svc.ride.title, "/services/rides")}
+          {link(t.svc.moped.title, "/services/courier")}
+          {link(t.svc.cargo.title, "/services/cargo")}
+          {link(t.svc.food.title, "/services/orders")}
         </nav>
         <nav className="footer-col">
           <h4>{t.footer.partners}</h4>
@@ -48,6 +50,9 @@ export function Footer({ navigate }: { navigate: (r: Route) => void }) {
           <h4>{t.footer.company}</h4>
           {link(t.footer.about, "/about")}
           {link(t.footer.contact, "/contact")}
+          {link(t.nav.how, "/how-it-works")}
+          {link(t.guidePage.title, "/guide")}
+          {link(t.footer.citiesLink, "/cities")}
         </nav>
         <nav className="footer-col">
           <h4>{t.footer.legal}</h4>

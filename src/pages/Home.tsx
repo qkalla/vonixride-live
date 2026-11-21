@@ -69,13 +69,14 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
           <div className="services-grid">
             {(["ride", "food", "grocery", "pharmacy", "cargo", "moped"] as const).map((key) => {
               const s = t.svc[key];
+              const to: Route = key === "ride" ? "/services/rides" : key === "cargo" ? "/services/cargo" : key === "moped" ? "/services/courier" : "/services/orders";
               return (
-                <article className="service-card reveal" key={key}>
+                <a className="service-card reveal svc-link" key={key} href={`#${to}`} onClick={(e) => { e.preventDefault(); navigate(to); window.scrollTo({ top: 0 }); }}>
                   <div className="service-icon"><ServiceIcon name={key as IconName} /></div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <span className="service-tag">{s.tag}</span>
-                </article>
+                  <span className="service-tag">{s.tag} →</span>
+                </a>
               );
             })}
           </div>

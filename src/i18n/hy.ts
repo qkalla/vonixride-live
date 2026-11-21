@@ -178,6 +178,133 @@ export const hy = {
       ],
     },
   },
+  svcPages: {
+    rides: {
+      title: "Vonix Rides — city taxis & intercity trips",
+      sub: "Book a ride in Yerevan or between cities in seconds. Upfront AMD fares, live driver tracking and multiple vehicle classes for every group size.",
+      img: "/img/ride.jpg",
+      imgAlt: "Vonix ride",
+      points: [
+        { title: "Upfront pricing", text: "See the exact fare before you confirm — distance, time and any surge are calculated before dispatch." },
+        { title: "Live tracking", text: "Watch your driver approach on the map in real time, with ETA updates and direct in-app contact." },
+        { title: "Every vehicle class", text: "Standard sedans, Comfort cars, Business sedans and multipurpose vehicles — pick what fits." },
+      ],
+      steps: [
+        { title: "Set pickup & drop-off", text: "Type an address or drop a pin. Street-level geocoding snaps your route instantly." },
+        { title: "Choose your ride", text: "Compare classes and upfront fares, then confirm with cash, card or Vonix Pay." },
+        { title: "Meet your driver", text: "Track arrival live, get the driver's details, and ride with upfront-locked pricing." },
+      ],
+      cta: "Get the app",
+    },
+    courier: {
+      title: "Vonix Courier — moped express delivery",
+      sub: "Documents, keys, gifts and small parcels couriered across Yerevan by dedicated moped riders. Fast, tracked and affordable.",
+      img: "/img/moped.webp",
+      imgAlt: "Vonix courier moped",
+      points: [
+        { title: "Under an hour", text: "Most cross-city deliveries complete within 45–60 minutes, traffic depending." },
+        { title: "Live parcel tracking", text: "Senders and recipients watch the courier move on the map until handoff." },
+        { title: "Photos on delivery", text: "Couriers attach a photo at handoff so both sides have proof of delivery." },
+      ],
+      steps: [
+        { title: "Describe the parcel", text: "Size, weight and any handling notes — the app suggests the right courier class." },
+        { title: "Set pickup & drop-off", text: "Two pins on the map, an upfront price, done in under a minute." },
+        { title: "Hand it over", text: "Meet the courier, get a tracking link, and receive a delivery confirmation." },
+      ],
+      cta: "Send a parcel",
+    },
+    cargo: {
+      title: "Vonix Cargo — vans, sprinters & trucks",
+      sub: "Business deliveries, office moves and freight across Armenia. From city vans to 3.5-tonne trucks with trained drivers.",
+      img: "/img/cargo.jpg",
+      imgAlt: "Vonix cargo van",
+      points: [
+        { title: "Full size range", text: "Courier vans, sprinter vans and box trucks up to 3.5 tonnes for any load." },
+        { title: "Business accounts", text: "Recurring deliveries, consolidated invoicing and priority dispatch for partners." },
+        { title: "Trained drivers", text: "Every cargo driver is KYC-verified with vehicle inspection before first dispatch." },
+      ],
+      steps: [
+        { title: "Describe the load", text: "Weight, dimensions and loading requirements shape the vehicle recommendation." },
+        { title: "Get a fixed quote", text: "Distance-based pricing with no hourly surprises — confirmed before pickup." },
+        { title: "Track the truck", text: "Live vehicle tracking and driver contact for the whole journey." },
+      ],
+      cta: "Request a quote",
+    },
+    orders: {
+      title: "Vonix Orders — food, grocery & retail",
+      sub: "Restaurants, supermarkets, pharmacies and shops across Yerevan deliver through Vonix with live order tracking.",
+      img: "/img/restaurants.png",
+      imgAlt: "Vonix restaurant delivery",
+      points: [
+        { title: "Hundreds of merchants", text: "From downtown restaurants to neighborhood pharmacies — all in one cart flow." },
+        { title: "Live order status", text: "Watch each stage: confirmed, preparing, courier picked up, delivered." },
+        { title: "Group & schedule orders", text: "Order for a table or schedule a delivery window that suits your day." },
+      ],
+      steps: [
+        { title: "Browse & add items", text: "Search dishes, products or medicines — prices include delivery." },
+        { title: "Checkout with a quote", text: "The final price, including delivery fee, is locked before you pay." },
+        { title: "Track to your door", text: "Follow the courier on the map and get notified at every stage." },
+      ],
+      cta: "Order now",
+    },
+  },
+  howPage: {
+    title: "How Vonix works",
+    sub: "Three simple flows — for riders, for senders, and for everyone ordering food, groceries or medicine.",
+    groups: [
+      {
+        audience: "For riders",
+        items: [
+          { title: "Enter pickup and drop-off", text: "Two pins on the map. The app calculates distance, ETA and fare instantly." },
+          { title: "Pick a vehicle class", text: "Standard, Comfort or Business — each with its own upfront price." },
+          { title: "Ride with locked pricing", text: "The fare you saw is the fare you pay. Track the driver live and contact them in-app." },
+        ],
+      },
+      {
+        audience: "For senders",
+        items: [
+          { title: "Describe what you're sending", text: "Parcel size or cargo weight decides the courier or vehicle class." },
+          { title: "Set both addresses", text: "Pickup and drop-off pins with an upfront delivery price." },
+          { title: "Track until handoff", text: "Follow the courier or truck live and share the tracking link with the recipient." },
+        ],
+      },
+      {
+        audience: "For order customers",
+        items: [
+          { title: "Choose a merchant", text: "Restaurants, supermarkets, pharmacies and shops across Yerevan." },
+          { title: "Build your order", text: "Add items, apply promos, and see the full price including delivery before paying." },
+          { title: "Track the courier", text: "Live status updates from kitchen to your door." },
+        ],
+      },
+    ],
+  },
+  guidePage: {
+    title: "Guides & answers",
+    sub: "Practical walkthroughs for the things people ask about most.",
+    articles: [
+      { title: "How fares are calculated", text: "Every quote combines base fare, distance, estimated time and current demand. The number you see before confirming is the number you pay — surge multipliers are always shown, never hidden." },
+      { title: "Payment options", text: "Pay with cash to the driver or courier, any local card via the payment sheet, or Vonix Pay balance for one-tap checkout. Receipts live in your activity history." },
+      { title: "Safety & verification", text: "Drivers, couriers and merchants complete identity verification before their first dispatch. Every trip shows driver details, vehicle info and live location sharing." },
+      { title: "Cancellations & refunds", text: "Cancel free of charge before a driver or courier is dispatched. After dispatch, a small fee applies — the exact amount is always shown before you confirm." },
+      { title: "Scheduling ahead", text: "Need a ride at 8 AM tomorrow? Schedule rides and deliveries in advance and the app dispatches automatically at your chosen time." },
+      { title: "For businesses", text: "Restaurants, shops and logistics partners manage orders, earnings and dispatch from the Vonix Business portal — orders appear in real time the moment a customer checks out." },
+    ],
+  },
+  bizDeep: {
+    pillarsTitle: "One platform, four revenue streams",
+    pillars: [
+      { title: "Restaurant & retail orders", text: "Accept orders from the Vonix app the moment they are placed. Preparation timers, courier handoff tracking and consolidated daily settlements." },
+      { title: "Courier capacity", text: "Your own riders or Vonix dispatch — choose per zone. Real-time job offers with upfront earnings per delivery." },
+      { title: "Cargo & freight", text: "List vans and trucks for business deliveries. Verified shippers see your vehicles first in dispatch ranking." },
+      { title: "Team mobility", text: "Issue employee ride credits and track team trips — useful for offices, hotels and field teams across Yerevan." },
+    ],
+    stepsTitle: "From signup to first order",
+    steps: [
+      { title: "Create your partner account", text: "Register at the partner portal with your business details — verification usually completes within one business day." },
+      { title: "Set your catalog & hours", text: "Upload your menu or product list, set prep times and opening hours. Live availability syncs to the app instantly." },
+      { title: "Go live", text: "Flip the online switch and orders start flowing. Track everything — queue, earnings, couriers — from one dashboard." },
+    ],
+  },
 };
 
 
