@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
 import { BusinessPreview } from "../components/previews";
@@ -17,6 +18,16 @@ function SectionHead({ title, sub }: { title: string; sub?: string }) {
 export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
   const { t } = useLang();
   const h = t.hero;
+  const carRef = useRef<HTMLDivElement>(null);
+  const scrollCar = (dir: number) => carRef.current?.scrollBy({ left: dir * 380, behavior: "smooth" });
+
+  const CARDS: { to: Route; img: string; tint: string }[] = [
+    { to: "/services/rides", img: "/cab.png", tint: "tint-ride" },
+    { to: "/services/orders", img: "/deliervy.png", tint: "tint-food" },
+    { to: "/services/orders", img: "/grocery.png", tint: "tint-market" },
+    { to: "/services/courier", img: "/delivery.png", tint: "tint-moped" },
+    { to: "/services/cargo", img: "/cargoo.png", tint: "tint-cargo" },
+  ];
 
   const goDownload = () => {
     navigate("/");
@@ -53,25 +64,26 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
       <section className="section section-alt" id="services">
         <div className="container">
           <SectionHead title={t.servicesPage.title} sub={t.servicesPage.sub} />
-          <div className="svc-list">
-            {[
-              { to: "/services/rides" as Route },
-              { to: "/services/orders" as Route },
-              { to: "/services/orders" as Route },
-              { to: "/services/courier" as Route },
-              { to: "/services/cargo" as Route },
-            ].map((c, i) => {
-              const meta = t.svcShowcase[i];
-              return (
-                <a className="svc-row reveal" key={meta.title} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
-                  <div className="svc-row-main">
-                    <h3>{meta.title}</h3>
-                    <p>{meta.sub}</p>
-                  </div>
-                  <span className="svc-row-cta">{meta.cta} <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-                </a>
-              );
-            })}
+          <div className="svc-carousel-wrap">
+            <div className="svc-carousel" ref={carRef}>
+              {CARDS.map((c, i) => {
+                const meta = t.svcShowcase[i];
+                return (
+                  <a className="svc-tall svc-tall-art reveal" key={meta.title} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
+                    <div className={`svc-tall-bg ${c.tint}`}><img src={c.img} alt={meta.title} loading="lazy" /></div>
+                    <div className="svc-tall-top">
+                      <h3>{meta.title}</h3>
+                      <p>{meta.sub}</p>
+                      <span className="svc-tall-pill">{meta.cta}</span>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+            <div className="svc-carousel-nav">
+              <button type="button" aria-label="Previous" onClick={() => scrollCar(-1)}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
+              <button type="button" aria-label="Next" onClick={() => scrollCar(1)}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
           </div>
         </div>
       </section>
