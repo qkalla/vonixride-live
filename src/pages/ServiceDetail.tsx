@@ -1,9 +1,11 @@
 import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
 import { CheckIcon } from "../components/icons";
+import { Estimator } from "../components/Estimator";
 import type { Route } from "../router";
 
 type SvcKey = "rides" | "courier" | "cargo" | "orders";
+const MODE_MAP: Record<SvcKey, "ride" | "courier" | "cargo" | "order"> = { rides: "ride", courier: "courier", cargo: "cargo", orders: "order" };
 
 export const SVC_IMAGES: Record<SvcKey, string> = {
   rides: "/img/ride.jpg",
@@ -43,6 +45,12 @@ export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      <section className="section est-inline">
+        <div className="container">
+          <Estimator mode={MODE_MAP[svc]} onOrder={() => navigate("/download")} />
         </div>
       </section>
 

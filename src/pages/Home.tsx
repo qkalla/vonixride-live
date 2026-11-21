@@ -1,6 +1,7 @@
 import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
 import { RidePreview, BusinessPreview } from "../components/previews";
+import { Estimator } from "../components/Estimator";
 import { ServiceIcon, CheckIcon, AppleIcon, PlayIcon, type IconName } from "../components/icons";
 import type { Route } from "../router";
 
@@ -52,6 +53,12 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
               <span className="dot" style={{ background: "#0066FF" }} /> {h.fare}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="est-hero">
+        <div className="container">
+          <Estimator onOrder={() => navigate("/download")} />
         </div>
       </section>
 

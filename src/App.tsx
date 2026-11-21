@@ -8,6 +8,7 @@ import { HomePage } from "./pages/Home";
 import { ServiceDetailPage } from "./pages/ServiceDetail";
 import { HowPage, GuidePage } from "./pages/HowGuide";
 import { ServicesPage, BusinessPage, CitiesPage, AboutPage, ContactPage, LegalPage } from "./pages/SubPages";
+import { DownloadPage } from "./pages/Download";
 
 const SVC_TITLES: Record<string, string> = {
   "/services/rides": "Rides",
@@ -24,6 +25,7 @@ function Page({ route, navigate }: { route: Route; navigate: (r: Route) => void 
     case "/business": return <BusinessPage />;
     case "/how-it-works": return <HowPage />;
     case "/guide": return <GuidePage />;
+    case "/download": return <DownloadPage />;
     case "/cities": return <CitiesPage />;
     case "/about": return <AboutPage />;
     case "/contact": return <ContactPage />;
@@ -45,6 +47,7 @@ function Shell() {
       "/business": `${t.nav.business} — Vonix`,
       "/how-it-works": `${t.nav.how} — Vonix`,
       "/guide": `${t.guidePage.title} — Vonix`,
+      "/download": `${t.dl.title} — Vonix`,
       "/cities": `${t.nav.cities} — Vonix`,
       "/about": `${t.nav.about} — Vonix`,
       "/contact": `${t.nav.contact} — Vonix`,

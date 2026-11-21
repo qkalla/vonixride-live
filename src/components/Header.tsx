@@ -72,7 +72,7 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
           <a className="nav-cta ghost" href={PARTNER_URL} target="_blank" rel="noreferrer">
             {t.nav.partner}
           </a>
-          <a className="nav-cta" href="#/download-anchor" onClick={(e) => { e.preventDefault(); go("/"); setTimeout(() => document.getElementById("download")?.scrollIntoView({ behavior: "smooth" }), 80); }}>
+          <a className="nav-cta" href="#/download" onClick={(e) => { e.preventDefault(); go("/download"); }}>
             {t.nav.getApp}
           </a>
           <button className="burger" onClick={() => setMenuOpen((o) => !o)} aria-label="Menu" aria-expanded={menuOpen}>
