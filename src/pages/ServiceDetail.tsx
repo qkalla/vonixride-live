@@ -2,6 +2,7 @@ import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
 import { CheckIcon } from "../components/icons";
 import { Estimator } from "../components/Estimator";
+import { FoodScreen } from "../components/ServiceScreens";
 import type { Route } from "../router";
 
 type SvcKey = "rides" | "courier" | "cargo" | "orders";
@@ -11,7 +12,7 @@ export const SVC_IMAGES: Record<SvcKey, string> = {
   rides: "/ride.png",
   courier: "/delivery.png",
   cargo: "/cargo.png",
-  orders: "/images/svc-food.jpg",
+  orders: "",
 };
 
 export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r: Route) => void }) {
@@ -33,8 +34,8 @@ export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r
       <section className="section" style={{ paddingTop: "2rem" }}>
         <div className="container detail-grid">
           <Reveal className="detail-visual">
-            <div className={`media-frame aspect-1610${svc === "courier" || svc === "cargo" ? " fit-contain" : ""}`}>
-              <img src={p.img} alt={p.imgAlt} loading="lazy" />
+            <div className={`media-frame aspect-1610${svc === "courier" || svc === "cargo" || svc === "orders" ? " fit-contain" : ""}`}>
+              {svc === "orders" ? <FoodScreen /> : <img src={p.img} alt={p.imgAlt} loading="lazy" />}
             </div>
           </Reveal>
           <div>

@@ -94,9 +94,6 @@ export function CitiesPage() {
       <PageHero title={t.pages.citiesPage.title} sub={t.pages.citiesPage.sub} />
       <section className="section section-alt" style={{ paddingTop: "3rem" }}>
         <div className="container cities-hub">
-          <Reveal className="cities-hero-img">
-            <div className="media-frame aspect-1610"><img src="/images/cities-hero.jpg" alt="Yerevan cityscape" loading="lazy" /></div>
-          </Reveal>
           <Reveal className="city-group">
             <h3>{cg.capital}</h3>
             <p>{cg.capitalNote}</p>

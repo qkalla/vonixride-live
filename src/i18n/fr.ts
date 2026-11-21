@@ -233,7 +233,7 @@ export const fr = {
     orders: {
       title: "Vonix Orders — restauration, courses et retail",
       sub: "Restaurants, supermarchés, pharmacies et boutiques d'Erevan livrent via Vonix avec suivi de commande en direct.",
-      img: "/images/svc-food.jpg",
+      img: "",
       imgAlt: "Livraison restaurant Vonix",
       points: [
         { title: "Des centaines de marchands", text: "Des restaurants du centre aux pharmacies de quartier — tout dans un seul flux." },

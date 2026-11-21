@@ -42,6 +42,13 @@ export const en = {
     sub: "Switch between services instantly — your addresses, payment methods and history follow you everywhere.",
     cardCta: "Open in app",
   },
+  svcShowcase: [
+    { title: "Rides", sub: "Request in seconds, ride in minutes.", cta: "Get started" },
+    { title: "Food & meals", sub: "Hot restaurant food, delivered fast.", cta: "Order now" },
+    { title: "Markets", sub: "Groceries & essentials to your door.", cta: "Shop now" },
+    { title: "Express moped", sub: "Documents & parcels across the city.", cta: "Send now" },
+    { title: "Cargo", sub: "Vans & trucks for freight and moves.", cta: "Get a quote" },
+  ],
   svcCards: {
     items: [
       { title: "Vonix Rides", text: "City taxis and intercity trips with upfront fares and live tracking.", meta: "From 400 ֏ · ~12 min" },
@@ -241,7 +248,7 @@ export const en = {
     orders: {
       title: "Vonix Orders — food, grocery & retail",
       sub: "Restaurants, supermarkets, pharmacies and shops across Yerevan deliver through Vonix with live order tracking.",
-      img: "/images/svc-food.jpg",
+      img: "",
       imgAlt: "Vonix restaurant delivery",
       points: [
         { title: "Hundreds of merchants", text: "From downtown restaurants to neighborhood pharmacies — all in one cart flow." },
@@ -374,10 +381,10 @@ export const en = {
     sub: "Join the drivers, couriers, merchants and fleet partners moving Armenia forward — flexible hours, upfront earnings and live dispatch.",
     cta: "Learn more",
     groups: {
-      drivers: { title: "Drivers", text: "Drive passengers on your schedule. Upfront fares, instant payouts and dispatch that matches your zone.", img: "/images/earn-driver.jpg" },
-      couriers: { title: "Moped couriers", text: "Deliver parcels across the city by moped. Short routes, photo-confirmed handoffs and daily earnings.", img: "/images/earn-courier.jpg" },
-      restaurants: { title: "Restaurants & stores", text: "Put your menu or shelf on Vonix. Real-time orders, prep timers and consolidated payouts.", img: "/images/earn-restaurant.jpg" },
-      fleet: { title: "Fleet owners", text: "List vans, sprinters and trucks for cargo work. Verified shippers, transparent commissions.", img: "/images/earn-fleet.jpg" },
+      drivers: { title: "Drivers", text: "Drive passengers on your schedule. Upfront fares, instant payouts and dispatch that matches your zone.", img: "/ride.png" },
+      couriers: { title: "Moped couriers", text: "Deliver parcels across the city by moped. Short routes, photo-confirmed handoffs and daily earnings.", img: "/delivery.png" },
+      restaurants: { title: "Restaurants & stores", text: "Put your menu or shelf on Vonix. Real-time orders, prep timers and consolidated payouts.", img: "dashboard" },
+      fleet: { title: "Fleet owners", text: "List vans, sprinters and trucks for cargo work. Verified shippers, transparent commissions.", img: "/cargo.png" },
     },
     howTitle: "How earning works",
     howItems: [

@@ -233,7 +233,7 @@ export const hy = {
     orders: {
       title: "Vonix Orders — food, grocery & retail",
       sub: "Restaurants, supermarkets, pharmacies and shops across Yerevan deliver through Vonix with live order tracking.",
-      img: "/images/svc-food.jpg",
+      img: "",
       imgAlt: "Vonix restaurant delivery",
       points: [
         { title: "Hundreds of merchants", text: "From downtown restaurants to neighborhood pharmacies — all in one cart flow." },

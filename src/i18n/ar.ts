@@ -233,7 +233,7 @@ export const ar = {
     orders: {
       title: "Vonix Orders — طعام ومشتريات وتجزئة",
       sub: "مطاعم وسوبرماركت وصيدليات ومتاجر في يريفان توصل عبر Vonix مع تتبع مباشر للطلبات.",
-      img: "/images/svc-food.jpg",
+      img: "",
       imgAlt: "توصيل مطعم Vonix",
       points: [
         { title: "مئات التجار", text: "من مطاعم وسط المدينة إلى صيدليات الأحياء — كلها في تدفق واحد." },

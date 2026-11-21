@@ -1,13 +1,17 @@
 import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
 import type { Route } from "../router";
+import { BusinessPreview } from "../components/previews";
 
 type EarnKey = "drivers" | "couriers" | "restaurants" | "fleet";
 const SUB: Record<EarnKey, Route> = { drivers: "/earn/drivers", couriers: "/earn/couriers", restaurants: "/earn/restaurants", fleet: "/earn/fleet" };
 
 function mediaFrame(img: string, alt: string, cls = "aspect-1610") {
+  if (img === "dashboard") {
+    return <div className={`media-frame ${cls} fit-contain`}><BusinessPreview /></div>;
+  }
   return (
-    <div className={`media-frame ${cls}`}>
+    <div className={`media-frame ${cls}${img.endsWith(".png") ? " fit-contain" : ""}`}>
       <img src={img} alt={alt} loading="lazy" />
     </div>
   );
@@ -65,7 +69,7 @@ export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route
             return (
               <Reveal className="earn-card" key={k}>
                 <a href={`#${SUB[k]}`} onClick={(ev) => { ev.preventDefault(); navigate(SUB[k]); window.scrollTo({ top: 0 }); }} className="earn-card-link">
-                  <div className="media-frame aspect-43">{mediaFrameInner(g.img, g.title)}</div>
+                  <div className="media-frame aspect-43 fit-contain">{g.img === "dashboard" ? <BusinessPreview /> : <img src={g.img} alt={g.title} loading="lazy" />}</div>
                   <h3>{g.title}</h3>
                   <p>{g.text}</p>
                   <span className="earn-more">{e.cta} →</span>
@@ -93,6 +97,3 @@ export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route
   );
 }
 
-function mediaFrameInner(img: string, alt: string) {
-  return <img src={img} alt={alt} loading="lazy" />;
-}

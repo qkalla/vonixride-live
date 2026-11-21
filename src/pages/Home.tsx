@@ -2,6 +2,8 @@ import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
 import { BusinessPreview } from "../components/previews";
 import { HeroOrderCard } from "../components/Estimator";
+import { RideScreen, FoodScreen, MarketScreen } from "../components/ServiceScreens";
+import { useRef } from "react";
 import { CheckIcon, AppleIcon, PlayIcon } from "../components/icons";
 import type { Route } from "../router";
 
@@ -17,6 +19,7 @@ function SectionHead({ title, sub }: { title: string; sub?: string }) {
 
 export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
   const { t } = useLang();
+  const carouselRef = useRef<HTMLDivElement>(null);
   const h = t.hero;
 
   const goDownload = () => {
@@ -46,7 +49,7 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
           <div className="hero-visual">
             <div className="hero-app">
               <div className="media-frame aspect-1610 hero-photo">
-                <img src="/images/hero-car.jpg" alt="City traffic in Yerevan" />
+                <img src="/ride.png" alt="City traffic in Yerevan" />
               </div>
               <div className="app-frame">
                 <div className="app-frame-head">
@@ -74,29 +77,34 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
       <section className="section section-alt" id="services">
         <div className="container">
           <SectionHead title={t.servicesPage.title} sub={t.servicesPage.sub} />
-          <div className="svc-photo-grid">
-            {[
-              { img: "/ride.png", to: "/services/rides" as Route, meta: t.svcCards.items[0], fit: "cover" },
-              { img: "/images/svc-food.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[1], fit: "cover" },
-              { img: "/images/svc-markets.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[2], fit: "cover" },
-              { img: "/delivery.png", img2: "/cargo.png", to: "/services/courier" as Route, meta: t.svcCards.items[3], fit: "duo" },
-            ].map((c) => (
-              <a className="svc-photo-card reveal" key={c.img} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
-                <div className={`media-frame aspect-1610${c.fit === "contain" ? " fit-contain" : c.fit === "duo" ? " fit-duo" : ""}`}>
-                  {c.fit === "duo"
-                    ? <><img src={c.img} alt="" loading="lazy" /><img src={(c as { img2?: string }).img2} alt={c.meta.title} loading="lazy" /></>
-                    : <img src={c.img} alt={c.meta.title} loading="lazy" />}
-                </div>
-                <div className="svc-photo-body">
-                  <h3>{c.meta.title}</h3>
-                  <p>{c.meta.text}</p>
-                  <div className="svc-photo-foot">
-                    <span className="svc-photo-meta">{c.meta.meta}</span>
-                    <span className="svc-photo-cta">{t.servicesPage.cardCta} →</span>
-                  </div>
-                </div>
-              </a>
-            ))}
+          <div className="svc-carousel-wrap">
+            <div className="svc-carousel" ref={carouselRef}>
+              {[
+                { img: "/ride.png", to: "/services/rides" as Route, ui: null as null | "ride" | "food" | "market", fit: "cover" },
+                { img: null, to: "/services/orders" as Route, ui: "food" as const, fit: "ui" },
+                { img: null, to: "/services/orders" as Route, ui: "market" as const, fit: "ui" },
+                { img: "/delivery.png", to: "/services/courier" as Route, ui: null, fit: "contain" },
+                { img: "/cargo.png", to: "/services/cargo" as Route, ui: null, fit: "contain" },
+              ].map((c, i) => {
+                const meta = t.svcShowcase[i];
+                return (
+                  <a className="svc-tall reveal" key={meta.title} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
+                    <div className="svc-tall-top">
+                      <h3>{meta.title}</h3>
+                      <p>{meta.sub}</p>
+                      <span className="svc-tall-pill">{meta.cta}</span>
+                    </div>
+                    <div className={`svc-tall-visual${c.fit === "contain" ? " fit-contain" : ""}`}>
+                      {c.ui === "food" ? <FoodScreen /> : c.ui === "market" ? <MarketScreen /> : c.ui === "ride" ? <RideScreen /> : c.img ? <img src={c.img} alt={meta.title} loading="lazy" /> : null}
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+            <div className="svc-carousel-nav">
+              <button aria-label="Previous" onClick={() => carouselRef.current?.scrollBy({ left: -340, behavior: "smooth" })}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button aria-label="Next" onClick={() => carouselRef.current?.scrollBy({ left: 340, behavior: "smooth" })}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M9 18l6-6-6-6"/></svg></button>
+            </div>
           </div>
         </div>
       </section>
