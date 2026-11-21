@@ -1,7 +1,6 @@
 import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
 import { BusinessPreview } from "../components/previews";
-import { RideScreen, FoodScreen, MarketScreen } from "../components/ServiceScreens";
 import { useRef } from "react";
 import { CheckIcon, AppleIcon, PlayIcon } from "../components/icons";
 import type { Route } from "../router";
@@ -28,9 +27,9 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
 
   return (
     <>
-      <section className="hero" id="top">
-        <div className="container hero-grid">
-          <div>
+      <section className="hero hero-wide" id="top">
+        <div className="container">
+          <div className="hero-copy">
             <h1 className="display">
               {h.line1} <span className="accent">{h.accent}</span> {h.line2}
             </h1>
@@ -45,11 +44,9 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
               <div className="proof-item"><div className="num">24/7</div><div className="lbl">{h.proofSupport}</div></div>
             </div>
           </div>
-          <div className="hero-visual">
-            <div className="media-frame aspect-1610 hero-photo">
-              <img src="/ride.png" alt="Vonix ride" />
-            </div>
-          </div>
+        </div>
+        <div className="hero-band">
+          <img src="/ride.png" alt="Vonix ride" />
         </div>
       </section>
 
@@ -67,22 +64,23 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
           <div className="svc-carousel-wrap">
             <div className="svc-carousel" ref={carouselRef}>
               {[
-                { img: null, to: "/services/rides" as Route, ui: "ride" as const, fit: "ui" },
-                { img: null, to: "/services/orders" as Route, ui: "food" as const, fit: "ui" },
-                { img: null, to: "/services/orders" as Route, ui: "market" as const, fit: "ui" },
-                { img: "/delivery.png", to: "/services/courier" as Route, ui: null, fit: "cover" },
-                { img: "/cargo.png", to: "/services/cargo" as Route, ui: null, fit: "cover" },
+                { img: "/ride.png", tint: "tint-ride", fit: "cover", to: "/services/rides" as Route },
+                { img: "/images/food.jpg", tint: "", fit: "cover", to: "/services/orders" as Route },
+                { img: "/images/market.jpg", tint: "", fit: "cover", to: "/services/orders" as Route },
+                { img: "/delivery.png", tint: "tint-moped", fit: "contain", to: "/services/courier" as Route },
+                { img: "/cargo.png", tint: "tint-cargo", fit: "contain", to: "/services/cargo" as Route },
               ].map((c, i) => {
                 const meta = t.svcShowcase[i];
                 return (
-                  <a className="svc-tall reveal" key={meta.title} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
+                  <a className="svc-tall svc-tall-photo" key={meta.title} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
+                    <div className={`svc-tall-bg ${c.tint}`}>
+                      <img src={c.img} alt={meta.title} loading="lazy" className={c.fit} />
+                    </div>
+                    <div className="svc-tall-scrim" />
                     <div className="svc-tall-top">
                       <h3>{meta.title}</h3>
                       <p>{meta.sub}</p>
                       <span className="svc-tall-pill">{meta.cta}</span>
-                    </div>
-                    <div className={`svc-tall-visual${c.fit === "ui" ? " ui" : ""}`}>
-                      {c.ui === "food" ? <FoodScreen /> : c.ui === "market" ? <MarketScreen /> : c.ui === "ride" ? <RideScreen /> : c.img ? <img src={c.img} alt={meta.title} loading="lazy" /> : null}
                     </div>
                   </a>
                 );

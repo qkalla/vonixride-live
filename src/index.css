@@ -1295,3 +1295,26 @@ body { background: #ffffff; color: #0b0b0f; }
 .mscreen-cta.food { background:#E8590C; }
 .mscreen-cta.market { background:#2F9E44; }
 .mscreen-chips span.food.on { background:#E8590C; }
+
+/* ===== v12: wide hero + photo service cards ===== */
+.hero-wide { padding-top: 150px; }
+.hero-wide .hero-copy { max-width: 720px; }
+.hero-band { width: 100%; height: clamp(320px, 46vw, 540px); position: relative; overflow: hidden; background: linear-gradient(180deg,#f2f5fb 0%,#e4ecf7 100%); margin-top: 54px; }
+.hero-band img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+
+.svc-tall-photo { background:#0b0b0f; color:#fff; }
+.svc-tall-bg { position:absolute; inset:0; overflow:hidden; }
+.svc-tall-bg.img-none { background:#0b0b0f; }
+.svc-tall-bg img { position:absolute; inset:0; width:100%; height:100%; }
+.svc-tall-bg img.cover { object-fit:cover; object-position:center; }
+.svc-tall-bg img.contain { object-fit:contain; padding:12%; }
+.tint-ride { background: linear-gradient(160deg,#dce9ff 0%,#c3d8ff 55%,#a9c6fb 100%); }
+.tint-moped { background: linear-gradient(160deg,#e3f0ff 0%,#cfe2ff 60%,#b9d2fb 100%); }
+.tint-cargo { background: linear-gradient(160deg,#e9eef5 0%,#d7e0ec 60%,#c2cfdf 100%); }
+.svc-tall-scrim { position:absolute; inset:0; background: linear-gradient(180deg, rgba(6,8,15,.62) 0%, rgba(6,8,15,.18) 34%, transparent 55%); }
+.svc-tall-photo .svc-tall-top { position:relative; z-index:2; color:#fff; }
+.svc-tall-photo .svc-tall-top p { color:rgba(255,255,255,.85); }
+.svc-tall-photo .svc-tall-pill { background:#fff; color:#0b0b0f; }
+.svc-tall-photo:hover .svc-tall-pill { background:#0066ff; color:#fff; }
+.svc-tall-photo .svc-tall-top { padding-bottom:0; }
+.svc-tall-photo { justify-content:flex-start; }
