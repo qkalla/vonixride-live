@@ -22,11 +22,11 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
   const scrollCar = (dir: number) => carRef.current?.scrollBy({ left: dir * 380, behavior: "smooth" });
 
   const CARDS: { to: Route; img: string }[] = [
-    { to: "/services/rides", img: "/images/p-taxi-lada.jpg" },
-    { to: "/services/orders", img: "/images/p-food-courier.jpg" },
-    { to: "/services/orders", img: "/images/p-market.jpg" },
-    { to: "/services/courier", img: "/images/p-moped-pizza.jpg" },
-    { to: "/services/cargo", img: "/images/p-cargo-renault.jpg" },
+    { to: "/services/rides", img: "/card-cab.png" },
+    { to: "/services/orders", img: "/images/food.jpg" },
+    { to: "/services/orders", img: "/card-grocery.png" },
+    { to: "/services/courier", img: "/card-deliervy.png" },
+    { to: "/services/cargo", img: "/card-cargoo.png" },
   ];
 
   const goDownload = () => {

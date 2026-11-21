@@ -9,9 +9,9 @@ const MODE_MAP: Record<SvcKey, "ride" | "courier" | "cargo" | "order"> = { rides
 
 /* Full-bleed banner visuals — distinct files from the landing cards */
 const BANNERS: Record<SvcKey, string> = {
-  rides: "/images/p-taxi-hyundai.jpg",
-  courier: "/images/p-moped-post.jpg",
-  cargo: "/images/p-cargo-isuzu.jpg",
+  rides: "/banner-cab.png",
+  courier: "/banner-deliervy.png",
+  cargo: "/banner-cargoo.png",
   orders: "/images/market.jpg",
 };
 
