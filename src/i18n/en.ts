@@ -38,9 +38,17 @@ export const en = {
   ],
   servicesPage: {
     eyebrowless: true,
-    title: "Six services. One account. Zero friction.",
+    title: "One app for every way to move.",
     sub: "Switch between services instantly — your addresses, payment methods and history follow you everywhere.",
     cardCta: "Open in app",
+  },
+  svcCards: {
+    items: [
+      { title: "Vonix Rides", text: "City taxis and intercity trips with upfront fares and live tracking.", meta: "From 400 ֏ · ~12 min" },
+      { title: "Food & meals", text: "Hot restaurant food delivered by dedicated couriers across Yerevan.", meta: "30+ restaurants · 30–45 min" },
+      { title: "Markets & pharmacy", text: "Groceries, essentials and medicines from verified local stores.", meta: "Same-day · licensed pharmacies" },
+      { title: "Moped & cargo", text: "Express moped couriers for documents, plus vans and trucks for freight.", meta: "45 min avg · up to 3.5t" },
+    ],
   },
   svc: {
     ride: { title: "Vonix Rides", text: "City taxis and intercity trips with upfront fares, live driver tracking and multiple vehicle classes.", tag: "From 400 ֏" },
@@ -316,6 +324,10 @@ export const en = {
     perKm: "/ km",
     etaMin: "min",
     orderNow: "Order now",
+    now: "Now",
+    schedule: "Schedule",
+    scheduleAt: "Pickup time",
+    continueInApp: "Continue in app",
     requestRide: "Request ride",
     sendParcel: "Send parcel",
     getQuote: "Get quote",

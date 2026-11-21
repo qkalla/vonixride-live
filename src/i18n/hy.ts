@@ -38,7 +38,7 @@ export const hy = {
   ],
   servicesPage: {
     eyebrowless: true,
-    title: "Six services. One account. Zero friction.",
+    title: "One app for every way to move.",
     sub: "Switch between services instantly — your addresses, payment methods and history follow you everywhere.",
     cardCta: "Open in app",
   },

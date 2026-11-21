@@ -38,7 +38,7 @@ export const fr = {
   ],
   servicesPage: {
     eyebrowless: true,
-    title: "Six services. Un seul compte. Zéro friction.",
+    title: "Une application pour tous vos déplacements.",
     sub: "Basculez instantanément d'un service à l'autre — vos adresses, moyens de paiement et historique vous suivent partout.",
     cardCta: "Ouvrir dans l'app",
   },

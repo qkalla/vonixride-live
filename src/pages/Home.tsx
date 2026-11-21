@@ -1,8 +1,8 @@
 import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
-import { RidePreview, BusinessPreview } from "../components/previews";
-import { Estimator } from "../components/Estimator";
-import { ServiceIcon, CheckIcon, AppleIcon, PlayIcon, type IconName } from "../components/icons";
+import { BusinessPreview } from "../components/previews";
+import { HeroOrderCard } from "../components/Estimator";
+import { CheckIcon, AppleIcon, PlayIcon } from "../components/icons";
 import type { Route } from "../router";
 
 
@@ -44,20 +44,15 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
             </div>
           </div>
           <div className="hero-visual">
-            <RidePreview />
-            <div className="float-chip" style={{ top: "6%", insetInlineEnd: "4%", animationDelay: "0.6s" }}>
-              <span className="dot" /> {h.driver}
-            </div>
-            <div className="float-chip" style={{ bottom: "14%", insetInlineStart: "2%", animationDelay: "1.4s" }}>
-              <span className="dot" style={{ background: "#0066FF" }} /> {h.fare}
+            <div className="hero-media">
+              <div className="media-frame aspect-43 hero-photo">
+                <img src="/images/ride-city.jpg" alt="City ride in Yerevan" />
+              </div>
+              <div className="hero-card">
+                <HeroOrderCard onOrder={() => navigate("/download")} />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="est-hero">
-        <div className="container">
-          <Estimator onOrder={() => navigate("/download")} />
         </div>
       </section>
 
@@ -72,19 +67,25 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
       <section className="section" id="services">
         <div className="container">
           <SectionHead title={t.servicesPage.title} sub={t.servicesPage.sub} />
-          <div className="services-grid">
-            {(["ride", "food", "grocery", "pharmacy", "cargo", "moped"] as const).map((key) => {
-              const s = t.svc[key];
-              const to: Route = key === "ride" ? "/services/rides" : key === "cargo" ? "/services/cargo" : key === "moped" ? "/services/courier" : "/services/orders";
-              return (
-                <a className="service-card reveal svc-link" key={key} href={`#${to}`} onClick={(e) => { e.preventDefault(); navigate(to); window.scrollTo({ top: 0 }); }}>
-                  <div className="service-icon"><ServiceIcon name={key as IconName} /></div>
-                  <h3>{s.title}</h3>
-                  <p>{s.text}</p>
-                  <span className="service-tag">{s.tag} →</span>
-                </a>
-              );
-            })}
+          <div className="svc-photo-grid">
+            {[
+              { img: "/images/ride-car.jpg", to: "/services/rides" as Route, meta: t.svcCards.items[0] },
+              { img: "/images/food.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[1] },
+              { img: "/img/grocery.jpg", to: "/services/orders" as Route, meta: t.svcCards.items[2] },
+              { img: "/images/courier-city.jpg", to: "/services/courier" as Route, meta: t.svcCards.items[3] },
+            ].map((c) => (
+              <a className="svc-photo-card reveal" key={c.img} href={`#${c.to}`} onClick={(e) => { e.preventDefault(); navigate(c.to); window.scrollTo({ top: 0 }); }}>
+                <div className="media-frame aspect-1610"><img src={c.img} alt={c.meta.title} loading="lazy" /></div>
+                <div className="svc-photo-body">
+                  <h3>{c.meta.title}</h3>
+                  <p>{c.meta.text}</p>
+                  <div className="svc-photo-foot">
+                    <span className="svc-photo-meta">{c.meta.meta}</span>
+                    <span className="svc-photo-cta">{t.servicesPage.cardCta} →</span>
+                  </div>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>

@@ -25,7 +25,7 @@ export function loadOrder(): OrderDraft | null {
   } catch { return null; }
 }
 
-const LOCS: Record<string, [number, number]> = {
+export const LOCS: Record<string, [number, number]> = {
   airport: [40.1473, 44.3959],
   republic: [40.1792, 44.4991],
   northern: [40.1900, 44.5120],
@@ -40,11 +40,11 @@ const LOCS: Record<string, [number, number]> = {
   kentron: [40.1790, 44.5030],
 };
 
-const YEREVAN: [number, number] = [40.1872, 44.5152];
+export const YEREVAN: [number, number] = [40.1872, 44.5152];
 
 type Mode = OrderDraft["mode"];
 
-function fare(mode: Mode, cls: number, km: number, min: number): number {
+export function fare(mode: Mode, cls: number, km: number, min: number): number {
   if (mode === "ride") {
     const mult = [1, 1.35, 1.7, 2.1][cls] ?? 1;
     return Math.round((400 + km * 180 + min * 12) * mult);
@@ -60,7 +60,7 @@ function fare(mode: Mode, cls: number, km: number, min: number): number {
 
 interface RouteResult { km: number; min: number; coords: [number, number][] }
 
-async function fetchRoute(a: [number, number], b: [number, number]): Promise<RouteResult | null> {
+export async function fetchRoute(a: [number, number], b: [number, number]): Promise<RouteResult | null> {
   try {
     const url = `https://router.project-osrm.org/route/v1/driving/${a[1]},${a[0]};${b[1]},${b[0]}?overview=full&geometries=geojson`;
     const res = await fetch(url);
@@ -229,6 +229,114 @@ export function Estimator({ mode, onOrder }: { mode?: Mode; onOrder?: (d: OrderD
         </div>
         <div className="est-map" ref={mapRef} />
       </div>
+    </div>
+  );
+}
+
+export function HeroOrderCard({ onOrder }: { onOrder?: (d: OrderDraft) => void }) {
+  const { t } = useLang();
+  const e = t.est;
+  const [m, setM] = useState<Mode>("ride");
+  const [fromKey, setFromKey] = useState("kentron");
+  const [toKey, setToKey] = useState("airport");
+  const [customFrom, setCustomFrom] = useState("");
+  const [customTo, setCustomTo] = useState("");
+  const [cls, setCls] = useState(0);
+  const [when, setWhen] = useState<"now" | "later">("now");
+  const [route, setRoute] = useState<RouteResult | null>(null);
+
+  const fromCoord: [number, number] = customFrom.trim() ? YEREVAN : (LOCS[fromKey] ?? YEREVAN);
+  const toCoord: [number, number] = customTo.trim() ? [40.1872 + parseFloat(customTo || "0") / 1000, 44.5152] : (LOCS[toKey] ?? YEREVAN);
+  const locName = (key: string, custom: string) => custom.trim() || e.locs[key as keyof typeof e.locs] || key;
+
+  useEffect(() => {
+    let alive = true;
+    const a: [number, number] = customFrom.trim() ? [40.18, 44.50] : fromCoord;
+    const b: [number, number] = customTo.trim() ? [40.20, 44.53] : toCoord;
+    fetchRoute(a, b).then((r) => {
+      if (!alive) return;
+      if (r) setRoute(r);
+      else {
+        const km = haversineKm(fromCoord, toCoord) * 1.35;
+        setRoute({ km, min: Math.max(5, Math.round(km * 3)), coords: [] });
+      }
+    });
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fromKey, toKey, customFrom, customTo]);
+
+  const km = route?.km ?? 0;
+  const min = route?.min ?? 0;
+  const price = fare(m, cls, km, min);
+  const classes = m === "ride" ? e.rideClasses : m === "cargo" ? e.cargoClasses : null;
+
+  const submit = () => {
+    const draft: OrderDraft = {
+      mode: m,
+      service: classes ? classes[cls] : e.modes[m],
+      from: locName(fromKey, customFrom),
+      to: locName(toKey, customTo),
+      km: Math.round(km * 10) / 10,
+      min,
+      priceAmd: price,
+    };
+    saveOrder(draft);
+    onOrder?.(draft);
+  };
+
+  const locField = (label: string, value: string, onPick: (v: string) => void, customVal: string, onCustom: (v: string) => void, placeholder: string) => (
+    <label className="hoc-field">
+      <span>{label}</span>
+      <select value={value} onChange={(ev) => onPick(ev.target.value)}>
+        {Object.keys(e.locs).map((k) => <option key={k} value={k}>{e.locs[k as keyof typeof e.locs]}</option>)}
+        <option value="__custom">{e.custom}</option>
+      </select>
+      {value === "__custom" && <input value={customVal} onChange={(ev) => onCustom(ev.target.value)} placeholder={placeholder} />}
+    </label>
+  );
+
+  return (
+    <div className="hoc">
+      <div className="hoc-tabs">
+        {(Object.keys(e.modes) as Mode[]).map((k) => (
+          <button key={k} className={m === k ? "active" : ""} onClick={() => { setM(k); setCls(0); }}>{e.modes[k]}</button>
+        ))}
+      </div>
+      <div className="hoc-row">
+        <div className="hoc-when">
+          <button className={when === "now" ? "active" : ""} onClick={() => setWhen("now")}>{e.now}</button>
+          <button className={when === "later" ? "active" : ""} onClick={() => setWhen("later")}>{e.schedule}</button>
+        </div>
+        {when === "later" && <input className="hoc-time" type="datetime-local" aria-label={e.scheduleAt} />}
+      </div>
+      <div className="hoc-fields">
+        {locField(e.pickup, fromKey, setFromKey, customFrom, setCustomFrom, e.custom)}
+        {locField(e.dropoff, toKey, setToKey, customTo, setCustomTo, e.custom)}
+      </div>
+      {classes && (
+        <div className="hoc-classes">
+          {classes.map((c, i) => (
+            <button key={c} className={cls === i ? "active" : ""} onClick={() => setCls(i)}>
+              {c}<em>{fare(m, i, km, min).toLocaleString()} ֏</em>
+            </button>
+          ))}
+        </div>
+      )}
+      {m === "order" && (
+        <div className="hoc-classes">
+          {e.orderCats.map((c, i) => (
+            <button key={c} className={cls === i ? "active" : ""} onClick={() => setCls(i)}>{c}</button>
+          ))}
+        </div>
+      )}
+      <div className="hoc-foot">
+        <div>
+          <div className="hoc-fare">{price.toLocaleString()} ֏</div>
+          <div className="hoc-meta">{km.toFixed(1)} km · ~{min} {e.etaMin}</div>
+        </div>
+        <button className="btn btn-primary hoc-cta" onClick={submit}>{e.continueInApp}</button>
+      </div>
+      <p className="hoc-note">{e.note}</p>
     </div>
   );
 }
