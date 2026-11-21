@@ -210,6 +210,17 @@ export const en = {
         { title: "Meet your driver", text: "Track arrival live, get the driver's details, and ride with upfront-locked pricing." },
       ],
       cta: "Get the app",
+      stats: [
+        { v: "~8 min", l: "average pickup wait in Yerevan" },
+        { v: "24/7", l: "dispatch across the capital" },
+        { v: "4 classes", l: "Standard to Business XL" },
+      ],
+      extras: [
+        { title: "Safety by default", text: "Every driver passes ID and vehicle verification. Share your trip live with family and reach dispatch support in one tap." },
+        { title: "Price locked upfront", text: "The fare you confirm is the fare you pay — traffic, route and demand are all priced before pickup." },
+        { title: "Schedule ahead", text: "Book tomorrow's airport run or morning commute tonight. The app dispatches automatically at your chosen time." },
+        { title: "Intercity quotes", text: "Yerevan–Gyumri, Yerevan–Vanadzor and beyond — fixed quotes for cross-country trips without meter anxiety." },
+      ],
     },
     courier: {
       title: "Vonix Courier — moped express delivery",
@@ -227,6 +238,17 @@ export const en = {
         { title: "Hand it over", text: "Meet the courier, get a tracking link, and receive a delivery confirmation." },
       ],
       cta: "Send a parcel",
+      stats: [
+        { v: "~45 min", l: "average cross-city delivery" },
+        { v: "100%", l: "of parcels live-tracked" },
+        { v: "Photo proof", l: "on every handoff" },
+      ],
+      extras: [
+        { title: "What fits on a moped", text: "Documents, keys, phones, medicine and small parcels up to ~10 kg. Larger items route to cargo vans automatically." },
+        { title: "Shareable tracking link", text: "Send the recipient a live link — they watch the courier approach without needing the app." },
+        { title: "Sender-pays or split", text: "Choose who covers the fee at checkout. Corporate accounts can bill deliveries monthly." },
+        { title: "Peak-hour bonuses", text: "Couriers earn surge pricing during lunch and evening rush — the app shows the multiplier upfront." },
+      ],
     },
     cargo: {
       title: "Vonix Cargo — vans, sprinters & trucks",
@@ -244,6 +266,17 @@ export const en = {
         { title: "Track the truck", text: "Live vehicle tracking and driver contact for the whole journey." },
       ],
       cta: "Request a quote",
+      stats: [
+        { v: "3.5 t", l: "maximum payload class" },
+        { v: "Same-day", l: "city dispatch available" },
+        { v: "Licensed", l: "drivers & insured vehicles" },
+      ],
+      extras: [
+        { title: "Pick the right vehicle", text: "Mini vans for shop restocks, sprinters for office moves, box trucks for real freight. The quote step recommends the class." },
+        { title: "Business accounts", text: "Recurring routes, consolidated monthly invoicing and a dedicated dispatch contact for regular shippers." },
+        { title: "Loading help included", text: "Drivers assist with loading and unloading on request — noted at booking, no surprises at the door." },
+        { title: "Intercity freight", text: "Yerevan to Gyumri, Vanadzor or the border regions — long-haul quotes with scheduled pickup windows." },
+      ],
     },
     orders: {
       title: "Vonix Orders — food, grocery & retail",
@@ -261,6 +294,101 @@ export const en = {
         { title: "Track to your door", text: "Follow the courier on the map and get notified at every stage." },
       ],
       cta: "Order now",
+      stats: [
+        { v: "30+", l: "restaurant partners in Yerevan" },
+        { v: "~45 min", l: "average kitchen-to-door time" },
+        { v: "4 verticals", l: "food, grocery, pharmacy, retail" },
+      ],
+      extras: [
+        { title: "Group ordering", text: "One cart, split payments — perfect for office lunches and family dinners." },
+        { title: "Scheduled delivery", text: "Pick a 30-minute window that suits you; the kitchen starts on time, every time." },
+        { title: "Pharmacy care", text: "Licensed pharmacies handle medicines with proper storage and handoff checks." },
+        { title: "Promo codes", text: "Local promo codes apply at checkout — student discounts and neighborhood offers rotate weekly." },
+      ],
+    },
+  },
+  pageBits: {
+    numbersTitle: "Vonix in numbers",
+    whyTitle: "Why Vonix",
+    goodTitle: "Good to know",
+    earnNumbersTitle: "What partners earn",
+    perksTitle: "Why partners choose Vonix",
+    reqsTitle: "What you need to start",
+    ctaEarn: "Start earning",
+    ctaService: "Open in the app",
+  },
+  earnPages: {
+    drivers: {
+      stats: [
+        { v: "~8 min", l: "average pickup wait" },
+        { v: "24/7", l: "ride demand in Yerevan" },
+        { v: "Daily", l: "settlements to your balance" },
+      ],
+      perks: [
+        { title: "Your schedule, your zones", text: "Log online when it suits you. The dispatch engine matches nearby ride requests to drivers in your area first." },
+        { title: "Upfront fare, always", text: "Every offer shows the exact payout before you accept — distance, class bonus and surge included." },
+        { title: "Instant cashout", text: "Move earnings to your Vonix balance or bank account daily. No weekly waiting, no hidden fees." },
+        { title: "Airport & intercity runs", text: "Fixed-price airport transfers and intercity routes pay premium rates during peak travel days." },
+      ],
+      reqs: [
+        { title: "License & experience", text: "Valid driving license held for at least one year and a clean record." },
+        { title: "Vehicle & insurance", text: "A roadworthy car with valid insurance — details verified before first dispatch." },
+        { title: "Documents", text: "Passport or ID, vehicle registration and a smartphone with data for navigation." },
+      ],
+    },
+    couriers: {
+      stats: [
+        { v: "45–60 min", l: "typical city route" },
+        { v: "Daily", l: "earnings settlement" },
+        { v: "Photo proof", l: "every delivery confirmed" },
+      ],
+      perks: [
+        { title: "Short, predictable routes", text: "Most deliveries stay inside your zone — you know the area, the shortcuts and the traffic." },
+        { title: "Peak bonuses", text: "Lunch and evening surges add a visible multiplier to every offer in high-demand hours." },
+        { title: "Referral rewards", text: "Bring a friend onto the moped network and both of you earn a signing bonus." },
+        { title: "Support that answers", text: "In-app chat with dispatch support in Armenian, Russian or English — real humans, fast replies." },
+      ],
+      reqs: [
+        { title: "Vehicle", text: "A moped, scooter or e-bike in working condition — cargo boxes provided for documents and parcels." },
+        { title: "ID verification", text: "Passport or ID plus a quick vehicle check — free and usually done the same day." },
+        { title: "Smartphone", text: "Android or iOS with mobile data for navigation, chat and proof-of-delivery photos." },
+      ],
+    },
+    restaurants: {
+      stats: [
+        { v: "30+", l: "menu categories live in Yerevan" },
+        { v: "Real-time", l: "order queue & status sync" },
+        { v: "Daily", l: "consolidated payouts" },
+      ],
+      perks: [
+        { title: "Orders the moment they land", text: "New orders appear instantly with item details, allergies notes and prep timers — no phone tag." },
+        { title: "Manage your own menu", text: "Update prices, mark items sold out and pause the kitchen from one dashboard." },
+        { title: "Promo tools built in", text: "Run lunch specials and slow-day discounts without touching your POS." },
+        { title: "Transparent commissions", text: "One clear rate per category — you see exactly what you earn on every order." },
+      ],
+      reqs: [
+        { title: "Business registration", text: "Trade registration or individual entrepreneur status, plus food-safety documents where required." },
+        { title: "Kitchen capacity", text: "Ability to prepare online orders during service hours — prep-time settings keep promises realistic." },
+        { title: "Device", text: "Any smartphone, tablet or laptop — the partner dashboard runs in the browser." },
+      ],
+    },
+    fleet: {
+      stats: [
+        { v: "3.5 t", l: "largest vehicle class" },
+        { v: "Verified", l: "shipper network" },
+        { v: "Daily", l: "earnings settlement" },
+      ],
+      perks: [
+        { title: "List multiple vehicles", text: "Vans, sprinters and trucks under one account — each with its own availability calendar." },
+        { title: "Priority for verified shippers", text: "Businesses with a shipping history see your vehicles first in dispatch ranking." },
+        { title: "Driver management", text: "Assign your own drivers to cargo jobs or let Vonix dispatch match them automatically." },
+        { title: "Route & earnings reports", text: "Weekly summaries of distance, revenue and vehicle utilization for accounting." },
+      ],
+      reqs: [
+        { title: "Vehicle documents", text: "Registration, insurance and inspection certificate for each vehicle you list." },
+        { title: "Driver KYC", text: "Every assigned driver completes identity and license verification before first cargo job." },
+        { title: "Business account", text: "Fleet partners register as businesses — invoicing and payouts run on business terms." },
+      ],
     },
   },
   howPage: {

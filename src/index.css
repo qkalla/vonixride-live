@@ -1459,3 +1459,11 @@ body { background: #ffffff; color: #0b0b0f; }
 /* ===== v21: neutral earn visual surfaces (no colored boxes) ===== */
 .earn-card-visual.tint-neutral { background:#f4f6f9; }
 .earn-card-visual.tint-neutral img.art { padding:5% 7%; }
+
+/* ===== v22: stat strips + fuller service/earn pages ===== */
+.stats-sec { padding-top:44px; padding-bottom:44px; }
+.stat-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.stat-item { background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px 22px; }
+.stat-v { font-family:var(--font-display); font-size:clamp(26px,3.2vw,38px); letter-spacing:-0.025em; line-height:1.05; }
+.stat-l { color:var(--muted); font-size:13.5px; line-height:1.5; margin-top:8px; }
+@media (max-width: 720px) { .stat-strip { grid-template-columns:1fr; } }

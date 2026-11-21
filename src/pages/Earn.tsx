@@ -26,6 +26,7 @@ export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route
   if (sub) {
     const g = e.groups[sub];
     const b = EARN_BANNERS[sub];
+    const pg = t.earnPages[sub];
     return (
       <>
         <section className={`svc-banner${b.light ? " svc-banner-light" : ""}`}>
@@ -38,6 +39,21 @@ export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route
               <p className="page-sub">{e.pageSubs[sub]}</p>
               <a className="btn btn-light" href="#/download" onClick={(ev) => { ev.preventDefault(); navigate("/download"); window.scrollTo({ top: 0 }); }}>{e.cta}</a>
             </Reveal>
+          </div>
+        </section>
+        <section className="section stats-sec">
+          <div className="container">
+            <div className="section-head reveal">
+              <h2 className="display">{t.pageBits.earnNumbersTitle}</h2>
+            </div>
+            <div className="stat-strip">
+              {pg.stats.map((s) => (
+                <Reveal className="stat-item" key={s.l}>
+                  <div className="stat-v">{s.v}</div>
+                  <div className="stat-l">{s.l}</div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
         <section className="section">
@@ -54,6 +70,40 @@ export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route
                   <p>{it.text}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+        <section className="section section-alt">
+          <div className="container">
+            <div className="section-head reveal">
+              <h2 className="display">{t.pageBits.perksTitle}</h2>
+            </div>
+            <div className="svc-points">
+              {pg.perks.map((x) => (
+                <Reveal className="svc-point" key={x.title}>
+                  <h3>{x.title}</h3>
+                  <p>{x.text}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="section">
+          <div className="container">
+            <div className="section-head reveal">
+              <h2 className="display">{t.pageBits.reqsTitle}</h2>
+            </div>
+            <div className="svc-points">
+              {pg.reqs.map((x) => (
+                <Reveal className="svc-point" key={x.title}>
+                  <h3>{x.title}</h3>
+                  <p>{x.text}</p>
+                </Reveal>
+              ))}
+            </div>
+            <div className="hero-actions reveal" style={{ marginTop: 40 }}>
+              <a className="btn btn-primary" href="#/download" onClick={(ev) => { ev.preventDefault(); navigate("/download"); window.scrollTo({ top: 0 }); }}>{t.pageBits.ctaEarn}</a>
+              <a className="btn btn-ghost" href="#/business" onClick={(ev) => { ev.preventDefault(); navigate("/business"); window.scrollTo({ top: 0 }); }}>{t.nav.business}</a>
             </div>
           </div>
         </section>

@@ -35,10 +35,26 @@ export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r
         </div>
       </section>
 
-      <section className="section">
+      <section className="section stats-sec">
         <div className="container">
           <div className="section-head reveal">
-            <h2 className="display">{p.points[0].title}</h2>
+            <h2 className="display">{t.pageBits.numbersTitle}</h2>
+          </div>
+          <div className="stat-strip">
+            {p.stats.map((s) => (
+              <Reveal className="stat-item" key={s.l}>
+                <div className="stat-v">{s.v}</div>
+                <div className="stat-l">{s.l}</div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-alt">
+        <div className="container">
+          <div className="section-head reveal">
+            <h2 className="display">{t.pageBits.whyTitle}</h2>
           </div>
           <div className="svc-points">
             {p.points.map((pt) => (
@@ -46,6 +62,22 @@ export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r
                 <span className="svc-point-ic"><CheckIcon /></span>
                 <h3>{pt.title}</h3>
                 <p>{pt.text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-head reveal">
+            <h2 className="display">{t.pageBits.goodTitle}</h2>
+          </div>
+          <div className="svc-points">
+            {p.extras.map((x) => (
+              <Reveal className="svc-point" key={x.title}>
+                <h3>{x.title}</h3>
+                <p>{x.text}</p>
               </Reveal>
             ))}
           </div>
