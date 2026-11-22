@@ -10,6 +10,9 @@ import { HowPage, GuidePage } from "./pages/HowGuide";
 import { ServicesPage, BusinessPage, CitiesPage, AboutPage, ContactPage, LegalPage } from "./pages/SubPages";
 import { DownloadPage } from "./pages/Download";
 import { EarnPage } from "./pages/Earn";
+import { FoodHubPage } from "./pages/FoodHub";
+import { AccountPage } from "./pages/Account";
+import { OnboardingPage } from "./pages/Onboarding";
 
 const SVC_TITLES: Record<string, string> = {
   "/services/rides": "Rides",
@@ -30,6 +33,9 @@ function Page({ route, navigate }: { route: Route; navigate: (r: Route) => void 
     case "/guide": return <GuidePage />;
     case "/download": return <DownloadPage />;
     case "/cities": return <CitiesPage />;
+    case "/food": return <FoodHubPage navigate={navigate} />;
+    case "/account": return <AccountPage navigate={navigate} />;
+    case "/join": return <OnboardingPage navigate={navigate} />;
     case "/about": return <AboutPage />;
     case "/contact": return <ContactPage />;
     case "/privacy": return <LegalPage kind="privacy" />;
@@ -53,6 +59,9 @@ function Shell() {
       "/download": `${t.dl.title} — Vonix`,
       "/earn": `Earn — Vonix`,
       "/cities": `${t.nav.cities} — Vonix`,
+      "/food": `${t.foodHub.title} — Vonix`,
+      "/account": `${t.account.title} — Vonix`,
+      "/join": `${t.join.title} — Vonix`,
       "/about": `${t.nav.about} — Vonix`,
       "/contact": `${t.nav.contact} — Vonix`,
       "/privacy": `${t.footer.privacy} — Vonix`,

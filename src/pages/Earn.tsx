@@ -103,6 +103,7 @@ export function EarnPage({ sub, navigate }: { sub?: EarnKey; navigate: (r: Route
             </div>
             <div className="hero-actions reveal" style={{ marginTop: 40 }}>
               <a className="btn btn-primary" href="#/download" onClick={(ev) => { ev.preventDefault(); navigate("/download"); window.scrollTo({ top: 0 }); }}>{t.pageBits.ctaEarn}</a>
+              <a className="btn btn-ghost" href="#/join" onClick={(ev) => { ev.preventDefault(); navigate("/join"); window.scrollTo({ top: 0 }); }}>{t.join.title}</a>
               <a className="btn btn-ghost" href="#/business" onClick={(ev) => { ev.preventDefault(); navigate("/business"); window.scrollTo({ top: 0 }); }}>{t.nav.business}</a>
             </div>
           </div>

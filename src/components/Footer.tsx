@@ -36,6 +36,7 @@ export function Footer({ navigate }: { navigate: (r: Route) => void }) {
           {link(t.svc.grocery.title, "/services/orders")}
           {link(t.svc.moped.title, "/services/courier")}
           {link(t.svc.cargo.title, "/services/cargo")}
+          {link(t.foodHub.title, "/food")}
           {link(t.nav.how, "/how-it-works")}
         </nav>
         <nav className="footer-col">
@@ -45,6 +46,7 @@ export function Footer({ navigate }: { navigate: (r: Route) => void }) {
           {link(t.earn.groups.restaurants.title, "/earn/restaurants")}
           {link(t.earn.groups.fleet.title, "/earn/fleet")}
           {link(t.nav.business, "/business")}
+          {link(t.join.title, "/join")}
         </nav>
         <nav className="footer-col">
           <h4>{f.company}</h4>
@@ -52,6 +54,7 @@ export function Footer({ navigate }: { navigate: (r: Route) => void }) {
           {link(f.contact, "/contact")}
           {link(t.guidePage.title, "/guide")}
           {link(f.citiesLink, "/cities")}
+          {link(t.account.title, "/account")}
         </nav>
         <nav className="footer-col">
           <h4>{f.legal}</h4>

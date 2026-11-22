@@ -17,12 +17,15 @@ export type Route =
   | "/earn/restaurants"
   | "/earn/fleet"
   | "/cities"
+  | "/food"
+  | "/account"
+  | "/join"
   | "/about"
   | "/contact"
   | "/privacy"
   | "/terms";
 
-const VALID: Route[] = ["/", "/services", "/services/rides", "/services/courier", "/services/cargo", "/services/orders", "/business", "/how-it-works", "/guide", "/download", "/earn", "/earn/drivers", "/earn/couriers", "/earn/restaurants", "/earn/fleet", "/cities", "/about", "/contact", "/privacy", "/terms"];
+const VALID: Route[] = ["/", "/services", "/services/rides", "/services/courier", "/services/cargo", "/services/orders", "/business", "/how-it-works", "/guide", "/download", "/earn", "/earn/drivers", "/earn/couriers", "/earn/restaurants", "/earn/fleet", "/cities", "/food", "/account", "/join", "/about", "/contact", "/privacy", "/terms"];
 
 function parseHash(): Route {
   const h = window.location.hash.replace(/^#/, "");
