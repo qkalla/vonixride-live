@@ -23,7 +23,7 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
 
   const CARDS: { to: Route; img: string }[] = [
     { to: "/services/rides", img: "/cab.png" },
-    { to: "/food", img: "/grocery.png" },
+    { to: "/food", img: "/Livraison chaleureuse à domicile.png" },
     { to: "/services/orders", img: "/grocery.png" },
     { to: "/services/courier", img: "/deliervy.png" },
     { to: "/services/cargo", img: "/cargo.png" },
@@ -109,18 +109,56 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
             <h2 className="display">{t.earn.title}</h2>
             <p>{t.earn.sub}</p>
           </div>
-          <div className="earn-blocks">
-            {(Object.keys(t.earn.groups) as (keyof typeof t.earn.groups)[]).map((k) => {
-              const g = t.earn.groups[k];
-              const to = ({ drivers: "/earn/drivers", couriers: "/earn/couriers", restaurants: "/earn/restaurants", fleet: "/earn/fleet" } as Record<string, Route>)[k];
-              return (
-                <a className="earn-block reveal" key={k} href={`#${to}`} onClick={(e) => { e.preventDefault(); navigate(to); window.scrollTo({ top: 0 }); }}>
-                  <h3>{g.title}</h3>
-                  <p>{g.text}</p>
-                  <span className="earn-block-link">{t.earn.cta} →</span>
-                </a>
-              );
-            })}
+          <div className="earn-showcase-grid">
+            {[
+              {
+                key: "ride",
+                title: t.svc.ride.title,
+                text: t.svc.ride.text,
+                img: "/cab.png",
+                to: "/earn/drivers",
+              },
+              {
+                key: "food",
+                title: t.svc.food.title,
+                text: t.svc.food.text,
+                img: "/Livraison chaleureuse à domicile.png",
+                to: "/services/orders",
+              },
+              {
+                key: "cargo",
+                title: t.svc.cargo.title,
+                text: t.svc.cargo.text,
+                img: "/cargo.png",
+                to: "/earn/fleet",
+              },
+              {
+                key: "merchant",
+                title: `${t.earn.groups.restaurants.title} · ${t.earn.groups.fleet.title}`,
+                text: t.earn.groups.restaurants.text,
+                img: "/art-5.png",
+                to: "/earn/restaurants",
+              },
+            ].map((card) => (
+              <a
+                className="earn-showcase-card reveal"
+                key={card.key}
+                href={`#${card.to}`}
+                onClick={(event) => {
+                  event.preventDefault();
+                  navigate(card.to as Route);
+                  window.scrollTo({ top: 0 });
+                }}
+              >
+                <img className="earn-showcase-image" src={card.img} alt="" loading="lazy" />
+                <div className="earn-showcase-scrim" />
+                <div className="earn-showcase-copy">
+                  <h3>{card.title}</h3>
+                  <p>{card.text}</p>
+                  <span className="earn-showcase-pill">{t.earn.cta} <span aria-hidden="true">→</span></span>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
