@@ -550,10 +550,10 @@ export const en = {
     categoriesTitle: "What are you craving?",
     cats: [
       { title: "Restaurants", text: "Hot meals from Yerevan's best kitchens", img: "/images/food.jpg" },
-      { title: "Markets & grocery", text: "Fresh produce and essentials daily", img: "/images/market.jpg" },
+      { title: "Markets & grocery", text: "Fresh produce and essentials daily", img: "/grocery.png" },
       { title: "Pharmacy", text: "Medicines from licensed pharmacies", img: "/categories/food/pharmacy.png" },
-      { title: "Flowers & gifts", text: "Bouquets and care packages delivered", img: "/categories/food/sub_bouquets.png" },
-      { title: "Local stores", text: "Shops and boutiques across the city", img: "/categories/food/hub_boutiques.png" },
+      { title: "Flowers & gifts", text: "Bouquets and care packages delivered", img: "/art-4.png" },
+      { title: "Local stores", text: "Shops and boutiques across the city", img: "/art-5.png" },
     ],
     popularTitle: "Popular right now",
     popular: ["Khorovats", "Khash", "Khachapuri", "Dolma", "Lavash wraps", " gata & coffee", "Basturma", "Punjabi curry", "Lahmajun", "Churchkhela"],
@@ -561,7 +561,7 @@ export const en = {
     dishes: [
       { title: "Khorovats platter", text: "Charcoal-grilled meats with lavash and herbs", price: "from 4,500 ֏", img: "/categories/food/steaks.png" },
       { title: "Adjaruli khachapuri", text: "Egg yolk, butter and melted cheese boat", price: "from 1,800 ֏", img: "/categories/food/khachapuri.png" },
-      { title: "Fresh market box", text: "Seasonal produce from SAS & Yerevan City", price: "from 3,200 ֏", img: "/images/market.jpg" },
+      { title: "Fresh market box", text: "Seasonal produce from SAS & Yerevan City", price: "from 3,200 ֏", img: "/grocery.png" },
     ],
     cta: "Open in app",
   },

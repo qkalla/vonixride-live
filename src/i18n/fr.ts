@@ -383,10 +383,10 @@ export const fr = {
     categoriesTitle: "Qu'est-ce qui vous tente ?",
     cats: [
       { title: "Restaurants", text: "Plats chauds des meilleures cuisines d'Erevan", img: "/images/food.jpg" },
-      { title: "Courses & épicerie", text: "Produits frais et essentiels chaque jour", img: "/images/market.jpg" },
+      { title: "Courses & épicerie", text: "Produits frais et essentiels chaque jour", img: "/grocery.png" },
       { title: "Pharmacie", text: "Médicaments des pharmacies agréées", img: "/categories/food/pharmacy.png" },
-      { title: "Fleurs & cadeaux", text: "Bouquets et colis attentionnés livrés", img: "/categories/food/sub_bouquets.png" },
-      { title: "Boutiques locales", text: "Commerces et ateliers dans toute la ville", img: "/categories/food/hub_boutiques.png" },
+      { title: "Fleurs & cadeaux", text: "Bouquets et colis attentionnés livrés", img: "/art-4.png" },
+      { title: "Boutiques locales", text: "Commerces et ateliers dans toute la ville", img: "/art-5.png" },
     ],
     popularTitle: "Populaire en ce moment",
     popular: ["Khorovats", "Khash", "Khachapouri", "Dolma", "Lavaş wrap", "Gata & café", "Basturma", "Curry", "Lahmajun", "Churchkhela"],
@@ -394,7 +394,7 @@ export const fr = {
     dishes: [
       { title: "Assiette de khorovats", text: "Viandes grillées au charbon, lavash et herbes", price: "dès 4 500 ֏", img: "/categories/food/steaks.png" },
       { title: "Khachapouri adjara", text: "Jaune d'œuf, beurre et fromage fondu", price: "dès 1 800 ֏", img: "/categories/food/khachapuri.png" },
-      { title: "Panier du marché", text: "Produits de saison de SAS et Erevan City", price: "dès 3 200 ֏", img: "/images/market.jpg" },
+      { title: "Panier du marché", text: "Produits de saison de SAS et Erevan City", price: "dès 3 200 ֏", img: "/grocery.png" },
     ],
     cta: "Ouvrir dans l'app",
   },

@@ -383,10 +383,10 @@ export const es = {
     categoriesTitle: "¿Qué se te antoja?",
     cats: [
       { title: "Restaurantes", text: "Platos calientes de las mejores cocinas de Ereván", img: "/images/food.jpg" },
-      { title: "Mercado y súper", text: "Productos frescos y básicos cada día", img: "/images/market.jpg" },
+      { title: "Mercado y súper", text: "Productos frescos y básicos cada día", img: "/grocery.png" },
       { title: "Farmacia", text: "Medicamentos de farmacias autorizadas", img: "/categories/food/pharmacy.png" },
-      { title: "Flores y regalos", text: "Ramos y paquetes cuidados a domicilio", img: "/categories/food/sub_bouquets.png" },
-      { title: "Tiendas locales", text: "Comercios y talleres en toda la ciudad", img: "/categories/food/hub_boutiques.png" },
+      { title: "Flores y regalos", text: "Ramos y paquetes cuidados a domicilio", img: "/art-4.png" },
+      { title: "Tiendas locales", text: "Comercios y talleres en toda la ciudad", img: "/art-5.png" },
     ],
     popularTitle: "Popular ahora",
     popular: ["Khorovats", "Khash", "Khachapuri", "Dolma", "Wrap de lavash", "Gata y café", "Basturma", "Curry", "Lahmajun", "Churchkhela"],
@@ -394,7 +394,7 @@ export const es = {
     dishes: [
       { title: "Tabla de khorovats", text: "Carnes a la brasa con lavash y hierbas", price: "desde 4 500 ֏", img: "/categories/food/steaks.png" },
       { title: "Khachapuri adjara", text: "Yema, mantequilla y queso fundido", price: "desde 1 800 ֏", img: "/categories/food/khachapuri.png" },
-      { title: "Caja del mercado", text: "Productos de temporada de SAS y Ereván City", price: "desde 3 200 ֏", img: "/images/market.jpg" },
+      { title: "Caja del mercado", text: "Productos de temporada de SAS y Ereván City", price: "desde 3 200 ֏", img: "/grocery.png" },
     ],
     cta: "Abrir en la app",
   },

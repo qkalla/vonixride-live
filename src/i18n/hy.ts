@@ -202,10 +202,10 @@ export const hy = {
     categoriesTitle: "Ի՞նչ կցանկանաք",
     cats: [
       { title: "Ռեստորաններ", text: "Տաք ուտեստներ Երևանի լավագույն խոհանոցներից", img: "/images/food.jpg" },
-      { title: "Շուկաներ և մթերք", text: "Թարմ մթերք և ամենօրյա անհրաժեշտ ապրանքներ", img: "/images/market.jpg" },
+      { title: "Շուկաներ և մթերք", text: "Թարմ մթերք և ամենօրյա անհրաժեշտ ապրանքներ", img: "/grocery.png" },
       { title: "Դեղատուն", text: "Դեղորայք՝ լիցենզավորված դեղատներից", img: "/categories/food/pharmacy.png" },
-      { title: "Ծաղիկներ և նվերներ", text: "Ծաղկեփնջեր և հոգատար նվերներ՝ առաքմամբ", img: "/categories/food/sub_bouquets.png" },
-      { title: "Տեղական խանութներ", text: "Խանութներ և բուտիկներ ամբողջ քաղաքում", img: "/categories/food/hub_boutiques.png" },
+      { title: "Ծաղիկներ և նվերներ", text: "Ծաղկեփնջեր և հոգատար նվերներ՝ առաքմամբ", img: "/art-4.png" },
+      { title: "Տեղական խանութներ", text: "Խանութներ և բուտիկներ ամբողջ քաղաքում", img: "/art-5.png" },
     ],
     popularTitle: "Հիմա սիրված",
     popular: ["Խորոված", "Խաշ", "Խաչապուրի", "Տոլմա", "Լավաշով ռափեր", "Գաթա և սուրճ", "Բաստուրմա", "Փունջաբի կարրի", "Լահմաջուն", "Չուրչխելա"],
@@ -213,7 +213,7 @@ export const hy = {
     dishes: [
       { title: "Խորովածի տեսականի", text: "Ածխի վրա խորոված միս՝ լավաշով և կանաչիներով", price: "սկսած 4,500 ֏-ից", img: "/categories/food/steaks.png" },
       { title: "Աջարական խաչապուրի", text: "Ձվի դեղնուց, կարագ և հալված պանիր", price: "սկսած 1,800 ֏-ից", img: "/categories/food/khachapuri.png" },
-      { title: "Թարմ մթերքի զամբյուղ", text: "Սեզոնային մթերք SAS-ից և Yerevan City-ից", price: "սկսած 3,200 ֏-ից", img: "/images/market.jpg" },
+      { title: "Թարմ մթերքի զամբյուղ", text: "Սեզոնային մթերք SAS-ից և Yerevan City-ից", price: "սկսած 3,200 ֏-ից", img: "/grocery.png" },
     ],
     cta: "Բացել հավելվածում",
   },

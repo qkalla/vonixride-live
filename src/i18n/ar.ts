@@ -383,10 +383,10 @@ export const ar = {
     categoriesTitle: "بماذا تشتهي؟",
     cats: [
       { title: "مطاعم", text: "أطباق ساخنة من أفضل مطابخ يريفان", img: "/images/food.jpg" },
-      { title: "السوق والبقالة", text: "منتجات طازجة وأساسية يومياً", img: "/images/market.jpg" },
+      { title: "السوق والبقالة", text: "منتجات طازجة وأساسية يومياً", img: "/grocery.png" },
       { title: "صيدلية", text: "أدوية من صيدليات مرخّصة", img: "/categories/food/pharmacy.png" },
-      { title: "ورود وهدايا", text: "باقات وتغليف هدايا تصل للباب", img: "/categories/food/sub_bouquets.png" },
-      { title: "متاجر محلية", text: "محلات وأوراش في كل أنحاء المدينة", img: "/categories/food/hub_boutiques.png" },
+      { title: "ورود وهدايا", text: "باقات وتغليف هدايا تصل للباب", img: "/art-4.png" },
+      { title: "متاجر محلية", text: "محلات وأوراش في كل أنحاء المدينة", img: "/art-5.png" },
     ],
     popularTitle: "رائج الآن",
     popular: ["خوروفاتس", "خاش", "خاتشابوري", "دولمة", "لفة لافاش", "غاتا وقهوة", "باستورما", "كاري", "لاهمجون", "تشورتشيلا"],
@@ -394,7 +394,7 @@ export const ar = {
     dishes: [
       { title: "طبق الخوروفاتس", text: "لحوم مشوية على الفحم مع لافاش وأعشاب", price: "ابتداءً من 4,500 ֏", img: "/categories/food/steaks.png" },
       { title: "خاتشابوري أجداري", text: "صفار بيض وزبدة وجبن مذاب", price: "ابتداءً من 1,800 ֏", img: "/categories/food/khachapuri.png" },
-      { title: "صندوق السوق", text: "منتجات موسمية من SAS وإريفان سيتي", price: "ابتداءً من 3,200 ֏", img: "/images/market.jpg" },
+      { title: "صندوق السوق", text: "منتجات موسمية من SAS وإريفان سيتي", price: "ابتداءً من 3,200 ֏", img: "/grocery.png" },
     ],
     cta: "افتح في التطبيق",
   },

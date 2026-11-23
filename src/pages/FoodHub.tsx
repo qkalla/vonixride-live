@@ -53,6 +53,59 @@ export function FoodHubPage({ navigate }: { navigate: (r: Route) => void }) {
         </div>
       </section>
 
+      <section className="section section-alt phone-showcase-section">
+        <div className="container">
+          <div className="section-head reveal">
+            <h2 className="display">One Vonix order, every detail</h2>
+            <p>Discover, choose and track in one crisp food flow.</p>
+          </div>
+          <div className="phone-showcase reveal">
+            <div className="vonix-phone phone-side phone-left">
+              <div className="phone-speaker" />
+              <div className="phone-status"><strong>9:41</strong><span>● ● ●</span></div>
+              <div className="phone-search">Where should we deliver?</div>
+              <div className="phone-copy">
+                <span>Hungry now?</span>
+                <strong>Vonix Food</strong>
+              </div>
+              <div className="phone-category-grid">
+                <div><img src="/images/food.jpg" alt="" /><span>Food</span></div>
+                <div><img src="/grocery.png" alt="" /><span>Markets</span></div>
+              </div>
+            </div>
+            <div className="vonix-phone phone-main">
+              <div className="phone-speaker" />
+              <div className="phone-status"><strong>9:41</strong><span>● ● ●</span></div>
+              <div className="phone-map">
+                <img src="/cab.png" alt="" />
+              </div>
+              <div className="phone-order-card">
+                <span className="phone-live">Courier approaching</span>
+                <strong>Khachapuri & salad</strong>
+                <div className="phone-progress"><i /></div>
+                <div className="phone-total"><span>AMD total</span><strong>4,800 ֏</strong></div>
+              </div>
+            </div>
+            <div className="vonix-phone phone-side phone-right">
+              <div className="phone-speaker" />
+              <div className="phone-status"><strong>9:41</strong><span>● ● ●</span></div>
+              <div className="phone-copy phone-copy-small">
+                <span>Popular near you</span>
+                <strong>Yerevan</strong>
+              </div>
+              <div className="phone-place">
+                <img src="/categories/food/khachapuri.png" alt="" />
+                <div><strong>Sherep</strong><span>25–35 min · 4.8</span></div>
+              </div>
+              <div className="phone-place">
+                <img src="/categories/food/steaks.png" alt="" />
+                <div><strong>Armenuhi</strong><span>30–40 min · 4.7</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section section-alt">
         <div className="container">
           <div className="section-head reveal"><h2 className="display">{f.categoriesTitle}</h2></div>

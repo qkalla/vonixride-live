@@ -476,10 +476,10 @@ export const ru = {
     categoriesTitle: "Что вам хочется?",
     cats: [
       { title: "Рестораны", text: "Горячие блюда из лучших кухонь Еревана", img: "/images/food.jpg" },
-      { title: "Маркеты и продукты", text: "Свежие продукты и товары каждый день", img: "/images/market.jpg" },
+      { title: "Маркеты и продукты", text: "Свежие продукты и товары каждый день", img: "/grocery.png" },
       { title: "Аптека", text: "Лекарства из лицензированных аптек", img: "/categories/food/pharmacy.png" },
-      { title: "Цветы и подарки", text: "Букеты и посылки с заботой", img: "/categories/food/sub_bouquets.png" },
-      { title: "Местные магазины", text: "Бутики и лавки по всему городу", img: "/categories/food/hub_boutiques.png" },
+      { title: "Цветы и подарки", text: "Букеты и посылки с заботой", img: "/art-4.png" },
+      { title: "Местные магазины", text: "Бутики и лавки по всему городу", img: "/art-5.png" },
     ],
     popularTitle: "Сейчас популярно",
     popular: ["Хороватс", "Хаш", "Хачапури", "Долма", "Лаваш-шаурма", "Гата и кофе", "Бастурма", "Карри", "Лахмаджун", "Чурчхела"],
@@ -487,7 +487,7 @@ export const ru = {
     dishes: [
       { title: "Большая порция хороватс", text: "Мясо на углях с лавашом и зеленью", price: "от 4 500 ֏", img: "/categories/food/steaks.png" },
       { title: "Аджарский хачапури", text: "Желток, масло и расплавленный сыр", price: "от 1 800 ֏", img: "/categories/food/khachapuri.png" },
-      { title: "Коробка свежего рынка", text: "Сезонные продукты из SAS и Ереван Сити", price: "от 3 200 ֏", img: "/images/market.jpg" },
+      { title: "Коробка свежего рынка", text: "Сезонные продукты из SAS и Ереван Сити", price: "от 3 200 ֏", img: "/grocery.png" },
     ],
     cta: "Открыть в приложении",
   },
