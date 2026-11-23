@@ -1,8 +1,6 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
-import { BusinessPreview } from "../components/previews";
-import { LangSwitcher } from "../components/LangSwitcher";
 import type { Route } from "../router";
 
 const KEYS = ["ride", "food", "grocery", "pharmacy", "cargo", "moped"] as const;
@@ -79,34 +77,130 @@ function BusinessRouteLink({ to, navigate, className, beforeNavigate, children }
 
 export function BusinessOverviewPage({ navigate }: { navigate: (route: Route) => void }) {
   const { t } = useLang();
-  const copy = t.businessPortal;
   const flow = t.businessFlow;
+  const story = t.businessExperience;
 
   return (
-    <section className="business-overview">
-      <div className="business-overview-copy">
-        <BusinessBrand />
-        <span className="business-eyebrow">{copy.eyebrow}</span>
-        <h1>{t.business.title}</h1>
-        <p>{t.pages.businessPage.sub}</p>
-        <div className="business-overview-context">
-          <span>Yerevan, Armenia</span><i aria-hidden="true" />
-          <span>+374</span><i aria-hidden="true" />
-          <span>AMD</span>
+    <div className="business-overview-page">
+      <section className="business-overview">
+        <div className="business-overview-copy">
+          <BusinessBrand />
+          <span className="business-eyebrow">{story.heroEyebrow}</span>
+          <h1>{story.heroTitle}</h1>
+          <p>{story.heroBody}</p>
+          <div className="business-overview-context">
+            <span>Yerevan, Armenia</span><i aria-hidden="true" />
+            <span>+374</span><i aria-hidden="true" />
+            <span>AMD</span>
+          </div>
+          <div className="business-overview-actions">
+            <BusinessRouteLink className="business-submit" to="/business/get-started" navigate={navigate}>
+              {flow.overviewCta}<span aria-hidden="true">→</span>
+            </BusinessRouteLink>
+            <BusinessRouteLink className="business-signin-link" to="/business/signup/choose-auth" navigate={navigate} beforeNavigate={() => window.sessionStorage.setItem("vonix.business.authMode", "signin")}>
+              {flow.overviewSignIn}
+            </BusinessRouteLink>
+          </div>
         </div>
-        <div className="business-overview-actions">
-          <BusinessRouteLink className="business-submit" to="/business/get-started" navigate={navigate}>
+      </section>
+
+      <section className="business-photo-band" aria-label={story.photoAlt}>
+        <img src="/cab.png" alt={story.photoAlt} />
+        <div className="business-photo-caption">
+          <span>{story.photoEyebrow}</span>
+          <strong>{story.photoTitle}</strong>
+        </div>
+      </section>
+
+      <section className="business-feature-section">
+        <div className="business-section-intro">
+          <span className="business-eyebrow">{story.featuresEyebrow}</span>
+          <h2>{story.featuresTitle}</h2>
+        </div>
+        <div className="business-feature-grid">
+          <article className="business-feature-card">
+            <span className="business-feature-index">01</span>
+            <h3>{story.teamTitle}</h3>
+            <p>{story.teamBody}</p>
+            <BusinessRouteLink to="/business/get-started" navigate={navigate} className="business-text-link">
+              {flow.overviewCta}<span aria-hidden="true">→</span>
+            </BusinessRouteLink>
+          </article>
+          <article className="business-feature-card">
+            <span className="business-feature-index">02</span>
+            <h3>{story.ordersTitle}</h3>
+            <p>{story.ordersBody}</p>
+            <BusinessRouteLink to="/business/get-started" navigate={navigate} className="business-text-link">
+              {flow.overviewCta}<span aria-hidden="true">→</span>
+            </BusinessRouteLink>
+          </article>
+          <div className="business-feature-media">
+            <img src="/Gemini_Generated_Image_fhncqsfhncqsfhnc.jpg" alt={story.dashboardAlt} />
+          </div>
+        </div>
+      </section>
+
+      <section className="business-booking-section">
+        <div className="business-booking-media">
+          <img src="/deliervy.png" alt={story.bookingPhotoAlt} />
+        </div>
+        <div className="business-booking-copy">
+          <span className="business-eyebrow">{story.bookingEyebrow}</span>
+          <h2>{story.bookingTitle}</h2>
+          <p>{story.bookingBody}</p>
+          <blockquote>{story.quote}<cite>{story.quoteBy}</cite></blockquote>
+          <BusinessRouteLink to="/business/get-started" navigate={navigate} className="business-submit">
             {flow.overviewCta}<span aria-hidden="true">→</span>
           </BusinessRouteLink>
-          <BusinessRouteLink className="business-signin-link" to="/business/signup/choose-auth" navigate={navigate} beforeNavigate={() => window.sessionStorage.setItem("vonix.business.authMode", "signin")}>
-            {flow.overviewSignIn}
+        </div>
+      </section>
+
+      <section className="business-steps-section">
+        <div className="business-section-intro">
+          <span className="business-eyebrow">{story.stepsEyebrow}</span>
+          <h2>{story.stepsTitle}</h2>
+        </div>
+        <div className="business-steps-grid">
+          {story.steps.map((step, index) => (
+            <article className="business-step-card" key={step.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="business-referral-section">
+        <div>
+          <span className="business-eyebrow">{story.referralEyebrow}</span>
+          <h2>{story.referralTitle}</h2>
+          <p>{story.referralBody}</p>
+          <BusinessRouteLink to="/business/get-started" navigate={navigate} className="business-submit">
+            {flow.overviewCta}<span aria-hidden="true">→</span>
           </BusinessRouteLink>
         </div>
-      </div>
-      <div className="business-overview-visual">
-        <BusinessPreview variant="portal" />
-      </div>
-    </section>
+        <div className="business-referral-mark" aria-label={story.referralMetric}>
+          <span>{story.referralMetric}</span>
+          <strong>AMD</strong>
+          <small>{story.referralNote}</small>
+        </div>
+      </section>
+
+      <section className="business-reporting-section">
+        <div className="business-reporting-copy">
+          <span className="business-eyebrow">{story.reportingEyebrow}</span>
+          <h2>{story.reportingTitle}</h2>
+          <p>{story.reportingBody}</p>
+          <BusinessRouteLink to="/business/get-started" navigate={navigate} className="business-submit">
+            {flow.overviewCta}<span aria-hidden="true">→</span>
+          </BusinessRouteLink>
+        </div>
+        <div className="business-reporting-image">
+          <img src="/cargo.png" alt={story.reportingAlt} />
+        </div>
+      </section>
+    </div>
   );
 }
 
@@ -114,7 +208,16 @@ export function BusinessGetStartedPage({ navigate }: { navigate: (route: Route) 
   const { t } = useLang();
   const copy = t.businessPortal;
   const flow = t.businessFlow;
+  const story = t.businessExperience;
   const [role, setRole] = useState<BusinessRole>("restaurant");
+  const [setupType, setSetupType] = useState<"quick" | "tailored">("quick");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [companyEmail, setCompanyEmail] = useState("");
+  const [phone, setPhone] = useState("+374 ");
+  const [jobTitle, setJobTitle] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [companySize, setCompanySize] = useState("");
   const roles: { id: BusinessRole; title: string }[] = [
     { id: "driver", title: copy.roles.driver },
     { id: "restaurant", title: copy.roles.restaurant },
@@ -122,9 +225,18 @@ export function BusinessGetStartedPage({ navigate }: { navigate: (route: Route) 
     { id: "cargo", title: copy.roles.cargo },
     { id: "fleet", title: copy.roles.fleet },
   ];
-  const continueToAuth = () => {
+  const continueToAuth = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     window.sessionStorage.setItem("vonix.business.role", role);
     window.sessionStorage.setItem("vonix.business.authMode", "register");
+    window.sessionStorage.setItem("vonix.business.setupType", setupType);
+    window.sessionStorage.setItem("vonix.business.firstName", firstName);
+    window.sessionStorage.setItem("vonix.business.lastName", lastName);
+    window.sessionStorage.setItem("vonix.business.companyEmail", companyEmail);
+    window.sessionStorage.setItem("vonix.business.phone", phone);
+    window.sessionStorage.setItem("vonix.business.jobTitle", jobTitle);
+    window.sessionStorage.setItem("vonix.business.companyName", companyName);
+    window.sessionStorage.setItem("vonix.business.companySize", companySize);
     navigate("/business/signup/choose-auth");
   };
   const selectedRole = roles.find((item) => item.id === role)!;
@@ -134,55 +246,73 @@ export function BusinessGetStartedPage({ navigate }: { navigate: (route: Route) 
       <div className="business-journey-heading">
         <BusinessRouteLink to="/business" navigate={navigate} className="business-back-link">← {t.nav.business}</BusinessRouteLink>
         <span className="business-eyebrow">{copy.eyebrow}</span>
-        <h1>{flow.getStartedTitle}</h1>
-        <p>{flow.getStartedBody}</p>
+        <h1>{story.setupTitle}</h1>
+        <p>{story.setupBody}</p>
       </div>
 
-      <div className="business-journey-grid">
-        <div className="business-journey-main">
-          <h2>{flow.roleTitle}</h2>
-          <div className="business-role-grid" role="radiogroup" aria-label={flow.roleTitle}>
-            {roles.map((item) => (
-              <button
-                type="button"
-                role="radio"
-                aria-checked={role === item.id}
-                className={`business-role-card${role === item.id ? " active" : ""}`}
-                key={item.id}
-                onClick={() => setRole(item.id)}
-              >
-                <span className="business-role-radio" aria-hidden="true" />
-                <strong>{item.title}</strong>
-                <span aria-hidden="true">→</span>
-              </button>
-            ))}
+      <div className="business-setup-options" role="tablist" aria-label={story.setupOptionsLabel}>
+        {(["quick", "tailored"] as const).map((type) => (
+          <button type="button" role="tab" aria-selected={setupType === type} className={setupType === type ? "active" : ""} key={type} onClick={() => setSetupType(type)}>
+            <span>{type === "quick" ? story.quickTitle : story.tailoredTitle}</span>
+            <small>{type === "quick" ? story.quickBody : story.tailoredBody}</small>
+          </button>
+        ))}
+      </div>
+
+      <form className="business-inquiry-form" onSubmit={continueToAuth}>
+        <div className="business-inquiry-intro">
+          <div>
+            <span className="business-eyebrow">{story.formEyebrow}</span>
+            <h2>{story.formTitle}</h2>
+            <p>{story.formBody}</p>
           </div>
-          <h2 className="business-setup-title">{flow.stepsTitle}</h2>
-          <ol className="business-setup-steps">
-            {flow.setupSteps.map((step, index) => (
-              <li key={step}><span>{String(index + 1).padStart(2, "0")}</span>{step}</li>
-            ))}
-          </ol>
+          <div className="business-inquiry-context"><span>+374</span><i />Yerevan <i />AMD</div>
         </div>
 
-        <aside className="business-benefits">
-          <div className="business-journey-visual">
-            <img src={BUSINESS_ROLE_IMAGES[role]} alt={selectedRole.title} />
-            <span>{selectedRole.title}</span>
-          </div>
-          <h2>{flow.benefitsTitle}</h2>
-          {t.business.checks.map((benefit) => (
-            <div className="business-benefit" key={benefit.title}>
-              <span aria-hidden="true">✓</span>
-              <p><strong>{benefit.title}</strong>{benefit.text}</p>
-            </div>
+        <div className="business-role-grid" role="radiogroup" aria-label={flow.roleTitle}>
+          {roles.map((item) => (
+            <button type="button" role="radio" aria-checked={role === item.id} className={`business-role-card${role === item.id ? " active" : ""}`} key={item.id} onClick={() => setRole(item.id)}>
+              <span className="business-role-radio" aria-hidden="true" />
+              <strong>{item.title}</strong>
+              <span aria-hidden="true">→</span>
+            </button>
           ))}
-          <button type="button" className="business-submit" onClick={continueToAuth}>
-            {flow.continueCta}<span aria-hidden="true">→</span>
-          </button>
-          <p className="business-journey-note">+374 <span>·</span> Yerevan, Armenia <span>·</span> AMD</p>
-        </aside>
-      </div>
+        </div>
+
+        <div className="business-fields business-inquiry-fields">
+          <label><span>{story.firstName}</span><input required autoComplete="given-name" value={firstName} onChange={(event) => setFirstName(event.target.value)} /></label>
+          <label><span>{story.lastName}</span><input required autoComplete="family-name" value={lastName} onChange={(event) => setLastName(event.target.value)} /></label>
+          <label><span>{story.companyEmail}</span><input required type="email" autoComplete="email" value={companyEmail} onChange={(event) => setCompanyEmail(event.target.value)} /></label>
+          <label><span>{story.phoneNumber}</span><input required type="tel" inputMode="tel" autoComplete="tel" dir="ltr" value={phone} onChange={(event) => setPhone(event.target.value)} /></label>
+          <label><span>{story.jobTitle}</span><input required autoComplete="organization-title" value={jobTitle} onChange={(event) => setJobTitle(event.target.value)} /></label>
+          <label><span>{story.companyName}</span><input required autoComplete="organization" value={companyName} onChange={(event) => setCompanyName(event.target.value)} /></label>
+          <label className="business-role-field"><span>{story.companySize}</span>
+            <select required value={companySize} onChange={(event) => setCompanySize(event.target.value)}>
+              <option value="" disabled>{story.companySizePlaceholder}</option>
+              {story.companySizeOptions.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}
+            </select>
+          </label>
+        </div>
+        <div className="business-consent">
+          <input required type="checkbox" id="business-consent" />
+          <span><label htmlFor="business-consent">{story.consentPrefix}</label> <BusinessRouteLink to="/privacy" navigate={navigate} className="business-consent-link">{story.consentLink}</BusinessRouteLink>.</span>
+        </div>
+        <div className="business-inquiry-submit">
+          <button type="submit" className="business-submit">{story.submitInquiry}<span aria-hidden="true">→</span></button>
+          <p>{story.submitNote}</p>
+        </div>
+      </form>
+
+      <section className="business-setup-proof">
+        <h2>{flow.stepsTitle}</h2>
+        <ol className="business-setup-steps">
+          {flow.setupSteps.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, "0")}</span>{step}</li>)}
+        </ol>
+        <div className="business-setup-proof-image">
+          <img src={BUSINESS_ROLE_IMAGES[role]} alt={selectedRole.title} />
+          <span>{selectedRole.title}</span>
+        </div>
+      </section>
     </section>
   );
 }
@@ -191,6 +321,7 @@ export function BusinessAuthPage({ navigate }: { navigate: (route: Route) => voi
   const { t } = useLang();
   const copy = t.businessPortal;
   const flow = t.businessFlow;
+  const story = t.businessExperience;
   const [mode, setMode] = useState<"signin" | "register">(() =>
     window.sessionStorage.getItem("vonix.business.authMode") === "signin" ? "signin" : "register",
   );
@@ -198,10 +329,12 @@ export function BusinessAuthPage({ navigate }: { navigate: (route: Route) => voi
     const savedRole = window.sessionStorage.getItem("vonix.business.role");
     return BUSINESS_ROLES.includes(savedRole as BusinessRole) ? savedRole as BusinessRole : "restaurant";
   });
-  const [contactName, setContactName] = useState("");
-  const [businessName, setBusinessName] = useState("");
-  const [phone, setPhone] = useState("+374 ");
-  const [email, setEmail] = useState("");
+  const [contactName, setContactName] = useState(() => [window.sessionStorage.getItem("vonix.business.firstName"), window.sessionStorage.getItem("vonix.business.lastName")].filter(Boolean).join(" "));
+  const [businessName, setBusinessName] = useState(() => window.sessionStorage.getItem("vonix.business.companyName") ?? "");
+  const [phone, setPhone] = useState(() => window.sessionStorage.getItem("vonix.business.phone") ?? "+374 ");
+  const [email, setEmail] = useState(() => window.sessionStorage.getItem("vonix.business.companyEmail") ?? "");
+  const [jobTitle, setJobTitle] = useState(() => window.sessionStorage.getItem("vonix.business.jobTitle") ?? "");
+  const [companySize, setCompanySize] = useState(() => window.sessionStorage.getItem("vonix.business.companySize") ?? "");
 
   useEffect(() => {
     window.sessionStorage.removeItem("vonix.business.authMode");
@@ -218,9 +351,11 @@ export function BusinessAuthPage({ navigate }: { navigate: (route: Route) => voi
   const sendPartnerInquiry = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const roleTitle = roles.find((item) => item.id === role)?.title ?? role;
+    const setupType = window.sessionStorage.getItem("vonix.business.setupType");
+    const setupTitle = setupType === "tailored" ? story.tailoredTitle : story.quickTitle;
     const subject = encodeURIComponent(`Vonix Business — ${roleTitle}`);
     const body = encodeURIComponent(
-      `${copy.contactName}: ${contactName}\n${copy.businessName}: ${businessName}\n${copy.phone}: ${phone}\n${copy.email}: ${email}\n${copy.role}: ${roleTitle}`,
+      `${copy.contactName}: ${contactName}\n${copy.businessName}: ${businessName}\n${story.jobTitle}: ${jobTitle}\n${story.companySize}: ${companySize}\n${story.setupOptionsLabel}: ${setupTitle}\n${copy.phone}: ${phone}\n${copy.email}: ${email}\n${copy.role}: ${roleTitle}`,
     );
     window.location.href = `mailto:support@vonix.am?subject=${subject}&body=${body}`;
   };
@@ -249,7 +384,6 @@ export function BusinessAuthPage({ navigate }: { navigate: (route: Route) => voi
       <div className="business-auth-panel">
         <div className="business-auth-top">
           <BusinessRouteLink to="/business" navigate={navigate} className="business-auth-back-link">← {t.nav.business}</BusinessRouteLink>
-          <LangSwitcher />
         </div>
         <div className="business-auth-card">
           <div className="business-auth-heading">
@@ -289,12 +423,23 @@ export function BusinessAuthPage({ navigate }: { navigate: (route: Route) => voi
                   <input required autoComplete="organization" value={businessName} onChange={(event) => setBusinessName(event.target.value)} />
                 </label>
                 <label>
+                  <span>{story.jobTitle}</span>
+                  <input autoComplete="organization-title" value={jobTitle} onChange={(event) => setJobTitle(event.target.value)} />
+                </label>
+                <label>
                   <span>{copy.phone}</span>
                   <input required type="tel" inputMode="tel" autoComplete="tel" dir="ltr" value={phone} onChange={(event) => setPhone(event.target.value)} />
                 </label>
                 <label>
                   <span>{copy.email}</span>
                   <input required type="email" autoComplete="email" dir="ltr" value={email} onChange={(event) => setEmail(event.target.value)} />
+                </label>
+                <label>
+                  <span>{story.companySize}</span>
+                  <select value={companySize} onChange={(event) => setCompanySize(event.target.value)}>
+                    <option value="">{story.companySizePlaceholder}</option>
+                    {story.companySizeOptions.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}
+                  </select>
                 </label>
                 <label className="business-role-field">
                   <span>{copy.role}</span>

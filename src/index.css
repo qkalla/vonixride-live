@@ -4214,3 +4214,730 @@ body {
     margin-inline: -7px;
   }
 }
+
+/* Business overview and inquiry pages. */
+.business-overview-page {
+  margin-top: 68px;
+  color: #0f172a;
+  background: #fff;
+}
+
+.business-overview-page .business-overview {
+  min-height: min(720px, calc(100svh - 68px));
+  margin-top: 0;
+  padding: clamp(56px, 8vw, 112px) max(24px, calc((100vw - 1200px) / 2));
+  grid-template-columns: minmax(0, 1fr);
+  background:
+    radial-gradient(800px 500px at 94% 8%, rgba(0, 102, 255, .09), transparent 70%),
+    linear-gradient(110deg, #fff 0%, #fff 70%, #f3f6fa 100%);
+}
+
+.business-overview-page .business-overview-copy {
+  width: min(100%, 850px);
+  justify-self: start;
+}
+
+.business-overview-page .business-overview-copy > .business-wordmark {
+  margin-bottom: clamp(34px, 6vw, 72px);
+}
+
+.business-overview-page .business-overview-copy h1 {
+  max-width: 780px;
+  font-size: clamp(52px, 8vw, 102px);
+  line-height: .96;
+}
+
+.business-overview-page .business-overview-copy > p {
+  max-width: 600px;
+  font-size: clamp(16px, 1.5vw, 19px);
+}
+
+.business-overview-page .business-overview-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.business-overview-page .business-overview-actions .business-submit {
+  width: min(300px, 100%);
+}
+
+.business-overview-page .business-signin-link {
+  margin-top: 0;
+  padding: 0 12px;
+}
+
+.business-photo-band {
+  position: relative;
+  overflow: hidden;
+  width: min(1320px, calc(100% - 48px));
+  height: clamp(270px, 45vw, 590px);
+  margin: 0 auto;
+  border-radius: 24px;
+  background: #0f172a;
+}
+
+.business-photo-band::after {
+  position: absolute;
+  inset: 36% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(11, 11, 15, .76));
+  content: "";
+}
+
+.business-photo-band > img,
+.business-booking-media > img,
+.business-feature-media > img,
+.business-reporting-image > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.business-photo-band > img {
+  object-position: center 56%;
+}
+
+.business-photo-caption {
+  position: absolute;
+  z-index: 1;
+  inset-inline-start: clamp(22px, 5vw, 64px);
+  bottom: clamp(22px, 5vw, 56px);
+  display: grid;
+  gap: 9px;
+  color: #fff;
+}
+
+.business-photo-caption > span {
+  color: #b7d2ff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.business-photo-caption > strong {
+  max-width: 650px;
+  font: 700 clamp(28px, 4vw, 52px)/1.05 var(--font-body);
+  letter-spacing: -.05em;
+}
+
+.business-feature-section,
+.business-steps-section,
+.business-booking-section,
+.business-reporting-section,
+.business-referral-section {
+  width: min(1200px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.business-feature-section,
+.business-steps-section {
+  padding-block: clamp(72px, 10vw, 132px);
+}
+
+.business-section-intro {
+  max-width: 750px;
+  margin-bottom: clamp(30px, 5vw, 58px);
+}
+
+.business-section-intro h2,
+.business-booking-copy h2,
+.business-referral-section h2,
+.business-reporting-copy h2 {
+  margin-top: 12px;
+  color: #0f172a;
+  font: 740 clamp(34px, 5vw, 58px)/1.03 var(--font-body);
+  letter-spacing: -.06em;
+}
+
+.business-feature-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, .8fr) minmax(280px, 1.25fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.business-feature-card {
+  min-height: 285px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #e5eaf1;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.business-feature-index,
+.business-step-card > span {
+  color: #0066ff;
+  font-size: 11px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .1em;
+}
+
+.business-feature-card h3,
+.business-step-card h3 {
+  margin-top: 28px;
+  color: #0f172a;
+  font: 700 22px/1.12 var(--font-body);
+  letter-spacing: -.045em;
+}
+
+.business-feature-card p,
+.business-step-card p,
+.business-booking-copy > p,
+.business-referral-section > div:first-child > p,
+.business-reporting-copy > p {
+  margin-top: 12px;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.business-text-link {
+  margin-top: auto;
+  padding-top: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #0066ff;
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.business-feature-media {
+  min-height: 285px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #0f172a;
+}
+
+.business-booking-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: clamp(34px, 7vw, 90px);
+  align-items: center;
+  padding-block: clamp(60px, 8vw, 100px);
+  border-top: 1px solid #e8edf4;
+  border-bottom: 1px solid #e8edf4;
+}
+
+.business-booking-media {
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  background: #f3f6fa;
+}
+
+.business-booking-media > img {
+  object-position: 54% center;
+}
+
+.business-booking-copy blockquote {
+  margin-top: 26px;
+  padding-inline-start: 18px;
+  border-inline-start: 3px solid #0066ff;
+  color: #0f172a;
+  font: 600 18px/1.5 var(--font-body);
+}
+
+.business-booking-copy cite {
+  display: block;
+  margin-top: 9px;
+  color: #64748b;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.business-booking-copy .business-submit,
+.business-referral-section .business-submit,
+.business-reporting-copy .business-submit {
+  width: min(290px, 100%);
+  margin-top: 24px;
+}
+
+.business-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid #dfe6ef;
+}
+
+.business-step-card {
+  min-height: 205px;
+  padding: 24px 24px 12px 0;
+}
+
+.business-step-card + .business-step-card {
+  padding-inline-start: 24px;
+  border-inline-start: 1px solid #dfe6ef;
+}
+
+.business-step-card h3 {
+  margin-top: 23px;
+}
+
+.business-step-card p {
+  font-size: 13px;
+}
+
+.business-referral-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, .58fr);
+  gap: 42px;
+  align-items: center;
+  padding: clamp(34px, 6vw, 66px);
+  border-radius: 22px;
+  background: #f3f6fa;
+}
+
+.business-referral-section > div:first-child > p {
+  max-width: 640px;
+}
+
+.business-referral-mark {
+  min-height: 220px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #dfe8f5;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.business-referral-mark > span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.business-referral-mark > strong {
+  margin-top: 12px;
+  color: #0066ff;
+  font: 750 clamp(42px, 5vw, 62px)/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.06em;
+}
+
+.business-referral-mark > small {
+  margin-top: 14px;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.business-reporting-section {
+  min-height: 410px;
+  padding-block: clamp(72px, 10vw, 128px);
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: clamp(34px, 7vw, 90px);
+  align-items: center;
+}
+
+.business-reporting-image {
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-radius: 20px;
+  background: #0f172a;
+}
+
+.business-journey {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  column-gap: 38px;
+}
+
+.business-journey-heading {
+  grid-column: 1 / -1;
+}
+
+.business-setup-options {
+  grid-column: 1;
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.business-setup-options > button {
+  min-height: 98px;
+  padding: 18px;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
+  background: #fff;
+  color: #0f172a;
+  text-align: start;
+  cursor: pointer;
+}
+
+.business-setup-options > button.active {
+  border-color: #0066ff;
+  background: #f5f9ff;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, .07);
+}
+
+.business-setup-options > button > span {
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.business-setup-options > button > small {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.business-inquiry-form {
+  grid-column: 1;
+  margin-top: 22px;
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid #e5eaf1;
+  border-radius: 19px;
+  background: #fff;
+  box-shadow: 0 18px 54px rgba(15, 23, 42, .05);
+}
+
+.business-inquiry-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.business-inquiry-intro h2 {
+  margin-top: 7px;
+  color: #0f172a;
+  font: 700 25px/1.15 var(--font-body);
+  letter-spacing: -.045em;
+}
+
+.business-inquiry-intro p {
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.business-inquiry-context {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: 0 0 auto;
+  padding-bottom: 3px;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.business-inquiry-context > span {
+  color: #0066ff;
+}
+
+.business-inquiry-context > i {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #94a3b8;
+}
+
+.business-inquiry-form .business-role-grid {
+  margin-top: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.business-inquiry-form .business-role-card {
+  min-height: 52px;
+  padding: 9px;
+  gap: 7px;
+}
+
+.business-inquiry-form .business-role-card > strong {
+  font-size: 11px;
+}
+
+.business-inquiry-form .business-role-radio {
+  width: 14px;
+  height: 14px;
+  flex-basis: 14px;
+}
+
+.business-inquiry-fields {
+  margin-top: 22px;
+}
+
+.business-consent {
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.business-consent > input {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  margin-top: 1px;
+  accent-color: #0066ff;
+}
+
+.business-consent-link {
+  color: #0066ff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.business-inquiry-submit {
+  margin-top: 20px;
+}
+
+.business-inquiry-submit .business-submit {
+  margin-top: 0;
+}
+
+.business-inquiry-submit > p {
+  margin-top: 10px;
+  color: #64748b;
+  font-size: 11px;
+  text-align: center;
+}
+
+.business-setup-proof {
+  grid-column: 2;
+  grid-row: 2 / span 3;
+  align-self: start;
+  margin-top: 32px;
+  padding: 18px;
+  border: 1px solid #e5eaf1;
+  border-radius: 18px;
+  background: #f8fafc;
+}
+
+.business-setup-proof h2 {
+  color: #0f172a;
+  font: 700 17px/1.3 var(--font-body);
+  letter-spacing: -.025em;
+}
+
+.business-setup-proof .business-setup-steps {
+  gap: 14px;
+  margin-top: 17px;
+}
+
+.business-setup-proof .business-setup-steps li {
+  align-items: flex-start;
+  font-size: 11px;
+}
+
+.business-setup-proof .business-setup-steps li > span {
+  width: 26px;
+  height: 26px;
+  flex-basis: 26px;
+}
+
+.business-setup-proof-image {
+  position: relative;
+  overflow: hidden;
+  height: 155px;
+  margin-top: 19px;
+  border-radius: 12px;
+  background: #0f172a;
+}
+
+.business-setup-proof-image::after {
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(15, 23, 42, .76));
+  content: "";
+}
+
+.business-setup-proof-image > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.business-setup-proof-image > span {
+  position: absolute;
+  z-index: 1;
+  inset-inline-start: 12px;
+  bottom: 11px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .business-overview-page .business-overview {
+    min-height: 0;
+    padding-block: 70px;
+  }
+
+  .business-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .business-feature-media {
+    grid-column: 1 / -1;
+    min-height: 0;
+    aspect-ratio: 16 / 8;
+  }
+
+  .business-journey {
+    grid-template-columns: 1fr;
+  }
+
+  .business-setup-options,
+  .business-inquiry-form {
+    grid-column: 1;
+  }
+
+  .business-setup-proof {
+    grid-column: 1;
+    grid-row: auto;
+    display: grid;
+    grid-template-columns: 1fr minmax(190px, .65fr);
+    gap: 0 22px;
+  }
+
+  .business-setup-proof h2,
+  .business-setup-proof .business-setup-steps {
+    grid-column: 1;
+  }
+
+  .business-setup-proof-image {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .business-overview-page .business-overview {
+    padding: 54px 20px 60px;
+  }
+
+  .business-overview-page .business-overview-copy h1 {
+    font-size: clamp(45px, 13vw, 62px);
+  }
+
+  .business-overview-page .business-overview-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .business-overview-page .business-overview-actions .business-submit {
+    width: 100%;
+  }
+
+  .business-photo-band {
+    width: calc(100% - 28px);
+    height: 330px;
+    border-radius: 17px;
+  }
+
+  .business-feature-section,
+  .business-steps-section,
+  .business-booking-section,
+  .business-reporting-section,
+  .business-referral-section {
+    width: calc(100% - 36px);
+  }
+
+  .business-feature-grid,
+  .business-booking-section,
+  .business-referral-section,
+  .business-reporting-section,
+  .business-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .business-feature-card {
+    min-height: 230px;
+  }
+
+  .business-feature-media {
+    grid-column: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .business-booking-section {
+    gap: 25px;
+  }
+
+  .business-steps-grid {
+    border-top: 0;
+  }
+
+  .business-step-card,
+  .business-step-card + .business-step-card {
+    min-height: auto;
+    padding: 20px 0;
+    border-top: 1px solid #dfe6ef;
+    border-inline-start: 0;
+  }
+
+  .business-referral-section {
+    padding: 25px 20px;
+    gap: 25px;
+  }
+
+  .business-referral-mark {
+    min-height: 170px;
+  }
+
+  .business-reporting-section {
+    gap: 25px;
+  }
+
+  .business-setup-options {
+    grid-template-columns: 1fr;
+  }
+
+  .business-inquiry-form {
+    padding: 20px 16px;
+  }
+
+  .business-inquiry-intro {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .business-inquiry-form .business-role-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .business-inquiry-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .business-setup-proof {
+    grid-template-columns: 1fr;
+  }
+
+  .business-setup-proof h2,
+  .business-setup-proof .business-setup-steps,
+  .business-setup-proof-image {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .business-setup-proof-image {
+    margin-top: 20px;
+  }
+}
