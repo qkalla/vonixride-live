@@ -8,6 +8,8 @@ export type Route =
   | "/services/cargo"
   | "/services/orders"
   | "/business"
+  | "/business/get-started"
+  | "/business/signup/choose-auth"
   | "/how-it-works"
   | "/guide"
   | "/download"
@@ -25,7 +27,7 @@ export type Route =
   | "/privacy"
   | "/terms";
 
-const VALID: Route[] = ["/", "/services", "/services/rides", "/services/courier", "/services/cargo", "/services/orders", "/business", "/how-it-works", "/guide", "/download", "/earn", "/earn/drivers", "/earn/couriers", "/earn/restaurants", "/earn/fleet", "/cities", "/food", "/account", "/join", "/about", "/contact", "/privacy", "/terms"];
+const VALID: Route[] = ["/", "/services", "/services/rides", "/services/courier", "/services/cargo", "/services/orders", "/business", "/business/get-started", "/business/signup/choose-auth", "/how-it-works", "/guide", "/download", "/earn", "/earn/drivers", "/earn/couriers", "/earn/restaurants", "/earn/fleet", "/cities", "/food", "/account", "/join", "/about", "/contact", "/privacy", "/terms"];
 
 function parseHash(): Route {
   const h = window.location.hash.replace(/^#/, "");

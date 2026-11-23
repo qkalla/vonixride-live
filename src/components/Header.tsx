@@ -91,7 +91,7 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
       { label: t.navigationMenu.links.becomeCourier, to: "/earn/couriers" },
       { label: t.navigationMenu.links.addStore, to: "/earn/restaurants" },
       { label: t.navigationMenu.links.fleetOwner, to: "/earn/fleet" },
-      { label: t.navigationMenu.links.partnerOnboarding, to: "/join" },
+      { label: t.navigationMenu.links.partnerOnboarding, to: "/business/get-started" },
     ],
     company: [
       { label: t.navigationMenu.links.business, to: "/business" },
@@ -117,11 +117,11 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
   };
 
   const quickActions: { kind: ActionKind; title: string; subtitle: string; to: Route }[] = [
-    { kind: "driver", title: t.navigationMenu.actions.driver, subtitle: t.navigationMenu.actions.driverSub, to: "/business" },
-    { kind: "courier", title: t.navigationMenu.actions.courier, subtitle: t.navigationMenu.actions.courierSub, to: "/business" },
-    { kind: "merchant", title: t.navigationMenu.actions.merchant, subtitle: t.navigationMenu.actions.merchantSub, to: "/business" },
-    { kind: "fleet", title: t.navigationMenu.actions.fleet, subtitle: t.navigationMenu.actions.fleetSub, to: "/business" },
-    { kind: "business", title: t.navigationMenu.actions.business, subtitle: t.navigationMenu.actions.businessSub, to: "/business" },
+    { kind: "driver", title: t.navigationMenu.actions.driver, subtitle: t.navigationMenu.actions.driverSub, to: "/business/get-started" },
+    { kind: "courier", title: t.navigationMenu.actions.courier, subtitle: t.navigationMenu.actions.courierSub, to: "/business/get-started" },
+    { kind: "merchant", title: t.navigationMenu.actions.merchant, subtitle: t.navigationMenu.actions.merchantSub, to: "/business/get-started" },
+    { kind: "fleet", title: t.navigationMenu.actions.fleet, subtitle: t.navigationMenu.actions.fleetSub, to: "/business/get-started" },
+    { kind: "business", title: t.navigationMenu.actions.business, subtitle: t.navigationMenu.actions.businessSub, to: "/business/get-started" },
   ];
 
   const shareUrl = encodeURIComponent("https://vonixride.live");

@@ -148,6 +148,19 @@ export const ar = {
       play: "تشغيل",
     },
   },
+  businessFlow: {
+    overviewCta: "ابدأ الآن",
+    overviewSignIn: "شريك بالفعل؟ سجّل الدخول",
+    getStartedTitle: "طوّر أعمالك مع Vonix",
+    getStartedBody: "اختر طريقة الشراكة المناسبة. سنرشدك لإعداد فريقك أو متجرك أو مطعمك أو أسطولك.",
+    roleTitle: "ما الذي تريد إعداده؟",
+    stepsTitle: "خطوات واضحة للانطلاق",
+    setupSteps: ["اختر نوع الشريك", "أدخل بيانات التواصل ومعلومات النشاط", "يساعدك فريقنا على إكمال الإعداد"],
+    benefitsTitle: "مصمم لعملياتك",
+    continueCta: "متابعة إعداد الحساب",
+    authTitle: "دخول الشركاء",
+    authBody: "سجّل الدخول للمتابعة أو أنشئ ملف Vonix Business.",
+  },
   navigationMenu: {
     menuTitle: "استكشف Vonix",
     tabs: {

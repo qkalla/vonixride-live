@@ -7,7 +7,16 @@ import { Reveal } from "./components/Reveal";
 import { HomePage } from "./pages/Home";
 import { ServiceDetailPage } from "./pages/ServiceDetail";
 import { HowPage, GuidePage } from "./pages/HowGuide";
-import { ServicesPage, BusinessPage, CitiesPage, AboutPage, ContactPage, LegalPage } from "./pages/SubPages";
+import {
+  ServicesPage,
+  BusinessOverviewPage,
+  BusinessGetStartedPage,
+  BusinessAuthPage,
+  CitiesPage,
+  AboutPage,
+  ContactPage,
+  LegalPage,
+} from "./pages/SubPages";
 import { DownloadPage } from "./pages/Download";
 import { EarnPage } from "./pages/Earn";
 import { FoodHubPage } from "./pages/FoodHub";
@@ -28,7 +37,9 @@ function Page({ route, navigate }: { route: Route; navigate: (r: Route) => void 
   if (route.startsWith("/earn")) return <EarnPage sub={earnSub} navigate={navigate} />;
   switch (route) {
     case "/services": return <ServicesPage navigate={navigate as never} />;
-    case "/business": return <BusinessPage />;
+    case "/business": return <BusinessOverviewPage navigate={navigate} />;
+    case "/business/get-started": return <BusinessGetStartedPage navigate={navigate} />;
+    case "/business/signup/choose-auth": return <BusinessAuthPage navigate={navigate} />;
     case "/how-it-works": return <HowPage />;
     case "/guide": return <GuidePage />;
     case "/download": return <DownloadPage />;
@@ -54,6 +65,8 @@ function Shell() {
       "/": "Vonix — Rides & Delivery in Yerevan",
       "/services": `${t.nav.services} — Vonix`,
       "/business": `${t.nav.business} — Vonix`,
+      "/business/get-started": `${t.businessFlow.getStartedTitle} — Vonix Business`,
+      "/business/signup/choose-auth": `${t.businessFlow.authTitle} — Vonix Business`,
       "/how-it-works": `${t.nav.how} — Vonix`,
       "/guide": `${t.guidePage.title} — Vonix`,
       "/download": `${t.dl.title} — Vonix`,

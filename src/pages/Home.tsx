@@ -174,7 +174,7 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
               ))}
             </ul>
             <div className="hero-actions">
-              <a className="btn btn-primary" href="#/business" onClick={(e) => { e.preventDefault(); navigate("/business"); window.scrollTo({ top: 0 }); }}>{t.business.cta}</a>
+              <a className="btn btn-primary" href="#/business/get-started" onClick={(e) => { e.preventDefault(); navigate("/business/get-started"); window.scrollTo({ top: 0 }); }}>{t.businessFlow.overviewCta}</a>
               <a className="btn btn-ghost" href="#/business" onClick={(e) => { e.preventDefault(); navigate("/business"); }}>{t.nav.business}</a>
             </div>
           </div>

@@ -148,6 +148,19 @@ export const es = {
       play: "Reanudar",
     },
   },
+  businessFlow: {
+    overviewCta: "Empezar",
+    overviewSignIn: "¿Ya eres socio? Inicia sesión",
+    getStartedTitle: "Haz crecer tu negocio con Vonix",
+    getStartedBody: "Elige cómo quieres colaborar. Te guiaremos para configurar tu equipo, tienda, restaurante o flota.",
+    roleTitle: "¿Qué quieres configurar?",
+    stepsTitle: "Un camino claro para empezar",
+    setupSteps: ["Elige el tipo de socio", "Comparte tus datos de contacto y negocio", "Nuestro equipo te ayudará a completar la configuración"],
+    benefitsTitle: "Diseñado para tus operaciones",
+    continueCta: "Continuar con la cuenta",
+    authTitle: "Acceso de socios",
+    authBody: "Inicia sesión o crea un perfil de Vonix Business.",
+  },
   navigationMenu: {
     menuTitle: "Explora Vonix",
     tabs: {

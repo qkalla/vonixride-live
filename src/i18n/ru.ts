@@ -148,6 +148,19 @@ export const ru = {
       play: "Продолжить",
     },
   },
+  businessFlow: {
+    overviewCta: "Начать",
+    overviewSignIn: "Уже партнёр? Войти",
+    getStartedTitle: "Развивайте бизнес с Vonix",
+    getStartedBody: "Выберите формат партнёрства. Мы поможем настроить работу команды, магазина, ресторана или автопарка.",
+    roleTitle: "Что вы хотите подключить?",
+    stepsTitle: "Понятный путь к запуску",
+    setupSteps: ["Выберите тип партнёра", "Оставьте контактные данные и информацию о бизнесе", "Наша команда поможет завершить настройку"],
+    benefitsTitle: "Для вашей работы",
+    continueCta: "Перейти к настройке аккаунта",
+    authTitle: "Доступ партнёра",
+    authBody: "Войдите или создайте профиль Vonix Business.",
+  },
   navigationMenu: {
     menuTitle: "Разделы Vonix",
     tabs: {

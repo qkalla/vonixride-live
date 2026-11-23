@@ -148,6 +148,19 @@ export const en = {
       play: "Play",
     },
   },
+  businessFlow: {
+    overviewCta: "Get started",
+    overviewSignIn: "Already a partner? Sign in",
+    getStartedTitle: "Get your business moving with Vonix",
+    getStartedBody: "Choose how you want to partner. We’ll guide you through a clear setup for your team, store, restaurant or fleet.",
+    roleTitle: "What do you want to set up?",
+    stepsTitle: "A clear path to launch",
+    setupSteps: ["Choose your partner type", "Share your contact and business details", "Our team will help you complete setup"],
+    benefitsTitle: "Built for your operations",
+    continueCta: "Continue to account setup",
+    authTitle: "Partner access",
+    authBody: "Sign in to continue or create a Vonix Business profile.",
+  },
   navigationMenu: {
     menuTitle: "Explore Vonix",
     tabs: {
