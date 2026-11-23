@@ -23,10 +23,10 @@ export function HomePage({ navigate }: { navigate: (r: Route) => void }) {
 
   const CARDS: { to: Route; img: string }[] = [
     { to: "/services/rides", img: "/cab.png" },
-    { to: "/food", img: "/images/food.jpg" },
+    { to: "/food", img: "/grocery.png" },
     { to: "/services/orders", img: "/grocery.png" },
     { to: "/services/courier", img: "/deliervy.png" },
-    { to: "/services/cargo", img: "/cargoo.png" },
+    { to: "/services/cargo", img: "/cargo.png" },
   ];
 
   const goDownload = () => {

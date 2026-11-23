@@ -34,7 +34,7 @@ export function FoodHubPage({ navigate }: { navigate: (r: Route) => void }) {
         <div className="container">
           <Reveal className="food-intro">
             <div className="food-intro-art">
-              <img src="/art-2.png" alt="" />
+              <img src="/food-ramen.png" alt="" />
             </div>
             <div>
               <h2 className="display">{f.introTitle}</h2>

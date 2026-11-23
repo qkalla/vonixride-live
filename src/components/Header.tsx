@@ -39,6 +39,15 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
     return () => document.removeEventListener("mousedown", onDown);
   }, [openDrop]);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKeyDown = (ev: KeyboardEvent) => {
+      if (ev.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen]);
+
   const go = (to: Route) => {
     navigate(to);
     window.scrollTo({ top: 0 });
@@ -129,22 +138,26 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
         </div>
       </div>
       {menuOpen && (
-        <div className="mobile-menu">
+        <>
+          <button
+            type="button"
+            className="mobile-menu-backdrop"
+            aria-label="Close navigation"
+            onClick={() => setMenuOpen(false)}
+          />
+          <div className="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
           <div className="mm-group">{t.nav.services}</div>
-          <a href="#/services" onClick={(e) => { e.preventDefault(); go("/services"); }}>{t.servicesPage?.title ?? t.nav.services}</a>
           {svcItems.map((it) => <a key={it.to} href={`#${it.to}`} onClick={(e) => { e.preventDefault(); go(it.to); }}>{it.label}</a>)}
           <div className="mm-group">{t.earn.title}</div>
-          <a href="#/earn" onClick={(e) => { e.preventDefault(); go("/earn"); }}>{t.earn.title}</a>
-          {earnItems.map((it) => <a key={it.to} href={`#${it.to}`} onClick={(e) => { e.preventDefault(); go(it.to); }}>{it.label}</a>)}
+          {earnItems.slice(0, 2).map((it) => <a key={it.to} href={`#${it.to}`} onClick={(e) => { e.preventDefault(); go(it.to); }}>{it.label}</a>)}
           <div className="mm-group">{t.nav.business}</div>
           <a href="#/business" onClick={(e) => { e.preventDefault(); go("/business"); }}>{t.nav.business}</a>
-          <a href="#/cities" onClick={(e) => { e.preventDefault(); go("/cities"); }}>{t.nav.cities}</a>
-          <div className="mm-group">{t.nav.about}</div>
-          {companyItems.map(([l, to]) => <a key={to} href={`#${to}`} onClick={(e) => { e.preventDefault(); go(to); }}>{l}</a>)}
+          <a href="#/download" onClick={(e) => { e.preventDefault(); go("/download"); }}>{t.nav.getApp}</a>
           <div className="mobile-lang">
             <LangSwitcher onNavigate={() => setMenuOpen(false)} />
           </div>
-        </div>
+          </div>
+        </>
       )}
     </header>
   );

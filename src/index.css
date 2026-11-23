@@ -1161,6 +1161,38 @@ body { background: #ffffff; color: #0b0b0f; }
 .nav-drop-btn:hover, .nav-drop.has-active .nav-drop-btn, .nav-drop.open .nav-drop-btn { color:#0b0b0f; }
 .nav-drop.has-active .nav-drop-btn { box-shadow: inset 0 -2px 0 #0066ff; }
 
+/* One popover at a time; keep it above page cards and never expose hover-only state. */
+.nav {
+  z-index: 100;
+}
+.nav-links {
+  position: relative;
+  z-index: 101;
+}
+.nav-drop {
+  isolation: isolate;
+}
+.nav-drop-menu,
+.lang-menu {
+  z-index: 120;
+}
+.nav-drop:hover .nav-drop-menu,
+.nav-drop:focus-within .nav-drop-menu {
+  display: none;
+}
+.nav-drop.open .nav-drop-menu {
+  display: block;
+}
+.nav-drop-menu {
+  filter: drop-shadow(0 18px 35px rgba(11, 11, 15, .10));
+}
+.nav-drop.open {
+  z-index: 130;
+}
+.mobile-menu-backdrop {
+  display: none;
+}
+
 /* ===== v7: hero photo + order card ===== */
 .hero-photo { border-radius:22px; overflow:hidden; }
 .hero-photo img { width:100%; height:100%; object-fit:cover; display:block; }
@@ -1555,3 +1587,260 @@ body { background: #ffffff; color: #0b0b0f; }
 .join-done-ic { width:64px; height:64px; border-radius:50%; background:#0066ff; color:#fff; font-size:30px; display:flex; align-items:center; justify-content:center; margin:0 auto 18px; }
 .join-done .join-sub { margin-inline:auto; }
 @media (max-width: 900px) { .join-roles { grid-template-columns:1fr 1fr; } .join-grid { grid-template-columns:1fr; } .join-panel { padding:24px 20px; } .join-actions { flex-direction:column-reverse; } .join-actions .btn { width:100%; } }
+
+/* Vonix editorial light surfaces for service, food, account and partner flows. */
+:root {
+  color-scheme: light;
+  --bg: #F6F6F6;
+  --bg-elev: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --surface-alt: #F0F3F8;
+  --line: #E5E9F0;
+  --text: #0B0B0F;
+  --muted: #626B7A;
+  --faint: #818B9B;
+  --blue: #0066FF;
+  --blue-soft: rgba(0, 102, 255, .09);
+}
+
+body {
+  color: var(--text);
+  background: var(--bg);
+}
+
+.nav {
+  color: var(--text);
+  background: rgba(255, 255, 255, .94);
+  border-bottom-color: var(--line);
+  box-shadow: 0 1px 0 rgba(11, 11, 15, .025);
+  backdrop-filter: blur(18px);
+}
+
+.nav-links a,
+.footer-links a,
+.footer-bottom a {
+  color: var(--muted);
+}
+
+.nav-links a:hover,
+.footer-links a:hover,
+.footer-bottom a:hover {
+  color: var(--blue);
+}
+
+.footer-links a,
+.footer-bottom a {
+  color: rgba(255, 255, 255, .72);
+}
+
+.footer .brand {
+  color: #FFFFFF;
+}
+
+.brand-mark,
+.join-done-ic {
+  background-color: var(--blue);
+}
+
+.hero,
+.page-hero,
+.section-alt {
+  background-color: var(--bg);
+}
+
+.hero-title,
+.section-title,
+.page-hero h1,
+.food-title,
+.acct-title,
+.join-title {
+  color: var(--text);
+}
+
+.hero-sub,
+.section-head p,
+.page-hero p,
+.food-intro p,
+.acct-sub,
+.join-sub {
+  color: var(--muted);
+}
+
+.svc-point,
+.dish-card,
+.food-restaurant-card,
+.acct-card,
+.acct-tile,
+.join-panel,
+.join-role,
+.join-doc,
+.service-card,
+.service-detail-card {
+  border-color: var(--line);
+  border-radius: 20px;
+  background: var(--bg-card);
+  box-shadow: 0 8px 26px rgba(11, 11, 15, .045);
+}
+
+.food-search input,
+.join-field input,
+.join-field select,
+.join-field textarea {
+  color: var(--text);
+  border-color: var(--line);
+  background: #FFFFFF;
+}
+
+.food-search input::placeholder,
+.join-field input::placeholder,
+.join-field textarea::placeholder {
+  color: var(--faint);
+}
+
+.food-intro {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.food-search {
+  background: transparent;
+}
+
+.food-search input {
+  border-radius: 14px;
+}
+
+.food-category-pill,
+.food-filter,
+.join-drop {
+  border-color: var(--line);
+  border-radius: 14px;
+  background: #FFFFFF;
+}
+
+.food-category-pill.active,
+.join-role.active,
+.join-step.active {
+  color: var(--blue);
+  border-color: rgba(0, 102, 255, .28);
+  background: var(--blue-soft);
+}
+
+.dish-price,
+.food-rating,
+.acct-value,
+.join-role-title {
+  color: var(--text);
+}
+
+.join-panel {
+  padding: clamp(24px, 4vw, 40px);
+}
+
+.join-role {
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+.join-role:hover,
+.svc-point:hover,
+.dish-card:hover,
+.acct-tile:hover {
+  border-color: rgba(0, 102, 255, .22);
+  box-shadow: 0 12px 32px rgba(11, 11, 15, .075);
+  transform: translateY(-2px);
+}
+
+.join-drop {
+  border-style: dashed;
+}
+
+.join-drop:hover,
+.join-drop.has-file {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: var(--blue-soft);
+}
+
+.btn-secondary,
+.btn-ghost {
+  color: var(--text);
+  border-color: var(--line);
+  background: #FFFFFF;
+}
+
+.footer {
+  color: #FFFFFF;
+  background: #0B0B0F;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .join-role,
+  .svc-point,
+  .dish-card,
+  .acct-tile {
+    transition: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .nav-actions > .lang-switch {
+    display: none;
+  }
+  .mobile-menu-backdrop {
+    position: fixed;
+    inset: 68px 0 0;
+    z-index: 48;
+    display: block;
+    border: 0;
+    background: rgba(11, 11, 15, .24);
+    backdrop-filter: blur(4px);
+  }
+  .mobile-menu {
+    top: 68px;
+    z-index: 49;
+  }
+  .mobile-menu > a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+  .mobile-menu .mm-group {
+    padding: 14px 0 4px;
+  }
+  .burger {
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .nav-actions {
+    margin-inline-start: auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-inner {
+    gap: 8px;
+  }
+
+  .nav-inner .brand-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+
+  .nav-inner .brand-name {
+    font-size: 17px;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .nav-actions > .nav-cta {
+    display: none;
+  }
+}

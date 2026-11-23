@@ -64,8 +64,8 @@ export function OnboardingPage({ navigate }: { navigate: (r: Route) => void }) {
       { key: "bank", label: j.docBank },
     ];
     if (role === "driver" || role === "courier") base.push({ key: "license", label: j.docLicense });
-    if (role === "merchant") base.push({ key: "hygiene", label: "Food safety / hygiene certificate" });
-    if (role === "fleet") base.push({ key: "vehicleReg", label: "Vehicle registration" });
+    if (role === "merchant") base.push({ key: "hygiene", label: j.docHygiene });
+    if (role === "fleet") base.push({ key: "vehicleReg", label: j.docVehicleRegistration });
     return base;
   };
 

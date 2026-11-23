@@ -10,10 +10,10 @@ const MODE_MAP: Record<SvcKey, "ride" | "courier" | "cargo" | "order"> = { rides
 /* Full-bleed banner visuals — distinct files from the landing cards.
    Portrait renders use the light split variant so they are not cropped. */
 const BANNERS: Record<SvcKey, { img: string; light?: boolean }> = {
-  rides: { img: "/ride.png" },
+  rides: { img: "/cab.png", light: true },
   courier: { img: "/delivery.png", light: true },
   cargo: { img: "/cargo.png", light: true },
-  orders: { img: "/images/market.jpg" },
+  orders: { img: "/grocery.png", light: true },
 };
 
 export function ServiceDetailPage({ svc, navigate }: { svc: SvcKey; navigate: (r: Route) => void }) {
