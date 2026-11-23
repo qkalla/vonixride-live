@@ -136,6 +136,7 @@ export const ru = {
       restaurantName: "Vonix Ресторан",
       shopsName: "Vonix Маркет",
       fleetName: "Vonix Автопарк",
+      dashboardImageAlt: "Мультисервисная панель автопарка Vonix Business",
       livePreview: "ПРЕДПРОСМОТР",
       live: "В эфире",
       paused: "Предпросмотр на паузе",

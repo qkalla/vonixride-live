@@ -136,6 +136,7 @@ export const hy = {
       restaurantName: "Vonix Ռեստորան",
       shopsName: "Vonix Մարկետ",
       fleetName: "Vonix Ավտոպարկ",
+      dashboardImageAlt: "Vonix Business-ի բազմասպասարկման ավտոպարկի վահանակ",
       livePreview: "ՈՒՂԻՂ ՆԱԽԱԴԻՏՈՒՄ",
       live: "Ուղիղ",
       paused: "Նախադիտումը դադարեցված է",

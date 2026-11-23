@@ -117,10 +117,10 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
   };
 
   const quickActions: { kind: ActionKind; title: string; subtitle: string; to: Route }[] = [
-    { kind: "driver", title: t.navigationMenu.actions.driver, subtitle: t.navigationMenu.actions.driverSub, to: "/join" },
-    { kind: "courier", title: t.navigationMenu.actions.courier, subtitle: t.navigationMenu.actions.courierSub, to: "/join" },
-    { kind: "merchant", title: t.navigationMenu.actions.merchant, subtitle: t.navigationMenu.actions.merchantSub, to: "/join" },
-    { kind: "fleet", title: t.navigationMenu.actions.fleet, subtitle: t.navigationMenu.actions.fleetSub, to: "/join" },
+    { kind: "driver", title: t.navigationMenu.actions.driver, subtitle: t.navigationMenu.actions.driverSub, to: "/business" },
+    { kind: "courier", title: t.navigationMenu.actions.courier, subtitle: t.navigationMenu.actions.courierSub, to: "/business" },
+    { kind: "merchant", title: t.navigationMenu.actions.merchant, subtitle: t.navigationMenu.actions.merchantSub, to: "/business" },
+    { kind: "fleet", title: t.navigationMenu.actions.fleet, subtitle: t.navigationMenu.actions.fleetSub, to: "/business" },
     { kind: "business", title: t.navigationMenu.actions.business, subtitle: t.navigationMenu.actions.businessSub, to: "/business" },
   ];
 

@@ -818,7 +818,7 @@ a.contact-row:hover { border-color:rgba(0,102,255,.5); transform:translateY(-2px
 .live-dot { width:8px; height:8px; border-radius:50%; background:#0066ff; box-shadow:0 0 0 3px rgba(0,102,255,.14); }
 .biz-total { text-align:end; }
 .biz-total span { display:block; font-size:10.5px; color:var(--faint); text-transform:uppercase; letter-spacing:.08em; }
-.biz-total strong { font-size:20px; color:#0b0b0f; }
+.biz-total strong { font-size:20px; color:#0b0b0f; font-variant-numeric:tabular-nums; }
 .biz-total em { font-style:normal; font-size:11px; color:var(--muted); }
 .biz-queue-head { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#8b8b93; margin-bottom:10px; }
 .biz-order { border:1px solid var(--line); border-radius:14px; padding:13px 14px; margin-bottom:10px; background:#fafafa; }
@@ -1272,6 +1272,17 @@ a.contact-row:hover { border-color:rgba(0,102,255,.5); transform:translateY(-2px
   height: 100%;
   display: block;
   object-fit: cover;
+}
+
+.biz-preview-image.is-fleet {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  max-height: 220px;
+  background: #0f172a;
+}
+
+.biz-preview-image.is-fleet img {
+  object-fit: contain;
 }
 
 .biz-preview-image > span {

@@ -136,6 +136,7 @@ export const ar = {
       restaurantName: "Vonix Restaurant",
       shopsName: "Vonix Market",
       fleetName: "Vonix Fleet",
+      dashboardImageAlt: "لوحة أسطول Vonix Business متعددة الخدمات",
       livePreview: "معاينة مباشرة",
       live: "مباشر",
       paused: "المعاينة متوقفة مؤقتاً",

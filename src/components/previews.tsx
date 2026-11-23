@@ -73,16 +73,20 @@ export function RidePreview() {
 }
 
 export function BusinessPreview({ variant = "card" }: { variant?: "card" | "portal" }) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const b = t.business.preview;
   const portal = t.businessPortal.preview;
+  const revenueFormatter = new Intl.NumberFormat(
+    { en: "en-US", ru: "ru-RU", hy: "hy-AM", fr: "fr-FR", ar: "ar-AM", es: "es-ES" }[lang],
+    { style: "currency", currency: "AMD", currencyDisplay: "code", maximumFractionDigits: 0 },
+  );
   const previews = [
     {
       key: "restaurant",
       title: portal.restaurantName,
       label: portal.restaurant,
       image: "/images/food.jpg",
-      revenue: "184,600 ֏",
+      revenue: 184600,
       orders: "18",
     },
     {
@@ -90,19 +94,19 @@ export function BusinessPreview({ variant = "card" }: { variant?: "card" | "port
       title: portal.shopsName,
       label: portal.shops,
       image: "/images/market.jpg",
-      revenue: "126,200 ֏",
+      revenue: 126200,
       orders: "31",
     },
     {
       key: "fleet",
       title: portal.fleetName,
       label: portal.fleet,
-      image: "/cab.png",
-      revenue: "392,400 ֏",
+      image: "/Gemini_Generated_Image_fhncqsfhncqsfhnc.jpg",
+      revenue: 392400,
       orders: "12",
     },
   ] as const;
-  const [activePreview, setActivePreview] = useState(0);
+  const [activePreview, setActivePreview] = useState(variant === "portal" ? 2 : 0);
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
@@ -115,10 +119,10 @@ export function BusinessPreview({ variant = "card" }: { variant?: "card" | "port
 
   const preview = previews[activePreview];
   return (
-    <div className={`biz-card biz-preview-carousel${variant === "portal" ? " biz-preview-portal" : ""}`} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+    <div className={`biz-card biz-preview-carousel${variant === "portal" ? " biz-preview-portal" : ""}`}>
       {variant === "portal" && (
-        <div className="biz-preview-image">
-          <img src={preview.image} alt="" />
+        <div className={`biz-preview-image${preview.key === "fleet" ? " is-fleet" : ""}`}>
+          <img src={preview.image} alt={preview.key === "fleet" ? portal.dashboardImageAlt : ""} />
           <span><i className="live-dot" />{portal.livePreview}</span>
         </div>
       )}
@@ -130,7 +134,7 @@ export function BusinessPreview({ variant = "card" }: { variant?: "card" | "port
         </div>
         <div className="biz-total">
           <span>{b.today}</span>
-          <strong>{preview.revenue}</strong>
+          <strong>{revenueFormatter.format(preview.revenue)}</strong>
           <em>{preview.orders} {portal.ordersMetric}</em>
         </div>
       </div>

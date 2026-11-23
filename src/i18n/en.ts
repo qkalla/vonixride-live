@@ -136,6 +136,7 @@ export const en = {
       restaurantName: "Vonix Restaurant",
       shopsName: "Vonix Market",
       fleetName: "Vonix Fleet",
+      dashboardImageAlt: "Vonix Business multi-service fleet dashboard",
       livePreview: "LIVE PREVIEW",
       live: "Live",
       paused: "Preview paused",
