@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useLang } from "../i18n";
 
 export function RidePreview() {
@@ -74,52 +75,100 @@ export function RidePreview() {
 export function BusinessPreview() {
   const { t } = useLang();
   const b = t.business.preview;
+  const previews = [
+    {
+      key: "restaurant",
+      title: "Karas Burger · Dalma",
+      label: "Restaurant",
+      revenue: "184,600 ֏",
+      orders: "18 orders",
+      accent: "#0066FF",
+      rows: [
+        ["#00950018", "Preparing", "4 items"],
+        ["#00950017", "New", "2 × Khachapuri"],
+        ["#00950016", "Ready", "3 × Lavash"],
+      ],
+    },
+    {
+      key: "store",
+      title: "Yerevan City · Kentron",
+      label: "Shops & grocery",
+      revenue: "126,200 ֏",
+      orders: "31 sales",
+      accent: "#0066FF",
+      rows: [
+        ["Tomatoes", "In stock", "4,280 ֏"],
+        ["Mineral water", "Low stock", "900 ֏"],
+        ["Fresh bread", "In stock", "760 ֏"],
+      ],
+    },
+    {
+      key: "fleet",
+      title: "Vonix Fleet · Yerevan",
+      label: "Multi-car & fleet",
+      revenue: "392,400 ֏",
+      orders: "12 active",
+      accent: "#0066FF",
+      rows: [
+        ["VNX-104", "On trip", "14,300 ֏"],
+        ["VNX-219", "Available", "Ready"],
+        ["VNX-302", "In route", "11,800 ֏"],
+      ],
+    },
+  ] as const;
+  const [activePreview, setActivePreview] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = window.setInterval(() => {
+      setActivePreview((current) => (current + 1) % previews.length);
+    }, 10_000);
+    return () => window.clearInterval(timer);
+  }, [paused, previews.length]);
+
+  const preview = previews[activePreview];
   return (
-    <div className="biz-card">
+    <div className="biz-card biz-preview-carousel" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <div className="biz-head">
         <div>
-          <div className="biz-title">Karas Burger · Dalma</div>
-          <div className="biz-sub"><span className="live-dot" />{b.online}</div>
+          <div className="biz-kicker">{preview.label}</div>
+          <div className="biz-title">{preview.title}</div>
+          <div className="biz-sub"><span className="live-dot" />{paused ? "Preview paused" : b.online}</div>
         </div>
         <div className="biz-total">
           <span>{b.today}</span>
-          <strong>{b.total}</strong>
-          <em>{b.orders}</em>
+          <strong>{preview.revenue}</strong>
+          <em>{preview.orders}</em>
         </div>
       </div>
 
       <div className="biz-queue">
-        <div className="biz-queue-head">{b.queue}</div>
-        <div className="biz-order new">
-          <div className="biz-order-top">
-            <strong>{b.newOrder}</strong>
-            <span className="biz-time">2 min</span>
-          </div>
-          <div className="biz-items">{b.items}</div>
-          <div className="biz-order-bottom">
-            <span>{b.prep}</span>
-            <div className="biz-actions">
-              <button className="biz-btn accept">{b.accept}</button>
-              <button className="biz-btn ghost">{b.ready}</button>
+        <div className="biz-queue-head">{preview.label}</div>
+        {preview.rows.map(([name, status, detail]) => (
+          <div className="biz-order" key={name}>
+            <div className="biz-order-top">
+              <strong>{name}</strong>
+              <span className="biz-badge ok">{status}</span>
             </div>
+            <div className="biz-items">{detail}</div>
+            <div className="biz-progress"><i style={{ width: preview.key === "restaurant" ? "68%" : "82%" }} /></div>
           </div>
-        </div>
-        <div className="biz-order">
-          <div className="biz-order-top">
-            <strong>#00950011</strong>
-            <span className="biz-time">{b.courier}</span>
-          </div>
-          <div className="biz-items">3 × Lavaš, 2 × Dolma</div>
-          <div className="biz-progress"><i style={{ width: "68%" }} /></div>
-        </div>
-        <div className="biz-order done">
-          <div className="biz-order-top">
-            <strong>#00950010</strong>
-            <span className="biz-badge ok">Delivered</span>
-          </div>
-          <div className="biz-items">1 × Khachapuri</div>
-          <div className="biz-earn">+2,400 ֏</div>
-        </div>
+        ))}
+      </div>
+      <div className="biz-preview-controls" aria-label="Dashboard preview">
+        {previews.map((item, index) => (
+          <button
+            type="button"
+            key={item.key}
+            className={`biz-preview-dot${index === activePreview ? " active" : ""}`}
+            aria-label={`Show ${item.label}`}
+            onClick={() => setActivePreview(index)}
+          />
+        ))}
+        <button type="button" className="biz-preview-pause" onClick={() => setPaused((value) => !value)}>
+          {paused ? "Play" : "Pause"}
+        </button>
       </div>
     </div>
   );

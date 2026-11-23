@@ -146,16 +146,25 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
             onClick={() => setMenuOpen(false)}
           />
           <div className="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
-          <div className="mm-group">{t.nav.services}</div>
+          <div className="mobile-menu-header">
+            <Brand />
+            <div className="mobile-menu-header-actions">
+              <LangSwitcher onNavigate={() => setMenuOpen(false)} />
+              <button type="button" className="mobile-menu-close" aria-label="Close navigation" onClick={() => setMenuOpen(false)}>×</button>
+            </div>
+          </div>
+          <div className="mm-group">Services</div>
           {svcItems.map((it) => <a key={it.to} href={`#${it.to}`} onClick={(e) => { e.preventDefault(); go(it.to); }}>{it.label}</a>)}
           <div className="mm-group">{t.earn.title}</div>
-          {earnItems.slice(0, 2).map((it) => <a key={it.to} href={`#${it.to}`} onClick={(e) => { e.preventDefault(); go(it.to); }}>{it.label}</a>)}
+          {earnItems.map((it) => <a key={it.to} href={`#${it.to}`} onClick={(e) => { e.preventDefault(); go(it.to); }}>{it.label}</a>)}
           <div className="mm-group">{t.nav.business}</div>
           <a href="#/business" onClick={(e) => { e.preventDefault(); go("/business"); }}>{t.nav.business}</a>
-          <a href="#/download" onClick={(e) => { e.preventDefault(); go("/download"); }}>{t.nav.getApp}</a>
+          <a href="#/cities" onClick={(e) => { e.preventDefault(); go("/cities"); }}>{t.nav.cities}</a>
+          <a href="#/contact" onClick={(e) => { e.preventDefault(); go("/contact"); }}>{t.nav.contact}</a>
           <div className="mobile-lang">
             <LangSwitcher onNavigate={() => setMenuOpen(false)} />
           </div>
+          <a className="mobile-menu-download" href="#/download" onClick={(e) => { e.preventDefault(); go("/download"); }}>{t.nav.getApp}</a>
           </div>
         </>
       )}
