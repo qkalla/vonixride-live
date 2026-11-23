@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
-import { CheckIcon } from "../components/icons";
 import { BusinessPreview } from "../components/previews";
+import { LangSwitcher } from "../components/LangSwitcher";
 
 const KEYS = ["ride", "food", "grocery", "pharmacy", "cargo", "moped"] as const;
 const DETAIL: Record<string, string> = { ride: "/services/rides", cargo: "/services/cargo", moped: "/services/courier", food: "/services/orders", grocery: "/services/orders", pharmacy: "/services/orders" };
@@ -48,41 +48,118 @@ export function ServicesPage({ navigate }: { navigate?: (r: never) => void }) {
   );
 }
 
+type BusinessRole = "driver" | "restaurant" | "shop" | "cargo" | "fleet";
+
 export function BusinessPage() {
   const { t } = useLang();
-  const b = t.pages.businessPage;
+  const copy = t.businessPortal;
+  const [mode, setMode] = useState<"signin" | "register">("register");
+  const [role, setRole] = useState<BusinessRole>("restaurant");
+  const [contactName, setContactName] = useState("");
+  const [businessName, setBusinessName] = useState("");
+  const [phone, setPhone] = useState("+374 ");
+  const [email, setEmail] = useState("");
+
+  const roles: { id: BusinessRole; title: string }[] = [
+    { id: "driver", title: copy.roles.driver },
+    { id: "restaurant", title: copy.roles.restaurant },
+    { id: "shop", title: copy.roles.shop },
+    { id: "cargo", title: copy.roles.cargo },
+    { id: "fleet", title: copy.roles.fleet },
+  ];
+
+  const sendPartnerInquiry = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const roleTitle = roles.find((item) => item.id === role)?.title ?? role;
+    const subject = encodeURIComponent(`Vonix Business — ${roleTitle}`);
+    const body = encodeURIComponent(
+      `${copy.contactName}: ${contactName}\n${copy.businessName}: ${businessName}\n${copy.phone}: ${phone}\n${copy.email}: ${email}\n${copy.role}: ${roleTitle}`,
+    );
+    window.location.href = `mailto:support@vonix.am?subject=${subject}&body=${body}`;
+  };
+
   return (
-    <>
-      <PageHero title={b.title} sub={b.sub} />
-      <section className="section" style={{ paddingTop: "3rem" }}>
-        <div className="container split">
-          <Reveal>
-            <ul className="check-list">
-              {t.business.checks.map((c) => (
-                <li key={c.title}><CheckIcon /><span><strong>{c.title}</strong> — {c.text}</span></li>
-              ))}
-            </ul>
-            <div className="hero-actions" id="partners">
-              <a className="btn btn-primary" href="#partners" onClick={(e) => { e.preventDefault(); document.getElementById("partners")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>{b.portal}</a>
-            </div>
-            <p className="page-note">{b.note}</p>
-            <h3 className="biz-pillars-h">{t.bizDeep.pillarsTitle}</h3>
-            <div className="pillar-grid">
-              {t.bizDeep.pillars.map((p) => (
-                <div className="pillar-card reveal" key={p.title}><strong>{p.title}</strong><p>{p.text}</p></div>
-              ))}
-            </div>
-            <h3 className="biz-pillars-h">{t.bizDeep.stepsTitle}</h3>
-            <div className="steps">
-              {t.bizDeep.steps.map((st, i) => (
-                <div className="step reveal" key={st.title}><div className="step-num">{String(i + 1).padStart(2, "0")}</div><h3>{st.title}</h3><p>{st.text}</p></div>
-              ))}
-            </div>
-          </Reveal>
-          <Reveal><div className="biz-wrap"><BusinessPreview /></div></Reveal>
+    <section className="business-portal">
+      <div className="business-showcase">
+        <div className="business-brand-lockup">
+          <img src="/logo.png" alt="" width="42" height="42" />
+          <div><strong>Vonix</strong> <em>Business</em></div>
         </div>
-      </section>
-    </>
+        <div className="business-showcase-copy">
+          <span className="business-eyebrow">{copy.eyebrow}</span>
+          <h1>{t.pages.businessPage.title}</h1>
+          <p>{t.pages.businessPage.sub}</p>
+        </div>
+        <BusinessPreview variant="portal" />
+        <p className="business-location">Yerevan, Armenia <span>·</span> AMD</p>
+      </div>
+
+      <div className="business-action-panel">
+        <div className="business-panel-top">
+          <span>{copy.panelLabel}</span>
+          <LangSwitcher />
+        </div>
+        <div className="business-form-wrap">
+          <div className="business-mode-tabs" role="tablist" aria-label={copy.panelLabel}>
+            <button type="button" role="tab" aria-selected={mode === "signin"} className={mode === "signin" ? "active" : ""} onClick={() => setMode("signin")}>
+              {copy.signInTab}
+            </button>
+            <button type="button" role="tab" aria-selected={mode === "register"} className={mode === "register" ? "active" : ""} onClick={() => setMode("register")}>
+              {copy.registerTab}
+            </button>
+          </div>
+
+          {mode === "signin" ? (
+            <div className="business-auth-content" role="tabpanel">
+              <span className="business-form-eyebrow">{copy.eyebrow}</span>
+              <h2>{copy.signInTitle}</h2>
+              <p>{copy.signInBody}</p>
+              <a className="business-submit" href="mailto:support@vonix.am?subject=Vonix%20Business%20access">
+                {copy.appCta}
+                <span aria-hidden="true">→</span>
+              </a>
+              <p className="business-form-note">{copy.signInNote}</p>
+            </div>
+          ) : (
+            <form className="business-auth-content" onSubmit={sendPartnerInquiry} role="tabpanel">
+              <span className="business-form-eyebrow">{copy.eyebrow}</span>
+              <h2>{copy.registerTitle}</h2>
+              <p>{copy.registerBody}</p>
+
+              <div className="business-fields">
+                <label>
+                  <span>{copy.contactName}</span>
+                  <input required autoComplete="name" value={contactName} onChange={(event) => setContactName(event.target.value)} />
+                </label>
+                <label>
+                  <span>{copy.businessName}</span>
+                  <input required autoComplete="organization" value={businessName} onChange={(event) => setBusinessName(event.target.value)} />
+                </label>
+                <label>
+                  <span>{copy.phone}</span>
+                  <input required type="tel" inputMode="tel" autoComplete="tel" dir="ltr" value={phone} onChange={(event) => setPhone(event.target.value)} />
+                </label>
+                <label>
+                  <span>{copy.email}</span>
+                  <input required type="email" autoComplete="email" dir="ltr" value={email} onChange={(event) => setEmail(event.target.value)} />
+                </label>
+                <label className="business-role-field">
+                  <span>{copy.role}</span>
+                  <select value={role} onChange={(event) => setRole(event.target.value as BusinessRole)}>
+                    {roles.map((item) => <option key={item.id} value={item.id}>{item.title}</option>)}
+                  </select>
+                </label>
+              </div>
+              <button type="submit" className="business-submit">
+                {copy.submit}
+                <span aria-hidden="true">→</span>
+              </button>
+              <p className="business-form-note">{copy.emailNote}</p>
+            </form>
+          )}
+        </div>
+      </div>
+    </section>
   );
 }
 

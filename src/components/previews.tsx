@@ -72,48 +72,34 @@ export function RidePreview() {
   );
 }
 
-export function BusinessPreview() {
+export function BusinessPreview({ variant = "card" }: { variant?: "card" | "portal" }) {
   const { t } = useLang();
   const b = t.business.preview;
+  const portal = t.businessPortal.preview;
   const previews = [
     {
       key: "restaurant",
-      title: "Karas Burger · Dalma",
-      label: "Restaurant",
+      title: portal.restaurantName,
+      label: portal.restaurant,
+      image: "/images/food.jpg",
       revenue: "184,600 ֏",
-      orders: "18 orders",
-      accent: "#0066FF",
-      rows: [
-        ["#00950018", "Preparing", "4 items"],
-        ["#00950017", "New", "2 × Khachapuri"],
-        ["#00950016", "Ready", "3 × Lavash"],
-      ],
+      orders: "18",
     },
     {
       key: "store",
-      title: "Yerevan City · Kentron",
-      label: "Shops & grocery",
+      title: portal.shopsName,
+      label: portal.shops,
+      image: "/images/market.jpg",
       revenue: "126,200 ֏",
-      orders: "31 sales",
-      accent: "#0066FF",
-      rows: [
-        ["Tomatoes", "In stock", "4,280 ֏"],
-        ["Mineral water", "Low stock", "900 ֏"],
-        ["Fresh bread", "In stock", "760 ֏"],
-      ],
+      orders: "31",
     },
     {
       key: "fleet",
-      title: "Vonix Fleet · Yerevan",
-      label: "Multi-car & fleet",
+      title: portal.fleetName,
+      label: portal.fleet,
+      image: "/cab.png",
       revenue: "392,400 ֏",
-      orders: "12 active",
-      accent: "#0066FF",
-      rows: [
-        ["VNX-104", "On trip", "14,300 ֏"],
-        ["VNX-219", "Available", "Ready"],
-        ["VNX-302", "In route", "11,800 ֏"],
-      ],
+      orders: "12",
     },
   ] as const;
   const [activePreview, setActivePreview] = useState(0);
@@ -129,45 +115,52 @@ export function BusinessPreview() {
 
   const preview = previews[activePreview];
   return (
-    <div className="biz-card biz-preview-carousel" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+    <div className={`biz-card biz-preview-carousel${variant === "portal" ? " biz-preview-portal" : ""}`} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+      {variant === "portal" && (
+        <div className="biz-preview-image">
+          <img src={preview.image} alt="" />
+          <span><i className="live-dot" />{portal.livePreview}</span>
+        </div>
+      )}
       <div className="biz-head">
         <div>
           <div className="biz-kicker">{preview.label}</div>
           <div className="biz-title">{preview.title}</div>
-          <div className="biz-sub"><span className="live-dot" />{paused ? "Preview paused" : b.online}</div>
+          <div className="biz-sub"><span className="live-dot" />{paused ? portal.paused : b.online}</div>
         </div>
         <div className="biz-total">
           <span>{b.today}</span>
           <strong>{preview.revenue}</strong>
-          <em>{preview.orders}</em>
+          <em>{preview.orders} {portal.ordersMetric}</em>
         </div>
       </div>
 
       <div className="biz-queue">
         <div className="biz-queue-head">{preview.label}</div>
-        {preview.rows.map(([name, status, detail]) => (
+        {[b.newOrder, b.items, b.prep].map((name, index) => (
           <div className="biz-order" key={name}>
             <div className="biz-order-top">
               <strong>{name}</strong>
-              <span className="biz-badge ok">{status}</span>
+              <span className="biz-badge ok">{index === 0 ? b.accept : index === 1 ? b.ready : portal.live}</span>
             </div>
-            <div className="biz-items">{detail}</div>
-            <div className="biz-progress"><i style={{ width: preview.key === "restaurant" ? "68%" : "82%" }} /></div>
+            <div className="biz-items">{index === 0 ? preview.orders : index === 1 ? `${portal.location} · ${portal.yerevan}` : b.courier}</div>
+            <div className="biz-progress"><i style={{ width: index === 0 ? "68%" : "82%" }} /></div>
           </div>
         ))}
       </div>
-      <div className="biz-preview-controls" aria-label="Dashboard preview">
+      <div className="biz-preview-controls" aria-label={portal.show}>
         {previews.map((item, index) => (
           <button
             type="button"
             key={item.key}
             className={`biz-preview-dot${index === activePreview ? " active" : ""}`}
-            aria-label={`Show ${item.label}`}
+            aria-label={`${portal.show} ${item.label}`}
+            aria-pressed={index === activePreview}
             onClick={() => setActivePreview(index)}
           />
         ))}
         <button type="button" className="biz-preview-pause" onClick={() => setPaused((value) => !value)}>
-          {paused ? "Play" : "Pause"}
+          {paused ? portal.play : portal.pause}
         </button>
       </div>
     </div>

@@ -61,14 +61,15 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
     { label: t.svc.food.title, desc: t.svc.food.text, to: "/services/orders" },
   ];
   const earnItems: { label: string; desc: string; to: Route }[] = [
-    { label: t.earn.groups.drivers.title, desc: t.earn.groups.drivers.text, to: "/earn/drivers" },
-    { label: t.earn.groups.couriers.title, desc: t.earn.groups.couriers.text, to: "/earn/couriers" },
-    { label: t.earn.groups.restaurants.title, desc: t.earn.groups.restaurants.text, to: "/earn/restaurants" },
-    { label: t.earn.groups.fleet.title, desc: t.earn.groups.fleet.text, to: "/earn/fleet" },
+    { label: t.businessPortal.earnDriver, desc: t.svc.ride.text, to: "/earn/drivers" },
+    { label: t.businessPortal.earnCourier, desc: t.svc.moped.text, to: "/earn/couriers" },
+    { label: t.businessPortal.earnMerchant, desc: t.svc.food.text, to: "/earn/restaurants" },
+    { label: t.businessPortal.earnFleet, desc: t.svc.cargo.text, to: "/earn/fleet" },
   ];
   const companyItems: [string, Route][] = [
+    [t.nav.cities, "/cities"],
     [t.nav.about, "/about"],
-    [t.nav.contact, "/contact"],
+    [t.nav.support, "/contact"],
     [t.nav.how, "/how-it-works"],
     [t.guidePage.title, "/guide"],
   ];
@@ -95,44 +96,13 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
               </div>
             </div>
           </div>
-          <div className={dropCls("earn", route.startsWith("/earn"))}>
-            <button className="nav-drop-btn" onClick={() => toggleDrop("earn")} aria-expanded={openDrop === "earn"} aria-haspopup="true">{t.earn.title}</button>
-            <div className="nav-drop-menu">
-              <div className="menu-card">
-                <a href="#/earn" className={route === "/earn" ? "active" : ""} onClick={(e) => { e.preventDefault(); go("/earn"); }}>
-                  <span className="menu-item-title">{t.earn.title}</span>
-                  <span className="menu-item-desc">{t.earn.sub}</span>
-                </a>
-                {earnItems.map((it) => (
-                  <a key={it.to} href={`#${it.to}`} className={route === it.to ? "active" : ""}
-                    onClick={(e) => { e.preventDefault(); go(it.to); }}>
-                    <span className="menu-item-title">{it.label}</span>
-                    <span className="menu-item-desc">{it.desc}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-          <a className={route === "/business" ? "active" : ""} href="#/business" onClick={(e) => { e.preventDefault(); go("/business"); }}>{t.nav.business}</a>
-          <a className={route === "/cities" ? "active" : ""} href="#/cities" onClick={(e) => { e.preventDefault(); go("/cities"); }}>{t.nav.cities}</a>
-          <div className={dropCls("company", ["/about", "/contact", "/how-it-works", "/guide"].includes(route))}>
-            <button className="nav-drop-btn" onClick={() => toggleDrop("company")} aria-expanded={openDrop === "company"} aria-haspopup="true">{t.nav.about}</button>
-            <div className="nav-drop-menu">
-              <div className="menu-card">
-                {companyItems.map(([l, to]) => (
-                  <a key={to} href={`#${to}`} className={route === to ? "active" : ""}
-                    onClick={(e) => { e.preventDefault(); go(to); }}>{l}</a>
-                ))}
-              </div>
-            </div>
-          </div>
         </nav>
         <div className="nav-actions">
-          <LangSwitcher />
           <a className="nav-cta" href="#/download" onClick={(e) => { e.preventDefault(); go("/download"); }}>
             {t.nav.getApp}
           </a>
-          <button className="burger" onClick={() => setMenuOpen((o) => !o)} aria-label="Menu" aria-expanded={menuOpen}>
+          <LangSwitcher />
+          <button className="burger" onClick={() => setMenuOpen((o) => !o)} aria-label={t.nav.menu} aria-expanded={menuOpen} aria-controls="site-navigation">
             <span /><span /><span />
           </button>
         </div>
@@ -145,22 +115,23 @@ export function Header({ route, navigate }: { route: Route; navigate: (r: Route)
             aria-label="Close navigation"
             onClick={() => setMenuOpen(false)}
           />
-          <div className="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
+          <div className="mobile-menu" id="site-navigation" role="dialog" aria-modal="true" aria-label={t.nav.menu}>
           <div className="mobile-menu-header">
             <Brand />
             <div className="mobile-menu-header-actions">
               <LangSwitcher onNavigate={() => setMenuOpen(false)} />
-              <button type="button" className="mobile-menu-close" aria-label="Close navigation" onClick={() => setMenuOpen(false)}>×</button>
+              <button type="button" className="mobile-menu-close" aria-label={t.nav.close} onClick={() => setMenuOpen(false)}>×</button>
             </div>
           </div>
-          <div className="mm-group">Services</div>
+          <div className="mm-group">{t.nav.services}</div>
           {svcItems.map((it) => <a key={it.to} href={`#${it.to}`} onClick={(e) => { e.preventDefault(); go(it.to); }}>{it.label}</a>)}
-          <div className="mm-group">{t.earn.title}</div>
+          <div className="mm-group">{t.businessPortal.earnTitle}</div>
+          <a href="#/earn" onClick={(e) => { e.preventDefault(); go("/earn"); }}>{t.businessPortal.earnTitle}</a>
           {earnItems.map((it) => <a key={it.to} href={`#${it.to}`} onClick={(e) => { e.preventDefault(); go(it.to); }}>{it.label}</a>)}
           <div className="mm-group">{t.nav.business}</div>
           <a href="#/business" onClick={(e) => { e.preventDefault(); go("/business"); }}>{t.nav.business}</a>
-          <a href="#/cities" onClick={(e) => { e.preventDefault(); go("/cities"); }}>{t.nav.cities}</a>
-          <a href="#/contact" onClick={(e) => { e.preventDefault(); go("/contact"); }}>{t.nav.contact}</a>
+          <div className="mm-group">{t.nav.about}</div>
+          {companyItems.map(([label, to]) => <a key={to} href={`#${to}`} onClick={(e) => { e.preventDefault(); go(to); }}>{label}</a>)}
           <div className="mobile-lang">
             <LangSwitcher onNavigate={() => setMenuOpen(false)} />
           </div>
