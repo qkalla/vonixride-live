@@ -85,7 +85,7 @@ export function BusinessPreview({ variant = "card" }: { variant?: "card" | "port
       key: "restaurant",
       title: portal.restaurantName,
       label: portal.restaurant,
-      image: "/images/food.jpg",
+      image: "/deliervy.png",
       revenue: 184600,
       orders: "18",
     },
@@ -93,7 +93,7 @@ export function BusinessPreview({ variant = "card" }: { variant?: "card" | "port
       key: "store",
       title: portal.shopsName,
       label: portal.shops,
-      image: "/images/market.jpg",
+      image: "/shoopss.jpg",
       revenue: 126200,
       orders: "31",
     },
@@ -122,7 +122,7 @@ export function BusinessPreview({ variant = "card" }: { variant?: "card" | "port
     <div className={`biz-card biz-preview-carousel${variant === "portal" ? " biz-preview-portal" : ""}`}>
       {variant === "portal" && (
         <div className={`biz-preview-image${preview.key === "fleet" ? " is-fleet" : ""}`}>
-          <img src={preview.image} alt={preview.key === "fleet" ? portal.dashboardImageAlt : ""} />
+          <img src={preview.image} alt={preview.key === "fleet" ? portal.dashboardImageAlt : preview.title} />
           <span><i className="live-dot" />{portal.livePreview}</span>
         </div>
       )}

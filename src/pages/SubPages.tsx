@@ -1,4 +1,4 @@
-import { useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { useLang } from "../i18n";
 import { Reveal } from "../components/Reveal";
 import { BusinessPreview } from "../components/previews";
@@ -52,18 +52,26 @@ export function ServicesPage({ navigate }: { navigate?: (r: never) => void }) {
 type BusinessRole = "driver" | "restaurant" | "shop" | "cargo" | "fleet";
 
 const BUSINESS_ROLES: BusinessRole[] = ["driver", "restaurant", "shop", "cargo", "fleet"];
+const BUSINESS_ROLE_IMAGES: Record<BusinessRole, string> = {
+  driver: "/cab.png",
+  restaurant: "/deliervy.png",
+  shop: "/shoopss.jpg",
+  cargo: "/cargo.png",
+  fleet: "/Gemini_Generated_Image_fhncqsfhncqsfhnc.jpg",
+};
 
 function BusinessBrand() {
   return (
     <span className="business-wordmark">
+      <img src="/logo.png" alt="" />
       <strong>Vonix</strong> <em>Business</em>
     </span>
   );
 }
 
-function BusinessRouteLink({ to, navigate, className, children }: { to: Route; navigate: (route: Route) => void; className?: string; children: ReactNode }) {
+function BusinessRouteLink({ to, navigate, className, beforeNavigate, children }: { to: Route; navigate: (route: Route) => void; className?: string; beforeNavigate?: () => void; children: ReactNode }) {
   return (
-    <a className={className} href={`#${to}`} onClick={(event) => { event.preventDefault(); navigate(to); window.scrollTo({ top: 0, left: 0 }); }}>
+    <a className={className} href={`#${to}`} onClick={(event) => { event.preventDefault(); beforeNavigate?.(); navigate(to); window.scrollTo({ top: 0, left: 0 }); }}>
       {children}
     </a>
   );
@@ -90,7 +98,7 @@ export function BusinessOverviewPage({ navigate }: { navigate: (route: Route) =>
           <BusinessRouteLink className="business-submit" to="/business/get-started" navigate={navigate}>
             {flow.overviewCta}<span aria-hidden="true">→</span>
           </BusinessRouteLink>
-          <BusinessRouteLink className="business-signin-link" to="/business/signup/choose-auth" navigate={navigate}>
+          <BusinessRouteLink className="business-signin-link" to="/business/signup/choose-auth" navigate={navigate} beforeNavigate={() => window.sessionStorage.setItem("vonix.business.authMode", "signin")}>
             {flow.overviewSignIn}
           </BusinessRouteLink>
         </div>
@@ -116,8 +124,10 @@ export function BusinessGetStartedPage({ navigate }: { navigate: (route: Route) 
   ];
   const continueToAuth = () => {
     window.sessionStorage.setItem("vonix.business.role", role);
+    window.sessionStorage.setItem("vonix.business.authMode", "register");
     navigate("/business/signup/choose-auth");
   };
+  const selectedRole = roles.find((item) => item.id === role)!;
 
   return (
     <section className="business-journey">
@@ -156,6 +166,10 @@ export function BusinessGetStartedPage({ navigate }: { navigate: (route: Route) 
         </div>
 
         <aside className="business-benefits">
+          <div className="business-journey-visual">
+            <img src={BUSINESS_ROLE_IMAGES[role]} alt={selectedRole.title} />
+            <span>{selectedRole.title}</span>
+          </div>
           <h2>{flow.benefitsTitle}</h2>
           {t.business.checks.map((benefit) => (
             <div className="business-benefit" key={benefit.title}>
@@ -177,7 +191,9 @@ export function BusinessAuthPage({ navigate }: { navigate: (route: Route) => voi
   const { t } = useLang();
   const copy = t.businessPortal;
   const flow = t.businessFlow;
-  const [mode, setMode] = useState<"signin" | "register">("register");
+  const [mode, setMode] = useState<"signin" | "register">(() =>
+    window.sessionStorage.getItem("vonix.business.authMode") === "signin" ? "signin" : "register",
+  );
   const [role, setRole] = useState<BusinessRole>(() => {
     const savedRole = window.sessionStorage.getItem("vonix.business.role");
     return BUSINESS_ROLES.includes(savedRole as BusinessRole) ? savedRole as BusinessRole : "restaurant";
@@ -186,6 +202,10 @@ export function BusinessAuthPage({ navigate }: { navigate: (route: Route) => voi
   const [businessName, setBusinessName] = useState("");
   const [phone, setPhone] = useState("+374 ");
   const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    window.sessionStorage.removeItem("vonix.business.authMode");
+  }, []);
 
   const roles: { id: BusinessRole; title: string }[] = [
     { id: "driver", title: copy.roles.driver },
@@ -207,66 +227,87 @@ export function BusinessAuthPage({ navigate }: { navigate: (route: Route) => voi
 
   return (
     <section className="business-auth-page">
-      <div className="business-auth-top">
-        <BusinessRouteLink to="/business" navigate={navigate} className="business-auth-brand"><BusinessBrand /></BusinessRouteLink>
-        <LangSwitcher />
-      </div>
-      <div className="business-auth-card">
-        <div className="business-auth-heading">
+      <aside className="business-auth-showcase">
+        <BusinessRouteLink to="/business" navigate={navigate} className="business-auth-showcase-brand">
+          <BusinessBrand />
+        </BusinessRouteLink>
+        <div className="business-auth-showcase-image">
+          <img src="/Gemini_Generated_Image_fhncqsfhncqsfhnc.jpg" alt={copy.preview.dashboardImageAlt} />
+          <span>{copy.preview.livePreview}</span>
+        </div>
+        <div className="business-auth-showcase-copy">
           <span className="business-eyebrow">{copy.eyebrow}</span>
-          <h1>{flow.authTitle}</h1>
-          <p>{flow.authBody}</p>
+          <h2>{flow.getStartedTitle}</h2>
+          <p>{flow.getStartedBody}</p>
         </div>
-        <div className="business-mode-tabs" role="tablist" aria-label={copy.panelLabel}>
-          <button type="button" role="tab" aria-selected={mode === "signin"} className={mode === "signin" ? "active" : ""} onClick={() => setMode("signin")}>
-            {copy.signInTab}
-          </button>
-          <button type="button" role="tab" aria-selected={mode === "register"} className={mode === "register" ? "active" : ""} onClick={() => setMode("register")}>
-            {copy.registerTab}
-          </button>
+        <div className="business-auth-context">
+          <span>Yerevan, Armenia</span><i aria-hidden="true" />
+          <span>+374</span><i aria-hidden="true" />
+          <span>AMD</span>
         </div>
-
-        {mode === "signin" ? (
-          <div className="business-auth-content" role="tabpanel">
-            <h2>{copy.signInTitle}</h2>
-            <p>{copy.signInBody}</p>
-            <a className="business-submit" href="mailto:support@vonix.am?subject=Vonix%20Business%20access">
-              {copy.appCta}<span aria-hidden="true">→</span>
-            </a>
-            <p className="business-form-note">{copy.signInNote}</p>
+      </aside>
+      <div className="business-auth-panel">
+        <div className="business-auth-top">
+          <BusinessRouteLink to="/business" navigate={navigate} className="business-auth-back-link">← {t.nav.business}</BusinessRouteLink>
+          <LangSwitcher />
+        </div>
+        <div className="business-auth-card">
+          <div className="business-auth-heading">
+            <span className="business-eyebrow">{copy.eyebrow}</span>
+            <h1>{flow.authTitle}</h1>
+            <p>{flow.authBody}</p>
           </div>
-        ) : (
-          <form className="business-auth-content" onSubmit={sendPartnerInquiry} role="tabpanel">
-            <h2>{copy.registerTitle}</h2>
-            <p>{copy.registerBody}</p>
-            <div className="business-fields">
-              <label>
-                <span>{copy.contactName}</span>
-                <input required autoComplete="name" value={contactName} onChange={(event) => setContactName(event.target.value)} />
-              </label>
-              <label>
-                <span>{copy.businessName}</span>
-                <input required autoComplete="organization" value={businessName} onChange={(event) => setBusinessName(event.target.value)} />
-              </label>
-              <label>
-                <span>{copy.phone}</span>
-                <input required type="tel" inputMode="tel" autoComplete="tel" dir="ltr" value={phone} onChange={(event) => setPhone(event.target.value)} />
-              </label>
-              <label>
-                <span>{copy.email}</span>
-                <input required type="email" autoComplete="email" dir="ltr" value={email} onChange={(event) => setEmail(event.target.value)} />
-              </label>
-              <label className="business-role-field">
-                <span>{copy.role}</span>
-                <select value={role} onChange={(event) => setRole(event.target.value as BusinessRole)}>
-                  {roles.map((item) => <option key={item.id} value={item.id}>{item.title}</option>)}
-                </select>
-              </label>
+          <div className="business-mode-tabs" role="tablist" aria-label={copy.panelLabel}>
+            <button type="button" role="tab" aria-selected={mode === "signin"} className={mode === "signin" ? "active" : ""} onClick={() => setMode("signin")}>
+              {copy.signInTab}
+            </button>
+            <button type="button" role="tab" aria-selected={mode === "register"} className={mode === "register" ? "active" : ""} onClick={() => setMode("register")}>
+              {copy.registerTab}
+            </button>
+          </div>
+
+          {mode === "signin" ? (
+            <div className="business-auth-content" role="tabpanel">
+              <h2>{copy.signInTitle}</h2>
+              <p>{copy.signInBody}</p>
+              <a className="business-submit" href="mailto:support@vonix.am?subject=Vonix%20Business%20access">
+                {copy.appCta}<span aria-hidden="true">→</span>
+              </a>
+              <p className="business-form-note">{copy.signInNote}</p>
             </div>
-            <button type="submit" className="business-submit">{copy.submit}<span aria-hidden="true">→</span></button>
-            <p className="business-form-note">{copy.emailNote}</p>
-          </form>
-        )}
+          ) : (
+            <form className="business-auth-content" onSubmit={sendPartnerInquiry} role="tabpanel">
+              <h2>{copy.registerTitle}</h2>
+              <p>{copy.registerBody}</p>
+              <div className="business-fields">
+                <label>
+                  <span>{copy.contactName}</span>
+                  <input required autoComplete="name" value={contactName} onChange={(event) => setContactName(event.target.value)} />
+                </label>
+                <label>
+                  <span>{copy.businessName}</span>
+                  <input required autoComplete="organization" value={businessName} onChange={(event) => setBusinessName(event.target.value)} />
+                </label>
+                <label>
+                  <span>{copy.phone}</span>
+                  <input required type="tel" inputMode="tel" autoComplete="tel" dir="ltr" value={phone} onChange={(event) => setPhone(event.target.value)} />
+                </label>
+                <label>
+                  <span>{copy.email}</span>
+                  <input required type="email" autoComplete="email" dir="ltr" value={email} onChange={(event) => setEmail(event.target.value)} />
+                </label>
+                <label className="business-role-field">
+                  <span>{copy.role}</span>
+                  <select value={role} onChange={(event) => setRole(event.target.value as BusinessRole)}>
+                    {roles.map((item) => <option key={item.id} value={item.id}>{item.title}</option>)}
+                  </select>
+                </label>
+              </div>
+              <button type="submit" className="business-submit">{copy.submit}<span aria-hidden="true">→</span></button>
+              <p className="business-form-note">{copy.emailNote}</p>
+            </form>
+          )}
+        </div>
       </div>
     </section>
   );

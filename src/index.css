@@ -3840,3 +3840,377 @@ body {
     padding: 22px 18px;
   }
 }
+
+/* Editorial partner journey: brand-led overview, role-aware setup and split auth. */
+.business-overview {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(780px 560px at 92% 18%, rgba(0, 102, 255, .11), transparent 68%),
+    linear-gradient(90deg, #fff 0%, #fff 48%, #f3f6fa 100%);
+}
+
+.business-wordmark {
+  gap: 8px;
+  color: #0f172a;
+  font-family: var(--font-body);
+  font-weight: 750;
+  letter-spacing: -.055em;
+}
+
+.business-wordmark img {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  padding: 3px;
+  border: 1px solid #e6f0ff;
+  border-radius: 9px;
+  background: #fff;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.business-wordmark em {
+  color: #0066ff;
+}
+
+.business-overview-copy h1,
+.business-journey-heading h1,
+.business-auth-heading h1 {
+  font-family: var(--font-body);
+  font-weight: 750;
+  letter-spacing: -.065em;
+  font-variant-numeric: lining-nums;
+}
+
+.business-overview-copy h1 {
+  max-width: 600px;
+  font-size: clamp(42px, 5.2vw, 72px);
+  line-height: .99;
+}
+
+.business-overview-copy > p {
+  max-width: 480px;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.business-overview-context,
+.business-journey-note,
+.business-auth-context {
+  font-variant-numeric: tabular-nums;
+}
+
+.business-overview-visual .biz-preview-portal {
+  border-color: rgba(15, 23, 42, .08);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 34px 90px rgba(15, 23, 42, .16), 0 4px 12px rgba(15, 23, 42, .05);
+}
+
+.business-overview-visual .biz-preview-image {
+  border-radius: 15px;
+  background: #0f172a;
+}
+
+.business-overview-visual .biz-preview-image > img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.business-overview-visual .biz-preview-image.is-fleet > img {
+  object-fit: contain;
+}
+
+.business-overview-visual .biz-preview-image > span {
+  border: 1px solid rgba(255, 255, 255, .22);
+  background: rgba(15, 23, 42, .78);
+  backdrop-filter: blur(12px);
+}
+
+.business-journey-heading h1 {
+  max-width: 800px;
+}
+
+.business-journey-main,
+.business-benefits {
+  border-color: #e8edf4;
+  border-radius: 19px;
+  box-shadow: 0 18px 54px rgba(15, 23, 42, .055);
+}
+
+.business-role-card {
+  min-height: 70px;
+  border-radius: 14px;
+  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+
+.business-role-card:hover {
+  transform: translateY(-2px);
+  border-color: #9dc2ff;
+}
+
+.business-journey-visual {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  margin: -8px -8px 24px;
+  border-radius: 14px;
+  background: #0f172a;
+}
+
+.business-journey-visual::after {
+  position: absolute;
+  inset: 30% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(15, 23, 42, .78));
+  content: "";
+}
+
+.business-journey-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.business-journey-visual > span {
+  position: absolute;
+  z-index: 1;
+  inset-inline-start: 14px;
+  bottom: 13px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.business-auth-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
+  min-height: calc(100svh - 68px);
+  padding: 0;
+  background: #fff;
+}
+
+.business-auth-showcase {
+  min-width: 0;
+  padding: clamp(32px, 5vw, 68px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  background:
+    radial-gradient(500px 360px at 8% 12%, rgba(0, 102, 255, .25), transparent 72%),
+    linear-gradient(145deg, #0b1220, #111b2e 68%, #0b1220);
+}
+
+.business-auth-showcase-brand {
+  width: fit-content;
+  margin-bottom: clamp(28px, 5vh, 52px);
+  color: inherit;
+  text-decoration: none;
+}
+
+.business-auth-showcase-brand .business-wordmark {
+  color: #fff;
+  font-size: 23px;
+}
+
+.business-auth-showcase-image {
+  position: relative;
+  overflow: hidden;
+  width: min(100%, 660px);
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 19px;
+  background: #080c14;
+  box-shadow: 0 28px 72px rgba(0, 0, 0, .34);
+}
+
+.business-auth-showcase-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.business-auth-showcase-image > span {
+  position: absolute;
+  inset-inline-start: 14px;
+  bottom: 13px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(15, 23, 42, .76);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  backdrop-filter: blur(12px);
+}
+
+.business-auth-showcase-copy {
+  max-width: 650px;
+  margin-top: clamp(26px, 4vh, 42px);
+}
+
+.business-auth-showcase-copy .business-eyebrow {
+  color: #91baff;
+}
+
+.business-auth-showcase-copy h2 {
+  max-width: 600px;
+  margin-top: 12px;
+  color: #fff;
+  font: 750 clamp(30px, 3.2vw, 44px)/1.04 var(--font-body);
+  letter-spacing: -.055em;
+}
+
+.business-auth-showcase-copy p {
+  max-width: 580px;
+  margin-top: 12px;
+  color: #bdc9dc;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.business-auth-context {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  color: #aab8cc;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.business-auth-context i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #4b91ff;
+}
+
+.business-auth-panel {
+  min-width: 0;
+  padding: 25px clamp(22px, 4vw, 56px) 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+}
+
+.business-auth-top {
+  width: min(560px, 100%);
+  min-height: 46px;
+  margin: 0 auto;
+}
+
+.business-auth-back-link {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.business-auth-back-link:hover {
+  color: #0066ff;
+}
+
+.business-auth-card {
+  width: min(560px, 100%);
+  margin: 26px auto 0;
+  padding: clamp(22px, 3vw, 34px) 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.business-auth-heading h1 {
+  font-size: clamp(31px, 3.2vw, 42px);
+}
+
+.business-auth-card .business-mode-tabs {
+  border-radius: 13px;
+  background: #f3f6fa;
+}
+
+.business-auth-card .business-mode-tabs button.active {
+  box-shadow: 0 2px 9px rgba(15, 23, 42, .09);
+}
+
+.business-fields input,
+.business-fields select {
+  min-height: 49px;
+  border-color: #dce4ef;
+  border-radius: 11px;
+  background: #fff;
+}
+
+.business-fields input:focus,
+.business-fields select:focus {
+  border-color: #0066ff;
+  outline: 3px solid rgba(0, 102, 255, .1);
+}
+
+.business-submit {
+  min-height: 54px;
+  border-radius: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 900px) {
+  .business-auth-page {
+    grid-template-columns: 1fr;
+  }
+
+  .business-auth-showcase {
+    padding: 34px clamp(22px, 7vw, 60px);
+  }
+
+  .business-auth-showcase-brand {
+    margin-bottom: 25px;
+  }
+
+  .business-auth-showcase-image {
+    width: min(100%, 720px);
+  }
+
+  .business-auth-panel {
+    padding: 24px clamp(22px, 7vw, 60px) 50px;
+  }
+
+  .business-auth-card {
+    padding-top: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .business-overview-copy h1 {
+    font-size: 42px;
+  }
+
+  .business-auth-showcase {
+    padding: 28px 18px;
+  }
+
+  .business-auth-showcase-copy h2 {
+    font-size: 31px;
+  }
+
+  .business-auth-panel {
+    padding: 18px 18px 42px;
+  }
+
+  .business-auth-top {
+    gap: 10px;
+  }
+
+  .business-auth-card {
+    margin-top: 18px;
+  }
+
+  .business-journey-visual {
+    margin-inline: -7px;
+  }
+}
